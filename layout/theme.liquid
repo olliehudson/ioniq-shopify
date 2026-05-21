@@ -16,11 +16,11 @@
 </head>
 <body class="template-{{ template.name | handle }}">
   {% render 'icons' %}
-  {% sections 'announcement-group' %}
-  {% sections 'header-group' %}
+  {% section 'announcement-bar' %}
+  {% section 'header' %}
   <main id="MainContent" role="main">
     {{ content_for_layout }}
   </main>
-  {% sections 'footer-group' %}
+  {% section 'footer' %}
 </body>
 </html>
