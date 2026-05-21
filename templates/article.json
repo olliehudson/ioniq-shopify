@@ -2,13 +2,9 @@
   "sections": {
     "article": {
       "type": "main-article"
-    },
-    "related": {
-      "type": "related-articles"
     }
   },
   "order": [
-    "article",
-    "related"
+    "article"
   ]
 }

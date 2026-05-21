@@ -4,7 +4,6 @@
   <div class="wrap-wide">
     <div class="ed-hero-inner">
       <div class="ed-meta-top">
-        <span class="num">N°{{ article.id | modulo: 100 | prepend: '00' | slice: -2, 2 }}</span><span class="dot"></span>
         <span>{{ article.tags | first | default: 'Journal' }}</span><span class="dot"></span>
         <span>{{ article.content | strip_html | size | divided_by: 1000 | plus: 1 }} min read</span>
       </div>
@@ -59,7 +58,6 @@
       <a href="{{ blog.url }}" class="btn btn-ghost btn-sm">All articles &rarr;</a>
     </div>
     <div class="related-grid">
-      {% assign others = blog.articles | where: 'id', article.id | size %}
       {% assign count = 0 %}
       {% for a in blog.articles %}
         {% if a.id != article.id and count < 3 %}
@@ -71,6 +69,23 @@
           {% assign count = count | plus: 1 %}
         {% endif %}
       {% endfor %}
+      {% if count == 0 %}
+        <a href="#" class="related-card">
+          <div class="img"><img src="{{ 'product-pour.webp' | asset_url }}" alt=""></div>
+          <span class="meta">Science &middot; 5 min</span>
+          <h4>Why "hydration" that doesn't reach your cells is just expensive water.</h4>
+        </a>
+        <a href="#" class="related-card">
+          <div class="img"><img src="{{ 'benefits.png' | asset_url }}" alt=""></div>
+          <span class="meta">Science &middot; 6 min</span>
+          <h4>Modern life is depleting you. Here's the audit no one ran.</h4>
+        </a>
+        <a href="#" class="related-card">
+          <div class="img"><img src="{{ 'stack-compare.png' | asset_url }}" alt=""></div>
+          <span class="meta">The stack &middot; 4 min</span>
+          <h4>How four bottles became one sachet (and $168 a month).</h4>
+        </a>
+      {% endif %}
     </div>
   </div>
 </section>
