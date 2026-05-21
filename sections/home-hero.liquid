@@ -45,32 +45,137 @@
 {
   "name": "Hero",
   "settings": [
-    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "N°01 · Bamboo Salt Elixir" },
-    { "type": "text", "id": "subtitle", "label": "Subtitle", "default": "30 sachets" },
-    { "type": "text", "id": "badge", "label": "Badge", "default": "#1 best seller" },
-    { "type": "inline_richtext", "id": "heading", "label": "Heading", "default": "Hydration. Recovery. Clean <em>energy.</em>" },
-    { "type": "textarea", "id": "lede", "label": "Lede", "default": "One sachet covers all three. 750mg sodium, 200mg potassium, 50mg magnesium, plus 70+ trace minerals, nootropics and antioxidants — calibrated to what athletes actually need." },
-    { "type": "text", "id": "cta_text", "label": "CTA text", "default": "Subscribe — $42/mo" },
-    { "type": "url", "id": "cta_url", "label": "CTA link" },
-    { "type": "text", "id": "cta_note", "label": "CTA note", "default": "One-time $52 · cancel anytime" },
-    { "type": "text", "id": "rating", "label": "Rating", "default": "4.9" },
-    { "type": "text", "id": "review_count", "label": "Review count", "default": "2,400+ reviews" },
-    { "type": "text", "id": "meta_right", "label": "Meta right text", "default": "60-day risk-free guarantee" },
-    { "type": "image_picker", "id": "image", "label": "Hero image" },
-    { "type": "text", "id": "badge_text", "label": "Badge text", "default": "#1<br>Best<br>Selling" },
-    { "type": "text", "id": "tag_text", "label": "Floating tag", "default": "Bamboo Salt · Lemon" }
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "N°01 · Bamboo Salt Elixir"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "30 sachets"
+    },
+    {
+      "type": "text",
+      "id": "badge",
+      "label": "Badge",
+      "default": "#1 best seller"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Hydration. Recovery. Clean <em>energy.</em>"
+    },
+    {
+      "type": "textarea",
+      "id": "lede",
+      "label": "Lede",
+      "default": "One sachet covers all three. 750mg sodium, 200mg potassium, 50mg magnesium, plus 70+ trace minerals, nootropics and antioxidants — calibrated to what athletes actually need."
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "CTA text",
+      "default": "Subscribe — $42/mo"
+    },
+    {
+      "type": "url",
+      "id": "cta_url",
+      "label": "CTA link"
+    },
+    {
+      "type": "text",
+      "id": "cta_note",
+      "label": "CTA note",
+      "default": "One-time $52 · cancel anytime"
+    },
+    {
+      "type": "text",
+      "id": "rating",
+      "label": "Rating",
+      "default": "4.9"
+    },
+    {
+      "type": "text",
+      "id": "review_count",
+      "label": "Review count",
+      "default": "2,400+ reviews"
+    },
+    {
+      "type": "text",
+      "id": "meta_right",
+      "label": "Meta right text",
+      "default": "60-day risk-free guarantee"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Hero image"
+    },
+    {
+      "type": "text",
+      "id": "badge_text",
+      "label": "Badge text",
+      "default": "#1 Best Selling"
+    },
+    {
+      "type": "text",
+      "id": "tag_text",
+      "label": "Floating tag",
+      "default": "Bamboo Salt · Lemon"
+    }
   ],
   "blocks": [
-    { "type": "spec", "name": "Spec cell", "settings": [
-      { "type": "text", "id": "value", "label": "Value", "default": "750mg" },
-      { "type": "text", "id": "label", "label": "Label", "default": "Sodium" }
-    ]}
+    {
+      "type": "spec",
+      "name": "Spec cell",
+      "settings": [
+        {
+          "type": "text",
+          "id": "value",
+          "label": "Value",
+          "default": "750mg"
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "Sodium"
+        }
+      ]
+    }
   ],
   "max_blocks": 4,
-  "presets": [{ "name": "Hero", "blocks": [
-    { "type": "spec", "settings": { "value": "750mg", "label": "Sodium" } },
-    { "type": "spec", "settings": { "value": "200mg", "label": "Potassium" } },
-    { "type": "spec", "settings": { "value": "50mg", "label": "Magnesium" } }
-  ]}]
+  "presets": [
+    {
+      "name": "Hero",
+      "blocks": [
+        {
+          "type": "spec",
+          "settings": {
+            "value": "750mg",
+            "label": "Sodium"
+          }
+        },
+        {
+          "type": "spec",
+          "settings": {
+            "value": "200mg",
+            "label": "Potassium"
+          }
+        },
+        {
+          "type": "spec",
+          "settings": {
+            "value": "50mg",
+            "label": "Magnesium"
+          }
+        }
+      ]
+    }
+  ]
 }
 {% endschema %}

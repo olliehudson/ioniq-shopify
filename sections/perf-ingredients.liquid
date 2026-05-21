@@ -25,21 +25,71 @@
 {
   "name": "Ingredients table",
   "settings": [
-    { "type": "text", "id": "eyebrow", "default": "The formula" },
-    { "type": "inline_richtext", "id": "heading", "default": "14+ ingredients. Every milligram <em>labelled.</em>" },
-    { "type": "textarea", "id": "copy" }
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "default": "The formula",
+      "label": "Eyebrow"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "default": "14+ ingredients. Every milligram <em>labelled.</em>",
+      "label": "Heading"
+    },
+    {
+      "type": "textarea",
+      "id": "copy",
+      "label": "Copy"
+    }
   ],
-  "blocks": [{
-    "type": "row", "name": "Ingredient",
-    "settings": [
-      { "type": "text", "id": "no", "default": "01" },
-      { "type": "text", "id": "name", "default": "Sodium" },
-      { "type": "text", "id": "category", "default": "Electrolyte" },
-      { "type": "text", "id": "source", "default": "Bamboo salt" },
-      { "type": "text", "id": "role" },
-      { "type": "text", "id": "dose", "default": "750 mg" }
-    ]
-  }],
-  "presets": [{ "name": "Ingredients table" }]
+  "blocks": [
+    {
+      "type": "row",
+      "name": "Ingredient",
+      "settings": [
+        {
+          "type": "text",
+          "id": "no",
+          "default": "01",
+          "label": "No"
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "default": "Sodium",
+          "label": "Name"
+        },
+        {
+          "type": "text",
+          "id": "category",
+          "default": "Electrolyte",
+          "label": "Category"
+        },
+        {
+          "type": "text",
+          "id": "source",
+          "default": "Bamboo salt",
+          "label": "Source"
+        },
+        {
+          "type": "text",
+          "id": "role",
+          "label": "Role"
+        },
+        {
+          "type": "text",
+          "id": "dose",
+          "default": "750 mg",
+          "label": "Dose"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Ingredients table"
+    }
+  ]
 }
 {% endschema %}

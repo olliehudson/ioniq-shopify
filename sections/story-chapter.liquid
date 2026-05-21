@@ -20,18 +20,70 @@
 {
   "name": "Story chapter",
   "settings": [
-    { "type": "select", "id": "background", "options": [
-      { "value": "paper", "label": "Paper" }, { "value": "white", "label": "White" }
-    ], "default": "paper" },
-    { "type": "checkbox", "id": "alt", "label": "Image on left (alt layout)", "default": false },
-    { "type": "text", "id": "num", "default": "N°01 — the problem" },
-    { "type": "inline_richtext", "id": "heading" },
-    { "type": "inline_richtext", "id": "body" },
-    { "type": "inline_richtext", "id": "pullquote" },
-    { "type": "text", "id": "pull_by" },
-    { "type": "image_picker", "id": "image" },
-    { "type": "text", "id": "caption", "default": "Fig. 01 · Caption" }
+    {
+      "type": "select",
+      "id": "background",
+      "options": [
+        {
+          "value": "paper",
+          "label": "Paper"
+        },
+        {
+          "value": "white",
+          "label": "White"
+        }
+      ],
+      "default": "paper",
+      "label": "Background"
+    },
+    {
+      "type": "checkbox",
+      "id": "alt",
+      "label": "Image on left (alt layout)",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "num",
+      "default": "N°01 — the problem",
+      "label": "Num"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Heading"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "body",
+      "label": "Body"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "pullquote",
+      "label": "Pullquote"
+    },
+    {
+      "type": "text",
+      "id": "pull_by",
+      "label": "Pull By"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "caption",
+      "default": "Fig. 01 · Caption",
+      "label": "Caption"
+    }
   ],
-  "presets": [{ "name": "Story chapter" }]
+  "presets": [
+    {
+      "name": "Story chapter"
+    }
+  ]
 }
 {% endschema %}

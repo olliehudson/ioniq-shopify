@@ -22,17 +22,70 @@
 {
   "name": "Compare them vs us",
   "settings": [
-    { "type": "inline_richtext", "id": "heading", "default": "Most sports drinks are <em>sugar.</em>" },
-    { "type": "textarea", "id": "copy" },
-    { "type": "text", "id": "them_tag", "default": "The other guys" },
-    { "type": "inline_richtext", "id": "them_heading", "default": "A sugar bomb<br>in disguise." },
-    { "type": "text", "id": "us_tag", "default": "IONIQ Performance" },
-    { "type": "inline_richtext", "id": "us_heading", "default": "Clinical-dose<br>fuel." }
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "default": "Most sports drinks are <em>sugar.</em>",
+      "label": "Heading"
+    },
+    {
+      "type": "textarea",
+      "id": "copy",
+      "label": "Copy"
+    },
+    {
+      "type": "text",
+      "id": "them_tag",
+      "default": "The other guys",
+      "label": "Them Tag"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "them_heading",
+      "default": "A sugar bomb in disguise.",
+      "label": "Them Heading"
+    },
+    {
+      "type": "text",
+      "id": "us_tag",
+      "default": "IONIQ Performance",
+      "label": "Us Tag"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "us_heading",
+      "default": "Clinical-dose fuel.",
+      "label": "Us Heading"
+    }
   ],
   "blocks": [
-    { "type": "them", "name": "Their bullet (with X)", "settings": [{ "type": "text", "id": "text" }] },
-    { "type": "us", "name": "Our bullet (with check)", "settings": [{ "type": "text", "id": "text" }] }
+    {
+      "type": "them",
+      "name": "Their bullet (with X)",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text"
+        }
+      ]
+    },
+    {
+      "type": "us",
+      "name": "Our bullet (with check)",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text"
+        }
+      ]
+    }
   ],
-  "presets": [{ "name": "Compare them vs us" }]
+  "presets": [
+    {
+      "name": "Compare them vs us"
+    }
+  ]
 }
 {% endschema %}

@@ -20,24 +20,88 @@
 {
   "name": "Whole-body benefits",
   "settings": [
-    { "type": "text", "id": "eyebrow", "default": "Whole-body benefits" },
-    { "type": "inline_richtext", "id": "heading" },
-    { "type": "textarea", "id": "copy" }
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "default": "Whole-body benefits",
+      "label": "Eyebrow"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Heading"
+    },
+    {
+      "type": "textarea",
+      "id": "copy",
+      "label": "Copy"
+    }
   ],
-  "blocks": [{
-    "type": "card", "name": "Benefit",
-    "settings": [
-      { "type": "select", "id": "icon", "options": [
-        { "value": "heart", "label": "Heart" }, { "value": "brain", "label": "Brain" }, { "value": "muscle", "label": "Muscle" },
-        { "value": "bolt", "label": "Bolt" }, { "value": "moon", "label": "Moon" }, { "value": "drop", "label": "Drop" }
-      ], "default": "heart" },
-      { "type": "text", "id": "title" },
-      { "type": "textarea", "id": "body" },
-      { "type": "text", "id": "stat" },
-      { "type": "text", "id": "stat_label" }
-    ]
-  }],
+  "blocks": [
+    {
+      "type": "card",
+      "name": "Benefit",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "options": [
+            {
+              "value": "heart",
+              "label": "Heart"
+            },
+            {
+              "value": "brain",
+              "label": "Brain"
+            },
+            {
+              "value": "muscle",
+              "label": "Muscle"
+            },
+            {
+              "value": "bolt",
+              "label": "Bolt"
+            },
+            {
+              "value": "moon",
+              "label": "Moon"
+            },
+            {
+              "value": "drop",
+              "label": "Drop"
+            }
+          ],
+          "default": "heart",
+          "label": "Icon"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "textarea",
+          "id": "body",
+          "label": "Body"
+        },
+        {
+          "type": "text",
+          "id": "stat",
+          "label": "Stat"
+        },
+        {
+          "type": "text",
+          "id": "stat_label",
+          "label": "Stat Label"
+        }
+      ]
+    }
+  ],
   "max_blocks": 6,
-  "presets": [{ "name": "Whole-body benefits" }]
+  "presets": [
+    {
+      "name": "Whole-body benefits"
+    }
+  ]
 }
 {% endschema %}

@@ -151,25 +151,97 @@
 {
   "name": "Main product",
   "settings": [
-    { "type": "checkbox", "id": "show_badge", "default": true, "label": "Show #1 best seller badge" },
-    { "type": "text", "id": "badge_text", "default": "#1<br>Best<br>Selling" },
-    { "type": "text", "id": "badge_tag", "default": "New" },
-    { "type": "text", "id": "rating", "default": "4.9" },
-    { "type": "text", "id": "review_count", "default": "2,400+ verified reviews" },
-    { "type": "textarea", "id": "summary", "default": "For athletes, runners, padel players and anyone who sweats for real. IONIQ replaces the electrolyte, the nootropic, the magnesium and the recovery drink with one sachet." },
-    { "type": "inline_richtext", "id": "atc_meta", "default": "Tax included. <a href='#'>Shipping calculated at checkout.</a><br>60-day risk-free guarantee — refund any unused box." }
+    {
+      "type": "checkbox",
+      "id": "show_badge",
+      "default": true,
+      "label": "Show #1 best seller badge"
+    },
+    {
+      "type": "text",
+      "id": "badge_text",
+      "default": "#1 Best Selling",
+      "label": "Badge Text"
+    },
+    {
+      "type": "text",
+      "id": "badge_tag",
+      "default": "New",
+      "label": "Badge Tag"
+    },
+    {
+      "type": "text",
+      "id": "rating",
+      "default": "4.9",
+      "label": "Rating"
+    },
+    {
+      "type": "text",
+      "id": "review_count",
+      "default": "2,400+ verified reviews",
+      "label": "Review Count"
+    },
+    {
+      "type": "textarea",
+      "id": "summary",
+      "default": "For athletes, runners, padel players and anyone who sweats for real. IONIQ replaces the electrolyte, the nootropic, the magnesium and the recovery drink with one sachet.",
+      "label": "Summary"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "atc_meta",
+      "default": "Tax included. <a href='#'>Shipping calculated at checkout.</a> 60-day risk-free guarantee — refund any unused box.",
+      "label": "Atc Meta"
+    }
   ],
   "blocks": [
-    { "type": "spec", "name": "Spec pill", "settings": [
-      { "type": "text", "id": "value", "default": "750mg" },
-      { "type": "text", "id": "label", "default": "sodium" }
-    ]},
-    { "type": "accordion", "name": "Accordion", "settings": [
-      { "type": "text", "id": "title", "default": "Key benefits" },
-      { "type": "inline_richtext", "id": "body", "default": "Sustained energy from a full mineral charge." },
-      { "type": "checkbox", "id": "open", "default": false }
-    ]}
+    {
+      "type": "spec",
+      "name": "Spec pill",
+      "settings": [
+        {
+          "type": "text",
+          "id": "value",
+          "default": "750mg",
+          "label": "Value"
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "default": "sodium",
+          "label": "Label"
+        }
+      ]
+    },
+    {
+      "type": "accordion",
+      "name": "Accordion",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "default": "Key benefits",
+          "label": "Title"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "body",
+          "default": "Sustained energy from a full mineral charge.",
+          "label": "Body"
+        },
+        {
+          "type": "checkbox",
+          "id": "open",
+          "default": false,
+          "label": "Open"
+        }
+      ]
+    }
   ],
-  "enabled_on": { "templates": ["product"] }
+  "enabled_on": {
+    "templates": [
+      "product"
+    ]
+  }
 }
 {% endschema %}

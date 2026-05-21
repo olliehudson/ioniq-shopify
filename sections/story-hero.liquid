@@ -24,18 +24,65 @@
 {
   "name": "Story hero",
   "settings": [
-    { "type": "text", "id": "eyebrow", "default": "Our story" },
-    { "type": "inline_richtext", "id": "heading", "default": "A 1,000-year-old tradition for the way we live <em>now.</em>" },
-    { "type": "textarea", "id": "lede" },
-    { "type": "text", "id": "cta_text", "default": "Shop IONIQ — $42/mo" },
-    { "type": "url", "id": "cta_url" },
-    { "type": "image_picker", "id": "image" }
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "default": "Our story",
+      "label": "Eyebrow"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "default": "A 1,000-year-old tradition for the way we live <em>now.</em>",
+      "label": "Heading"
+    },
+    {
+      "type": "textarea",
+      "id": "lede",
+      "label": "Lede"
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "default": "Shop IONIQ — $42/mo",
+      "label": "Cta Text"
+    },
+    {
+      "type": "url",
+      "id": "cta_url",
+      "label": "Cta Url"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    }
   ],
-  "blocks": [{ "type": "stat", "name": "Stat", "settings": [
-    { "type": "text", "id": "value", "default": "1,000+" },
-    { "type": "text", "id": "label", "default": "Years of tradition" }
-  ]}],
+  "blocks": [
+    {
+      "type": "stat",
+      "name": "Stat",
+      "settings": [
+        {
+          "type": "text",
+          "id": "value",
+          "default": "1,000+",
+          "label": "Value"
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "default": "Years of tradition",
+          "label": "Label"
+        }
+      ]
+    }
+  ],
   "max_blocks": 4,
-  "presets": [{ "name": "Story hero" }]
+  "presets": [
+    {
+      "name": "Story hero"
+    }
+  ]
 }
 {% endschema %}

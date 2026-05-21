@@ -29,24 +29,108 @@
 {
   "name": "Versus table",
   "settings": [
-    { "type": "text", "id": "eyebrow", "default": "Head to head" },
-    { "type": "inline_richtext", "id": "heading", "default": "Compare the<br><em>numbers.</em>" },
-    { "type": "textarea", "id": "copy" },
-    { "type": "text", "id": "h_ours", "default": "IONIQ" },
-    { "type": "text", "id": "h_1", "default": "Sports A" },
-    { "type": "text", "id": "h_2", "default": "Sports B" },
-    { "type": "text", "id": "h_3", "default": "Salt Tabs" }
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "default": "Head to head",
+      "label": "Eyebrow"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "default": "Compare the <em>numbers.</em>",
+      "label": "Heading"
+    },
+    {
+      "type": "textarea",
+      "id": "copy",
+      "label": "Copy"
+    },
+    {
+      "type": "text",
+      "id": "h_ours",
+      "default": "IONIQ",
+      "label": "H Ours"
+    },
+    {
+      "type": "text",
+      "id": "h_1",
+      "default": "Sports A",
+      "label": "H 1"
+    },
+    {
+      "type": "text",
+      "id": "h_2",
+      "default": "Sports B",
+      "label": "H 2"
+    },
+    {
+      "type": "text",
+      "id": "h_3",
+      "default": "Salt Tabs",
+      "label": "H 3"
+    }
   ],
-  "blocks": [{
-    "type": "row", "name": "Comparison row",
-    "settings": [
-      { "type": "text", "id": "label", "default": "Sodium" },
-      { "type": "text", "id": "ours", "default": "750 mg" },
-      { "type": "text", "id": "v1", "default": "160 mg" }, { "type": "checkbox", "id": "v1_x", "default": false },
-      { "type": "text", "id": "v2", "default": "110 mg" }, { "type": "checkbox", "id": "v2_x", "default": false },
-      { "type": "text", "id": "v3", "default": "300 mg" }, { "type": "checkbox", "id": "v3_x", "default": false }
-    ]
-  }],
-  "presets": [{ "name": "Versus table" }]
+  "blocks": [
+    {
+      "type": "row",
+      "name": "Comparison row",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "default": "Sodium",
+          "label": "Label"
+        },
+        {
+          "type": "text",
+          "id": "ours",
+          "default": "750 mg",
+          "label": "Ours"
+        },
+        {
+          "type": "text",
+          "id": "v1",
+          "default": "160 mg",
+          "label": "V1"
+        },
+        {
+          "type": "checkbox",
+          "id": "v1_x",
+          "default": false,
+          "label": "V1 X"
+        },
+        {
+          "type": "text",
+          "id": "v2",
+          "default": "110 mg",
+          "label": "V2"
+        },
+        {
+          "type": "checkbox",
+          "id": "v2_x",
+          "default": false,
+          "label": "V2 X"
+        },
+        {
+          "type": "text",
+          "id": "v3",
+          "default": "300 mg",
+          "label": "V3"
+        },
+        {
+          "type": "checkbox",
+          "id": "v3_x",
+          "default": false,
+          "label": "V3 X"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Versus table"
+    }
+  ]
 }
 {% endschema %}

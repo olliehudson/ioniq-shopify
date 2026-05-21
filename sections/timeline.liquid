@@ -23,19 +23,56 @@
 {
   "name": "Timeline",
   "settings": [
-    { "type": "text", "id": "eyebrow" },
-    { "type": "inline_richtext", "id": "heading" },
-    { "type": "textarea", "id": "copy" }
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Heading"
+    },
+    {
+      "type": "textarea",
+      "id": "copy",
+      "label": "Copy"
+    }
   ],
-  "blocks": [{
-    "type": "item", "name": "Timeline item",
-    "settings": [
-      { "type": "text", "id": "date", "default": "Jan 2024" },
-      { "type": "text", "id": "title" },
-      { "type": "textarea", "id": "body" },
-      { "type": "checkbox", "id": "is_key", "label": "Key moment (filled dot)", "default": false }
-    ]
-  }],
-  "presets": [{ "name": "Timeline" }]
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Timeline item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "date",
+          "default": "Jan 2024",
+          "label": "Date"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "textarea",
+          "id": "body",
+          "label": "Body"
+        },
+        {
+          "type": "checkbox",
+          "id": "is_key",
+          "label": "Key moment (filled dot)",
+          "default": false
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Timeline"
+    }
+  ]
 }
 {% endschema %}

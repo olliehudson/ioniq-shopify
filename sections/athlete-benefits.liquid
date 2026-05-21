@@ -21,25 +21,92 @@
 {
   "name": "Athlete benefits",
   "settings": [
-    { "type": "text", "id": "eyebrow", "default": "Built for sports" },
-    { "type": "inline_richtext", "id": "heading", "default": "The four things <em>athletes</em> feel first." },
-    { "type": "textarea", "id": "copy" }
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "default": "Built for sports",
+      "label": "Eyebrow"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "default": "The four things <em>athletes</em> feel first.",
+      "label": "Heading"
+    },
+    {
+      "type": "textarea",
+      "id": "copy",
+      "label": "Copy"
+    }
   ],
-  "blocks": [{
-    "type": "card", "name": "Benefit card",
-    "settings": [
-      { "type": "select", "id": "icon", "options": [
-        { "value": "run", "label": "Run" }, { "value": "drop", "label": "Drop" },
-        { "value": "muscle", "label": "Muscle" }, { "value": "brain", "label": "Brain" },
-        { "value": "bolt", "label": "Bolt" }, { "value": "shield", "label": "Shield" }
-      ], "default": "run" },
-      { "type": "text", "id": "title", "default": "Endurance improvement" },
-      { "type": "textarea", "id": "body" },
-      { "type": "text", "id": "stat", "default": "+9%" },
-      { "type": "text", "id": "stat_label", "default": "time to exhaustion" }
-    ]
-  }],
+  "blocks": [
+    {
+      "type": "card",
+      "name": "Benefit card",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "options": [
+            {
+              "value": "run",
+              "label": "Run"
+            },
+            {
+              "value": "drop",
+              "label": "Drop"
+            },
+            {
+              "value": "muscle",
+              "label": "Muscle"
+            },
+            {
+              "value": "brain",
+              "label": "Brain"
+            },
+            {
+              "value": "bolt",
+              "label": "Bolt"
+            },
+            {
+              "value": "shield",
+              "label": "Shield"
+            }
+          ],
+          "default": "run",
+          "label": "Icon"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "default": "Endurance improvement",
+          "label": "Title"
+        },
+        {
+          "type": "textarea",
+          "id": "body",
+          "label": "Body"
+        },
+        {
+          "type": "text",
+          "id": "stat",
+          "default": "+9%",
+          "label": "Stat"
+        },
+        {
+          "type": "text",
+          "id": "stat_label",
+          "default": "time to exhaustion",
+          "label": "Stat Label"
+        }
+      ]
+    }
+  ],
   "max_blocks": 4,
-  "presets": [{ "name": "Athlete benefits" }]
+  "presets": [
+    {
+      "name": "Athlete benefits"
+    }
+  ]
 }
 {% endschema %}

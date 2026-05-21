@@ -12,13 +12,42 @@
 {
   "name": "CTA band (green)",
   "settings": [
-    { "type": "inline_richtext", "id": "heading" },
-    { "type": "textarea", "id": "copy" },
-    { "type": "text", "id": "cta_primary_text", "default": "Subscribe — $42/mo" },
-    { "type": "url", "id": "cta_primary_url" },
-    { "type": "text", "id": "cta_secondary_text" },
-    { "type": "url", "id": "cta_secondary_url" }
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Heading"
+    },
+    {
+      "type": "textarea",
+      "id": "copy",
+      "label": "Copy"
+    },
+    {
+      "type": "text",
+      "id": "cta_primary_text",
+      "default": "Subscribe — $42/mo",
+      "label": "Cta Primary Text"
+    },
+    {
+      "type": "url",
+      "id": "cta_primary_url",
+      "label": "Cta Primary Url"
+    },
+    {
+      "type": "text",
+      "id": "cta_secondary_text",
+      "label": "Cta Secondary Text"
+    },
+    {
+      "type": "url",
+      "id": "cta_secondary_url",
+      "label": "Cta Secondary Url"
+    }
   ],
-  "presets": [{ "name": "CTA band" }]
+  "presets": [
+    {
+      "name": "CTA band"
+    }
+  ]
 }
 {% endschema %}

@@ -16,12 +16,43 @@
 {
   "name": "Benefits list",
   "settings": [
-    { "type": "text", "id": "eyebrow", "default": "What IONIQ does for your body" },
-    { "type": "inline_richtext", "id": "heading", "default": "5 benefits.<br><em>One sachet.</em>" },
-    { "type": "inline_richtext", "id": "foot", "default": "No caffeine. No proprietary blends. <strong>No compromise.</strong>" }
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "default": "What IONIQ does for your body",
+      "label": "Eyebrow"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "default": "5 benefits. <em>One sachet.</em>",
+      "label": "Heading"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "foot",
+      "default": "No caffeine. No proprietary blends. <strong>No compromise.</strong>",
+      "label": "Foot"
+    }
   ],
-  "blocks": [{ "type": "benefit", "name": "Benefit", "settings": [{ "type": "text", "id": "text" }] }],
+  "blocks": [
+    {
+      "type": "benefit",
+      "name": "Benefit",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text"
+        }
+      ]
+    }
+  ],
   "max_blocks": 8,
-  "presets": [{ "name": "Benefits list" }]
+  "presets": [
+    {
+      "name": "Benefits list"
+    }
+  ]
 }
 {% endschema %}

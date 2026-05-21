@@ -38,28 +38,107 @@
 {
   "name": "Flavour lineup",
   "settings": [
-    { "type": "text", "id": "eyebrow", "default": "The lineup" },
-    { "type": "inline_richtext", "id": "heading", "default": "One flavour live.<br>Three <em>coming soon.</em>" },
-    { "type": "textarea", "id": "copy", "default": "Lemon is what's available now. Watermelon, Blueberry and Sour Mango drop next." },
-    { "type": "text", "id": "cta_text", "default": "Notify me →" },
-    { "type": "url", "id": "cta_url" }
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "default": "The lineup",
+      "label": "Eyebrow"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "default": "One flavour live. Three <em>coming soon.</em>",
+      "label": "Heading"
+    },
+    {
+      "type": "textarea",
+      "id": "copy",
+      "default": "Lemon is what's available now. Watermelon, Blueberry and Sour Mango drop next.",
+      "label": "Copy"
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "default": "Notify me →",
+      "label": "Cta Text"
+    },
+    {
+      "type": "url",
+      "id": "cta_url",
+      "label": "Cta Url"
+    }
   ],
-  "blocks": [{
-    "type": "flavor", "name": "Flavour",
-    "settings": [
-      { "type": "text", "id": "title", "default": "Bamboo Salt — Lemon" },
-      { "type": "text", "id": "subtitle", "default": "Clean · Bright · Hydration N°01" },
-      { "type": "text", "id": "price", "default": "$42" },
-      { "type": "color", "id": "color_1", "default": "#F4ECDB" },
-      { "type": "color", "id": "color_2", "default": "#B0B8A4" },
-      { "type": "checkbox", "id": "is_soon", "default": false, "label": "Coming soon (faded look)" },
-      { "type": "text", "id": "ribbon", "default": "Available" },
-      { "type": "text", "id": "cta", "default": "Subscribe →" },
-      { "type": "image_picker", "id": "image" },
-      { "type": "url", "id": "url" }
-    ]
-  }],
+  "blocks": [
+    {
+      "type": "flavor",
+      "name": "Flavour",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "default": "Bamboo Salt — Lemon",
+          "label": "Title"
+        },
+        {
+          "type": "text",
+          "id": "subtitle",
+          "default": "Clean · Bright · Hydration N°01",
+          "label": "Subtitle"
+        },
+        {
+          "type": "text",
+          "id": "price",
+          "default": "$42",
+          "label": "Price"
+        },
+        {
+          "type": "color",
+          "id": "color_1",
+          "default": "#F4ECDB",
+          "label": "Color 1"
+        },
+        {
+          "type": "color",
+          "id": "color_2",
+          "default": "#B0B8A4",
+          "label": "Color 2"
+        },
+        {
+          "type": "checkbox",
+          "id": "is_soon",
+          "default": false,
+          "label": "Coming soon (faded look)"
+        },
+        {
+          "type": "text",
+          "id": "ribbon",
+          "default": "Available",
+          "label": "Ribbon"
+        },
+        {
+          "type": "text",
+          "id": "cta",
+          "default": "Subscribe →",
+          "label": "Cta"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "url",
+          "id": "url",
+          "label": "Url"
+        }
+      ]
+    }
+  ],
   "max_blocks": 8,
-  "presets": [{ "name": "Flavour lineup" }]
+  "presets": [
+    {
+      "name": "Flavour lineup"
+    }
+  ]
 }
 {% endschema %}

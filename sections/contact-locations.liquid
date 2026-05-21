@@ -20,19 +20,54 @@
 {
   "name": "Locations",
   "settings": [
-    { "type": "text", "id": "eyebrow", "default": "Where we are" },
-    { "type": "inline_richtext", "id": "heading", "default": "HQ, kiln, <em>everything in between.</em>" }
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "default": "Where we are",
+      "label": "Eyebrow"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "default": "HQ, kiln, <em>everything in between.</em>",
+      "label": "Heading"
+    }
   ],
-  "blocks": [{
-    "type": "location", "name": "Location",
-    "settings": [
-      { "type": "text", "id": "role", "default": "Headquarters" },
-      { "type": "text", "id": "city", "default": "Brooklyn, NY" },
-      { "type": "inline_richtext", "id": "address" },
-      { "type": "text", "id": "hours" }
-    ]
-  }],
+  "blocks": [
+    {
+      "type": "location",
+      "name": "Location",
+      "settings": [
+        {
+          "type": "text",
+          "id": "role",
+          "default": "Headquarters",
+          "label": "Role"
+        },
+        {
+          "type": "text",
+          "id": "city",
+          "default": "Brooklyn, NY",
+          "label": "City"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "address",
+          "label": "Address"
+        },
+        {
+          "type": "text",
+          "id": "hours",
+          "label": "Hours"
+        }
+      ]
+    }
+  ],
   "max_blocks": 6,
-  "presets": [{ "name": "Locations" }]
+  "presets": [
+    {
+      "name": "Locations"
+    }
+  ]
 }
 {% endschema %}

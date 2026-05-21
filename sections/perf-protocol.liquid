@@ -21,21 +21,66 @@
 {
   "name": "Pre/Intra/Post protocol",
   "settings": [
-    { "type": "text", "id": "eyebrow", "default": "The protocol" },
-    { "type": "inline_richtext", "id": "heading", "default": "Pre. Intra. Post.<br>One <em>sachet.</em>" },
-    { "type": "textarea", "id": "copy" }
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "default": "The protocol",
+      "label": "Eyebrow"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "default": "Pre. Intra. Post. One <em>sachet.</em>",
+      "label": "Heading"
+    },
+    {
+      "type": "textarea",
+      "id": "copy",
+      "label": "Copy"
+    }
   ],
-  "blocks": [{
-    "type": "step", "name": "Step",
-    "settings": [
-      { "type": "text", "id": "number", "default": "01" },
-      { "type": "text", "id": "label", "default": "Pre · 30–60min before" },
-      { "type": "text", "id": "title", "default": "Prime the system" },
-      { "type": "textarea", "id": "body" },
-      { "type": "text", "id": "timing", "default": "1 sachet in 500ml cold water" }
-    ]
-  }],
+  "blocks": [
+    {
+      "type": "step",
+      "name": "Step",
+      "settings": [
+        {
+          "type": "text",
+          "id": "number",
+          "default": "01",
+          "label": "Number"
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "default": "Pre · 30–60min before",
+          "label": "Label"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "default": "Prime the system",
+          "label": "Title"
+        },
+        {
+          "type": "textarea",
+          "id": "body",
+          "label": "Body"
+        },
+        {
+          "type": "text",
+          "id": "timing",
+          "default": "1 sachet in 500ml cold water",
+          "label": "Timing"
+        }
+      ]
+    }
+  ],
   "max_blocks": 3,
-  "presets": [{ "name": "Pre/Intra/Post" }]
+  "presets": [
+    {
+      "name": "Pre/Intra/Post"
+    }
+  ]
 }
 {% endschema %}

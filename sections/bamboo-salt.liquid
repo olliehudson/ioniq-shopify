@@ -34,34 +34,123 @@
 {
   "name": "Bamboo salt (hero ingredient)",
   "settings": [
-    { "type": "header", "content": "Comparison table (left)" },
-    { "type": "text", "id": "col_header", "default": "Per gram" },
-    { "type": "text", "id": "col_1", "default": "Table salt" },
-    { "type": "text", "id": "col_2", "default": "Sea salt" },
-    { "type": "text", "id": "col_ours", "default": "Bamboo 9×" },
-    { "type": "header", "content": "Copy (right)" },
-    { "type": "text", "id": "eyebrow", "default": "Hero ingredient" },
-    { "type": "inline_richtext", "id": "heading", "default": "Bamboo<br><em>Salt.</em>" },
-    { "type": "textarea", "id": "lede", "default": "9× fire-roasted at 1,500°C — a Korean tradition practised for over 1,000 years, now in a daily sachet." }
+    {
+      "type": "header",
+      "content": "Comparison table (left)"
+    },
+    {
+      "type": "text",
+      "id": "col_header",
+      "default": "Per gram",
+      "label": "Col Header"
+    },
+    {
+      "type": "text",
+      "id": "col_1",
+      "default": "Table salt",
+      "label": "Col 1"
+    },
+    {
+      "type": "text",
+      "id": "col_2",
+      "default": "Sea salt",
+      "label": "Col 2"
+    },
+    {
+      "type": "text",
+      "id": "col_ours",
+      "default": "Bamboo 9×",
+      "label": "Col Ours"
+    },
+    {
+      "type": "header",
+      "content": "Copy (right)"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "default": "Hero ingredient",
+      "label": "Eyebrow"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "default": "Bamboo <em>Salt.</em>",
+      "label": "Heading"
+    },
+    {
+      "type": "textarea",
+      "id": "lede",
+      "default": "9× fire-roasted at 1,500°C — a Korean tradition practised for over 1,000 years, now in a daily sachet.",
+      "label": "Lede"
+    }
   ],
   "blocks": [
-    { "type": "row", "name": "Comparison row",
+    {
+      "type": "row",
+      "name": "Comparison row",
       "settings": [
-        { "type": "text", "id": "label", "default": "Trace minerals" },
-        { "type": "text", "id": "val_1", "default": "0–2" },
-        { "type": "checkbox", "id": "val_1_dim", "default": true, "label": "Show column 1 as dim/X" },
-        { "type": "text", "id": "val_2", "default": "~12" },
-        { "type": "checkbox", "id": "val_2_dim", "default": false },
-        { "type": "text", "id": "val_ours", "default": "70+" }
+        {
+          "type": "text",
+          "id": "label",
+          "default": "Trace minerals",
+          "label": "Label"
+        },
+        {
+          "type": "text",
+          "id": "val_1",
+          "default": "0–2",
+          "label": "Val 1"
+        },
+        {
+          "type": "checkbox",
+          "id": "val_1_dim",
+          "default": true,
+          "label": "Show column 1 as dim/X"
+        },
+        {
+          "type": "text",
+          "id": "val_2",
+          "default": "~12",
+          "label": "Val 2"
+        },
+        {
+          "type": "checkbox",
+          "id": "val_2_dim",
+          "default": false,
+          "label": "Val 2 Dim"
+        },
+        {
+          "type": "text",
+          "id": "val_ours",
+          "default": "70+",
+          "label": "Val Ours"
+        }
       ]
     },
-    { "type": "point", "name": "Bullet point",
+    {
+      "type": "point",
+      "name": "Bullet point",
       "settings": [
-        { "type": "text", "id": "title", "default": "pH 12 — most alkaline food on Earth" },
-        { "type": "textarea", "id": "body", "default": "Supports a healthy acid-alkaline balance." }
+        {
+          "type": "text",
+          "id": "title",
+          "default": "pH 12 — most alkaline food on Earth",
+          "label": "Title"
+        },
+        {
+          "type": "textarea",
+          "id": "body",
+          "default": "Supports a healthy acid-alkaline balance.",
+          "label": "Body"
+        }
       ]
     }
   ],
-  "presets": [{ "name": "Bamboo salt feature" }]
+  "presets": [
+    {
+      "name": "Bamboo salt feature"
+    }
+  ]
 }
 {% endschema %}

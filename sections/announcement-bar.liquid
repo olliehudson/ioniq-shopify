@@ -14,17 +14,40 @@
       "type": "message",
       "name": "Message",
       "settings": [
-        { "type": "text", "id": "text", "label": "Message" }
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Message"
+        }
       ]
     }
   ],
   "default": {
     "blocks": [
-      { "type": "message", "settings": { "text": "Free shipping on subscription" } },
-      { "type": "message", "settings": { "text": "60-day risk-free guarantee" } },
-      { "type": "message", "settings": { "text": "Cancel anytime" } }
+      {
+        "type": "message",
+        "settings": {
+          "text": "Free shipping on subscription"
+        }
+      },
+      {
+        "type": "message",
+        "settings": {
+          "text": "60-day risk-free guarantee"
+        }
+      },
+      {
+        "type": "message",
+        "settings": {
+          "text": "Cancel anytime"
+        }
+      }
     ]
   },
-  "presets": [{ "name": "Announcement bar" }]
+  "presets": [
+    {
+      "name": "Announcement bar"
+    }
+  ]
 }
 {% endschema %}

@@ -21,14 +21,45 @@
 {
   "name": "Performance FAQ",
   "settings": [
-    { "type": "text", "id": "eyebrow", "default": "Questions, answered" },
-    { "type": "inline_richtext", "id": "heading" },
-    { "type": "textarea", "id": "copy" }
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "default": "Questions, answered",
+      "label": "Eyebrow"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Heading"
+    },
+    {
+      "type": "textarea",
+      "id": "copy",
+      "label": "Copy"
+    }
   ],
-  "blocks": [{
-    "type": "qa", "name": "Q&A",
-    "settings": [{ "type": "text", "id": "question" }, { "type": "inline_richtext", "id": "answer" }]
-  }],
-  "presets": [{ "name": "Performance FAQ" }]
+  "blocks": [
+    {
+      "type": "qa",
+      "name": "Q&A",
+      "settings": [
+        {
+          "type": "text",
+          "id": "question",
+          "label": "Question"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "answer",
+          "label": "Answer"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Performance FAQ"
+    }
+  ]
 }
 {% endschema %}

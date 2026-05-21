@@ -50,17 +50,40 @@
 {
   "name": "Footer",
   "settings": [
-    { "type": "text", "id": "mega_word", "label": "Big footer word", "default": "IONIQ" },
-    { "type": "textarea", "id": "tagline", "label": "Brand tagline" },
-    { "type": "link_list", "id": "legal_menu", "label": "Legal menu", "default": "footer-legal" }
+    {
+      "type": "text",
+      "id": "mega_word",
+      "label": "Big footer word",
+      "default": "IONIQ"
+    },
+    {
+      "type": "textarea",
+      "id": "tagline",
+      "label": "Brand tagline"
+    },
+    {
+      "type": "link_list",
+      "id": "legal_menu",
+      "label": "Legal menu",
+      "default": "footer-legal"
+    }
   ],
   "blocks": [
     {
       "type": "menu",
       "name": "Menu column",
       "settings": [
-        { "type": "text", "id": "heading", "label": "Heading", "default": "Shop" },
-        { "type": "link_list", "id": "menu", "label": "Menu" }
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "Shop"
+        },
+        {
+          "type": "link_list",
+          "id": "menu",
+          "label": "Menu"
+        }
       ]
     },
     {
@@ -68,11 +91,25 @@
       "name": "Newsletter",
       "limit": 1,
       "settings": [
-        { "type": "text", "id": "heading", "label": "Heading", "default": "Stay charged" },
-        { "type": "textarea", "id": "subtext", "label": "Subtext", "default": "Get $10 off your first box, plus new flavour drops first." }
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "Stay charged"
+        },
+        {
+          "type": "textarea",
+          "id": "subtext",
+          "label": "Subtext",
+          "default": "Get $10 off your first box, plus new flavour drops first."
+        }
       ]
     }
   ],
-  "presets": [{ "name": "Footer" }]
+  "presets": [
+    {
+      "name": "Footer"
+    }
+  ]
 }
 {% endschema %}

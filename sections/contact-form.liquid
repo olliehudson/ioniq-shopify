@@ -49,20 +49,75 @@
 {
   "name": "Contact form",
   "settings": [
-    { "type": "inline_richtext", "id": "heading", "default": "Send us a <em>message.</em>" },
-    { "type": "textarea", "id": "lede" },
-    { "type": "text", "id": "support_email", "default": "hello@drinkioniq.com" }
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "default": "Send us a <em>message.</em>",
+      "label": "Heading"
+    },
+    {
+      "type": "textarea",
+      "id": "lede",
+      "label": "Lede"
+    },
+    {
+      "type": "text",
+      "id": "support_email",
+      "default": "hello@drinkioniq.com",
+      "label": "Support Email"
+    }
   ],
   "blocks": [
-    { "type": "topic", "name": "Topic option", "settings": [{ "type": "text", "id": "text", "default": "An order — shipping / refund / damage" }] },
-    { "type": "side_card", "name": "Sidebar card", "settings": [
-      { "type": "checkbox", "id": "is_green", "default": false },
-      { "type": "text", "id": "heading", "default": "General support" },
-      { "type": "text", "id": "link_text" },
-      { "type": "url", "id": "link" },
-      { "type": "textarea", "id": "subtext" }
-    ]}
+    {
+      "type": "topic",
+      "name": "Topic option",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "default": "An order — shipping / refund / damage",
+          "label": "Text"
+        }
+      ]
+    },
+    {
+      "type": "side_card",
+      "name": "Sidebar card",
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "is_green",
+          "default": false,
+          "label": "Is Green"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "default": "General support",
+          "label": "Heading"
+        },
+        {
+          "type": "text",
+          "id": "link_text",
+          "label": "Link Text"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        },
+        {
+          "type": "textarea",
+          "id": "subtext",
+          "label": "Subtext"
+        }
+      ]
+    }
   ],
-  "presets": [{ "name": "Contact form" }]
+  "presets": [
+    {
+      "name": "Contact form"
+    }
+  ]
 }
 {% endschema %}

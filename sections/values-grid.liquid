@@ -22,18 +22,50 @@
 {
   "name": "Values grid",
   "settings": [
-    { "type": "text", "id": "eyebrow" },
-    { "type": "inline_richtext", "id": "heading" },
-    { "type": "textarea", "id": "copy" }
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Heading"
+    },
+    {
+      "type": "textarea",
+      "id": "copy",
+      "label": "Copy"
+    }
   ],
-  "blocks": [{
-    "type": "value", "name": "Value",
-    "settings": [
-      { "type": "text", "id": "num", "default": "N°01" },
-      { "type": "text", "id": "title" },
-      { "type": "textarea", "id": "body" }
-    ]
-  }],
-  "presets": [{ "name": "Values grid" }]
+  "blocks": [
+    {
+      "type": "value",
+      "name": "Value",
+      "settings": [
+        {
+          "type": "text",
+          "id": "num",
+          "default": "N°01",
+          "label": "Num"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "textarea",
+          "id": "body",
+          "label": "Body"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Values grid"
+    }
+  ]
 }
 {% endschema %}

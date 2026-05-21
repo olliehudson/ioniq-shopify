@@ -50,20 +50,45 @@
 {
   "name": "Header",
   "settings": [
-    { "type": "link_list", "id": "menu", "label": "Main menu", "default": "main-menu" }
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Main menu",
+      "default": "main-menu"
+    }
   ],
   "blocks": [
     {
       "type": "journal_article",
       "name": "Journal dropdown article",
       "settings": [
-        { "type": "image_picker", "id": "image", "label": "Thumbnail" },
-        { "type": "text", "id": "tag", "label": "Tag (e.g. 'Science · 5 min')" },
-        { "type": "text", "id": "title", "label": "Headline" },
-        { "type": "url", "id": "url", "label": "Link" }
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Thumbnail"
+        },
+        {
+          "type": "text",
+          "id": "tag",
+          "label": "Tag (e.g. 'Science · 5 min')"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Headline"
+        },
+        {
+          "type": "url",
+          "id": "url",
+          "label": "Link"
+        }
       ]
     }
   ],
-  "presets": [{ "name": "Header" }]
+  "presets": [
+    {
+      "name": "Header"
+    }
+  ]
 }
 {% endschema %}

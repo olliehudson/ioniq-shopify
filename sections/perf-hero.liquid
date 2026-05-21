@@ -36,24 +36,101 @@
 {
   "name": "Performance hero",
   "settings": [
-    { "type": "text", "id": "vrail", "default": "IONIQ Performance · N°02 — recovery & cellular energy" },
-    { "type": "text", "id": "eyebrow", "default": "IONIQ Performance — N°02" },
-    { "type": "inline_richtext", "id": "heading", "default": "Hydration. Recovery. Clean <em>energy.</em>" },
-    { "type": "textarea", "id": "lede" },
-    { "type": "text", "id": "cta_text", "default": "Start the protocol — $42/mo" },
-    { "type": "url", "id": "cta_url" },
-    { "type": "text", "id": "cta_note", "default": "Subscribe & save · cancel anytime" },
-    { "type": "image_picker", "id": "image" },
-    { "type": "text", "id": "ticker_1", "default": "Total electrolytes <b>1,000 mg</b>" },
-    { "type": "text", "id": "ticker_2", "default": "Sugar / Caffeine <b>0 g / 0 mg</b>" },
-    { "type": "text", "id": "ticker_3", "default": "vs water absorption <b>+64%</b>" },
-    { "type": "text", "id": "ticker_4", "default": "Cost / serving <b>$1.40</b>" }
+    {
+      "type": "text",
+      "id": "vrail",
+      "default": "IONIQ Performance · N°02 — recovery & cellular energy",
+      "label": "Vrail"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "default": "IONIQ Performance — N°02",
+      "label": "Eyebrow"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "default": "Hydration. Recovery. Clean <em>energy.</em>",
+      "label": "Heading"
+    },
+    {
+      "type": "textarea",
+      "id": "lede",
+      "label": "Lede"
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "default": "Start the protocol — $42/mo",
+      "label": "Cta Text"
+    },
+    {
+      "type": "url",
+      "id": "cta_url",
+      "label": "Cta Url"
+    },
+    {
+      "type": "text",
+      "id": "cta_note",
+      "default": "Subscribe & save · cancel anytime",
+      "label": "Cta Note"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "ticker_1",
+      "default": "Total electrolytes <b>1,000 mg</b>",
+      "label": "Ticker 1"
+    },
+    {
+      "type": "text",
+      "id": "ticker_2",
+      "default": "Sugar / Caffeine <b>0 g / 0 mg</b>",
+      "label": "Ticker 2"
+    },
+    {
+      "type": "text",
+      "id": "ticker_3",
+      "default": "vs water absorption <b>+64%</b>",
+      "label": "Ticker 3"
+    },
+    {
+      "type": "text",
+      "id": "ticker_4",
+      "default": "Cost / serving <b>$1.40</b>",
+      "label": "Ticker 4"
+    }
   ],
-  "blocks": [{
-    "type": "tile", "name": "Spec tile",
-    "settings": [{ "type": "text", "id": "value", "default": "750mg" }, { "type": "text", "id": "label", "default": "Sodium" }]
-  }],
+  "blocks": [
+    {
+      "type": "tile",
+      "name": "Spec tile",
+      "settings": [
+        {
+          "type": "text",
+          "id": "value",
+          "default": "750mg",
+          "label": "Value"
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "default": "Sodium",
+          "label": "Label"
+        }
+      ]
+    }
+  ],
   "max_blocks": 4,
-  "presets": [{ "name": "Performance hero" }]
+  "presets": [
+    {
+      "name": "Performance hero"
+    }
+  ]
 }
 {% endschema %}

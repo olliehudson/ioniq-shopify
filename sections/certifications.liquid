@@ -16,21 +16,65 @@
 {
   "name": "Certifications row",
   "settings": [
-    { "type": "inline_richtext", "id": "heading", "default": "Tested. Verified. <em>Athlete-safe.</em>" },
-    { "type": "textarea", "id": "copy" }
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "default": "Tested. Verified. <em>Athlete-safe.</em>",
+      "label": "Heading"
+    },
+    {
+      "type": "textarea",
+      "id": "copy",
+      "label": "Copy"
+    }
   ],
-  "blocks": [{
-    "type": "cert", "name": "Certification",
-    "settings": [
-      { "type": "select", "id": "icon", "options": [
-        { "value": "shield", "label": "Shield" }, { "value": "leaf", "label": "Leaf" },
-        { "value": "verified", "label": "Verified" }, { "value": "check", "label": "Check" }
-      ], "default": "shield" },
-      { "type": "text", "id": "title" },
-      { "type": "textarea", "id": "body" }
-    ]
-  }],
+  "blocks": [
+    {
+      "type": "cert",
+      "name": "Certification",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "options": [
+            {
+              "value": "shield",
+              "label": "Shield"
+            },
+            {
+              "value": "leaf",
+              "label": "Leaf"
+            },
+            {
+              "value": "verified",
+              "label": "Verified"
+            },
+            {
+              "value": "check",
+              "label": "Check"
+            }
+          ],
+          "default": "shield",
+          "label": "Icon"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "textarea",
+          "id": "body",
+          "label": "Body"
+        }
+      ]
+    }
+  ],
   "max_blocks": 5,
-  "presets": [{ "name": "Certifications" }]
+  "presets": [
+    {
+      "name": "Certifications"
+    }
+  ]
 }
 {% endschema %}

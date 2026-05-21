@@ -29,14 +29,39 @@
 {
   "name": "FAQ",
   "blocks": [
-    { "type": "category", "name": "Category heading", "settings": [
-      { "type": "text", "id": "title", "default": "About IONIQ" }
-    ]},
-    { "type": "qa", "name": "Question", "settings": [
-      { "type": "text", "id": "question" },
-      { "type": "inline_richtext", "id": "answer" }
-    ]}
+    {
+      "type": "category",
+      "name": "Category heading",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "default": "About IONIQ",
+          "label": "Title"
+        }
+      ]
+    },
+    {
+      "type": "qa",
+      "name": "Question",
+      "settings": [
+        {
+          "type": "text",
+          "id": "question",
+          "label": "Question"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "answer",
+          "label": "Answer"
+        }
+      ]
+    }
   ],
-  "presets": [{ "name": "FAQ with side nav" }]
+  "presets": [
+    {
+      "name": "FAQ with side nav"
+    }
+  ]
 }
 {% endschema %}

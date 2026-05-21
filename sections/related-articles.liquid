@@ -19,19 +19,56 @@
 {
   "name": "Related articles",
   "settings": [
-    { "type": "inline_richtext", "id": "heading", "default": "More from <em>the Journal</em>" },
-    { "type": "text", "id": "cta_text", "default": "All articles →" },
-    { "type": "url", "id": "cta_url" }
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "default": "More from <em>the Journal</em>",
+      "label": "Heading"
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "default": "All articles →",
+      "label": "Cta Text"
+    },
+    {
+      "type": "url",
+      "id": "cta_url",
+      "label": "Cta Url"
+    }
   ],
-  "blocks": [{
-    "type": "article", "name": "Article",
-    "settings": [
-      { "type": "image_picker", "id": "image" },
-      { "type": "text", "id": "meta" },
-      { "type": "text", "id": "title" },
-      { "type": "url", "id": "url" }
-    ]
-  }],
-  "presets": [{ "name": "Related articles" }]
+  "blocks": [
+    {
+      "type": "article",
+      "name": "Article",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "meta",
+          "label": "Meta"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "url",
+          "id": "url",
+          "label": "Url"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Related articles"
+    }
+  ]
 }
 {% endschema %}

@@ -21,25 +21,89 @@
 {
   "name": "Contact channels",
   "settings": [
-    { "type": "text", "id": "eyebrow", "default": "Other ways to reach us" },
-    { "type": "inline_richtext", "id": "heading", "default": "Pick a <em>channel.</em>" },
-    { "type": "textarea", "id": "copy" }
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "default": "Other ways to reach us",
+      "label": "Eyebrow"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "default": "Pick a <em>channel.</em>",
+      "label": "Heading"
+    },
+    {
+      "type": "textarea",
+      "id": "copy",
+      "label": "Copy"
+    }
   ],
-  "blocks": [{
-    "type": "channel", "name": "Channel",
-    "settings": [
-      { "type": "select", "id": "icon", "options": [
-        { "value": "mail", "label": "Mail" }, { "value": "chat", "label": "Chat" },
-        { "value": "press", "label": "Press" }, { "value": "store", "label": "Store" },
-        { "value": "shield", "label": "Shield" }, { "value": "user", "label": "User" }
-      ], "default": "mail" },
-      { "type": "text", "id": "title" },
-      { "type": "textarea", "id": "body" },
-      { "type": "text", "id": "link_text" },
-      { "type": "url", "id": "url" }
-    ]
-  }],
+  "blocks": [
+    {
+      "type": "channel",
+      "name": "Channel",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "options": [
+            {
+              "value": "mail",
+              "label": "Mail"
+            },
+            {
+              "value": "chat",
+              "label": "Chat"
+            },
+            {
+              "value": "press",
+              "label": "Press"
+            },
+            {
+              "value": "store",
+              "label": "Store"
+            },
+            {
+              "value": "shield",
+              "label": "Shield"
+            },
+            {
+              "value": "user",
+              "label": "User"
+            }
+          ],
+          "default": "mail",
+          "label": "Icon"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "textarea",
+          "id": "body",
+          "label": "Body"
+        },
+        {
+          "type": "text",
+          "id": "link_text",
+          "label": "Link Text"
+        },
+        {
+          "type": "url",
+          "id": "url",
+          "label": "Url"
+        }
+      ]
+    }
+  ],
   "max_blocks": 4,
-  "presets": [{ "name": "Contact channels" }]
+  "presets": [
+    {
+      "name": "Contact channels"
+    }
+  ]
 }
 {% endschema %}

@@ -22,20 +22,57 @@
 {
   "name": "Expert quotes",
   "settings": [
-    { "type": "text", "id": "eyebrow", "default": "Endorsed by experts" },
-    { "type": "inline_richtext", "id": "heading" },
-    { "type": "textarea", "id": "copy" }
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "default": "Endorsed by experts",
+      "label": "Eyebrow"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Heading"
+    },
+    {
+      "type": "textarea",
+      "id": "copy",
+      "label": "Copy"
+    }
   ],
-  "blocks": [{
-    "type": "quote", "name": "Expert quote",
-    "settings": [
-      { "type": "textarea", "id": "quote" },
-      { "type": "text", "id": "initials", "default": "AM" },
-      { "type": "text", "id": "name" },
-      { "type": "text", "id": "role" }
-    ]
-  }],
+  "blocks": [
+    {
+      "type": "quote",
+      "name": "Expert quote",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "quote",
+          "label": "Quote"
+        },
+        {
+          "type": "text",
+          "id": "initials",
+          "default": "AM",
+          "label": "Initials"
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Name"
+        },
+        {
+          "type": "text",
+          "id": "role",
+          "label": "Role"
+        }
+      ]
+    }
+  ],
   "max_blocks": 3,
-  "presets": [{ "name": "Expert quotes" }]
+  "presets": [
+    {
+      "name": "Expert quotes"
+    }
+  ]
 }
 {% endschema %}

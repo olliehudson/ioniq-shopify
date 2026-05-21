@@ -29,22 +29,71 @@
 {
   "name": "Testimonials",
   "settings": [
-    { "type": "text", "id": "eyebrow", "default": "The reviews" },
-    { "type": "inline_richtext", "id": "heading", "default": "Trusted by athletes across <em>every sport.</em>" },
-    { "type": "text", "id": "rating", "default": "4.9 / 5" },
-    { "type": "text", "id": "rating_meta", "default": "Based on 2,400+ verified reviews" }
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "default": "The reviews",
+      "label": "Eyebrow"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "default": "Trusted by athletes across <em>every sport.</em>",
+      "label": "Heading"
+    },
+    {
+      "type": "text",
+      "id": "rating",
+      "default": "4.9 / 5",
+      "label": "Rating"
+    },
+    {
+      "type": "text",
+      "id": "rating_meta",
+      "default": "Based on 2,400+ verified reviews",
+      "label": "Rating Meta"
+    }
   ],
-  "blocks": [{
-    "type": "review", "name": "Review",
-    "settings": [
-      { "type": "text", "id": "headline" },
-      { "type": "textarea", "id": "body" },
-      { "type": "text", "id": "initials", "default": "SK" },
-      { "type": "text", "id": "name" },
-      { "type": "text", "id": "role", "default": "Verified buyer" }
-    ]
-  }],
+  "blocks": [
+    {
+      "type": "review",
+      "name": "Review",
+      "settings": [
+        {
+          "type": "text",
+          "id": "headline",
+          "label": "Headline"
+        },
+        {
+          "type": "textarea",
+          "id": "body",
+          "label": "Body"
+        },
+        {
+          "type": "text",
+          "id": "initials",
+          "default": "SK",
+          "label": "Initials"
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Name"
+        },
+        {
+          "type": "text",
+          "id": "role",
+          "default": "Verified buyer",
+          "label": "Role"
+        }
+      ]
+    }
+  ],
   "max_blocks": 6,
-  "presets": [{ "name": "Testimonials" }]
+  "presets": [
+    {
+      "name": "Testimonials"
+    }
+  ]
 }
 {% endschema %}

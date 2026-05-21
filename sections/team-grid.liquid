@@ -25,19 +25,54 @@
 {
   "name": "Team grid",
   "settings": [
-    { "type": "text", "id": "eyebrow" },
-    { "type": "inline_richtext", "id": "heading" },
-    { "type": "textarea", "id": "copy" }
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Heading"
+    },
+    {
+      "type": "textarea",
+      "id": "copy",
+      "label": "Copy"
+    }
   ],
-  "blocks": [{
-    "type": "person", "name": "Team member",
-    "settings": [
-      { "type": "image_picker", "id": "image" },
-      { "type": "text", "id": "role" },
-      { "type": "text", "id": "name" },
-      { "type": "textarea", "id": "bio" }
-    ]
-  }],
-  "presets": [{ "name": "Team grid" }]
+  "blocks": [
+    {
+      "type": "person",
+      "name": "Team member",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "role",
+          "label": "Role"
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Name"
+        },
+        {
+          "type": "textarea",
+          "id": "bio",
+          "label": "Bio"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Team grid"
+    }
+  ]
 }
 {% endschema %}

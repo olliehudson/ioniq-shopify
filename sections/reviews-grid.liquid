@@ -26,23 +26,77 @@
 {
   "name": "Reviews grid",
   "settings": [
-    { "type": "text", "id": "eyebrow", "default": "Real reviews" },
-    { "type": "inline_richtext", "id": "heading", "default": "Trusted by <em>athletes</em> across every sport." },
-    { "type": "text", "id": "rating", "default": "4.9 / 5" },
-    { "type": "text", "id": "rating_meta", "default": "Based on 2,400+ verified reviews" }
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "default": "Real reviews",
+      "label": "Eyebrow"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "default": "Trusted by <em>athletes</em> across every sport.",
+      "label": "Heading"
+    },
+    {
+      "type": "text",
+      "id": "rating",
+      "default": "4.9 / 5",
+      "label": "Rating"
+    },
+    {
+      "type": "text",
+      "id": "rating_meta",
+      "default": "Based on 2,400+ verified reviews",
+      "label": "Rating Meta"
+    }
   ],
-  "blocks": [{
-    "type": "review", "name": "Review",
-    "settings": [
-      { "type": "text", "id": "sport_tag", "default": "🎾 Tennis · 4x / week" },
-      { "type": "text", "id": "headline" },
-      { "type": "textarea", "id": "body" },
-      { "type": "text", "id": "initials", "default": "SK" },
-      { "type": "text", "id": "name" },
-      { "type": "text", "id": "role", "default": "Verified buyer · Tennis player" }
-    ]
-  }],
+  "blocks": [
+    {
+      "type": "review",
+      "name": "Review",
+      "settings": [
+        {
+          "type": "text",
+          "id": "sport_tag",
+          "default": "🎾 Tennis · 4x / week",
+          "label": "Sport Tag"
+        },
+        {
+          "type": "text",
+          "id": "headline",
+          "label": "Headline"
+        },
+        {
+          "type": "textarea",
+          "id": "body",
+          "label": "Body"
+        },
+        {
+          "type": "text",
+          "id": "initials",
+          "default": "SK",
+          "label": "Initials"
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Name"
+        },
+        {
+          "type": "text",
+          "id": "role",
+          "default": "Verified buyer · Tennis player",
+          "label": "Role"
+        }
+      ]
+    }
+  ],
   "max_blocks": 9,
-  "presets": [{ "name": "Reviews grid" }]
+  "presets": [
+    {
+      "name": "Reviews grid"
+    }
+  ]
 }
 {% endschema %}

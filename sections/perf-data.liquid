@@ -28,23 +28,96 @@
 {
   "name": "Data & chart",
   "settings": [
-    { "type": "text", "id": "eyebrow", "default": "Clinical study, n=24" },
-    { "type": "inline_richtext", "id": "heading" },
-    { "type": "textarea", "id": "lede" },
-    { "type": "text", "id": "chart_title", "default": "Hydration vs. water" },
-    { "type": "text", "id": "chart_sub", "default": "Plasma volume after 60min · n=24" }
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "default": "Clinical study, n=24",
+      "label": "Eyebrow"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Heading"
+    },
+    {
+      "type": "textarea",
+      "id": "lede",
+      "label": "Lede"
+    },
+    {
+      "type": "text",
+      "id": "chart_title",
+      "default": "Hydration vs. water",
+      "label": "Chart Title"
+    },
+    {
+      "type": "text",
+      "id": "chart_sub",
+      "default": "Plasma volume after 60min · n=24",
+      "label": "Chart Sub"
+    }
   ],
   "blocks": [
-    { "type": "point", "name": "Bullet point", "settings": [{ "type": "inline_richtext", "id": "text" }] },
-    { "type": "bar", "name": "Chart bar", "settings": [
-      { "type": "text", "id": "label", "default": "IONIQ" },
-      { "type": "number", "id": "width", "default": 92 },
-      { "type": "text", "id": "value", "default": "+64%" },
-      { "type": "select", "id": "color", "options": [
-        { "value": "green", "label": "Green" }, { "value": "ember", "label": "Ember" }, { "value": "muted", "label": "Muted" }
-      ], "default": "green" }
-    ]}
+    {
+      "type": "point",
+      "name": "Bullet point",
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "id": "text",
+          "label": "Text"
+        }
+      ]
+    },
+    {
+      "type": "bar",
+      "name": "Chart bar",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "default": "IONIQ",
+          "label": "Label"
+        },
+        {
+          "type": "number",
+          "id": "width",
+          "default": 92,
+          "label": "Width"
+        },
+        {
+          "type": "text",
+          "id": "value",
+          "default": "+64%",
+          "label": "Value"
+        },
+        {
+          "type": "select",
+          "id": "color",
+          "options": [
+            {
+              "value": "green",
+              "label": "Green"
+            },
+            {
+              "value": "ember",
+              "label": "Ember"
+            },
+            {
+              "value": "muted",
+              "label": "Muted"
+            }
+          ],
+          "default": "green",
+          "label": "Color"
+        }
+      ]
+    }
   ],
-  "presets": [{ "name": "Data & chart" }]
+  "presets": [
+    {
+      "name": "Data & chart"
+    }
+  ]
 }
 {% endschema %}

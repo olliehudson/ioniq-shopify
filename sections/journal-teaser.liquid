@@ -22,21 +22,64 @@
 {
   "name": "Journal teaser",
   "settings": [
-    { "type": "text", "id": "eyebrow", "default": "From the journal" },
-    { "type": "inline_richtext", "id": "heading", "default": "The <em>science</em> & the ritual." },
-    { "type": "text", "id": "cta_text", "default": "All articles →" },
-    { "type": "url", "id": "cta_url" }
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "default": "From the journal",
+      "label": "Eyebrow"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "default": "The <em>science</em> & the ritual.",
+      "label": "Heading"
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "default": "All articles →",
+      "label": "Cta Text"
+    },
+    {
+      "type": "url",
+      "id": "cta_url",
+      "label": "Cta Url"
+    }
   ],
-  "blocks": [{
-    "type": "article", "name": "Article card",
-    "settings": [
-      { "type": "image_picker", "id": "image" },
-      { "type": "text", "id": "meta", "default": "Science · 5 min read" },
-      { "type": "text", "id": "title" },
-      { "type": "url", "id": "url" }
-    ]
-  }],
+  "blocks": [
+    {
+      "type": "article",
+      "name": "Article card",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "meta",
+          "default": "Science · 5 min read",
+          "label": "Meta"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "url",
+          "id": "url",
+          "label": "Url"
+        }
+      ]
+    }
+  ],
   "max_blocks": 3,
-  "presets": [{ "name": "Journal teaser" }]
+  "presets": [
+    {
+      "name": "Journal teaser"
+    }
+  ]
 }
 {% endschema %}
