@@ -11,6 +11,11 @@
             <a href="{{ link.url }}"{% if link.active %} class="is-current"{% endif %}>{{ link.title | escape }}</a>
             {% assign jbh = section.settings.journal_blog | default: 'journal' %}
             {% assign journal_blog = blogs[jbh] %}
+            {% if journal_blog == blank or journal_blog.articles.size == 0 %}
+              {% for b in blogs %}
+                {% if b.articles.size > 0 %}{% assign journal_blog = b %}{% break %}{% endif %}
+              {% endfor %}
+            {% endif %}
             {% if journal_blog != blank and journal_blog.articles.size > 0 %}
               <div class="nav-dropdown">
                 <div class="nav-dropdown-head">
