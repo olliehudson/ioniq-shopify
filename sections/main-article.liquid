@@ -19,9 +19,7 @@
 
 {% if article.image %}
 <div class="wrap-wide">
-  <figure class="ed-hero-img">
-    <img src="{{ article.image | image_url: width: 2400 }}" alt="">
-  </figure>
+  <figure class="ed-hero-img"><img src="{{ article.image | image_url: width: 2400 }}" alt=""></figure>
 </div>
 {% endif %}
 
@@ -29,9 +27,7 @@
   <div class="wrap-wide">
     <div class="article-grid">
       <aside class="side-left"></aside>
-      <div class="article-body">
-        {{ article.content }}
-      </div>
+      <div class="article-body">{{ article.content }}</div>
       <aside class="side-right"></aside>
     </div>
   </div>
@@ -44,9 +40,7 @@
         <h2>It's not just aging. It's <em>depletion.</em></h2>
         <p>IONIQ is sold direct, subscription-first, shipped free. Try it for 60 days.</p>
       </div>
-      <div class="right">
-        <a href="{{ routes.all_products_collection_url }}" class="btn btn-ink btn-lg">Subscribe — $42/mo</a>
-      </div>
+      <div class="right"><a href="{{ routes.all_products_collection_url }}" class="btn btn-ink btn-lg">Subscribe — $42/mo</a></div>
     </div>
   </div>
 </section>
