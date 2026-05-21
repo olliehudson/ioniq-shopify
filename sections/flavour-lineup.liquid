@@ -1,0 +1,65 @@
+<section class="lineup" id="section-{{ section.id }}">
+  <div class="wrap-wide">
+    <div class="lineup-head">
+      <div>
+        <span class="eyebrow">{{ section.settings.eyebrow }}</span>
+        <h2>{{ section.settings.heading }}</h2>
+      </div>
+      <div class="right">
+        <p>{{ section.settings.copy }}</p>
+        {% if section.settings.cta_url != blank %}<a href="{{ section.settings.cta_url }}" class="btn btn-ghost btn-sm">{{ section.settings.cta_text }}</a>{% endif %}
+      </div>
+    </div>
+    <div class="lineup-grid">
+      {% for block in section.blocks %}
+        <a href="{{ block.settings.url | default: '#' }}" class="flavor-card{% if block.settings.is_soon %} is-soon{% endif %}">
+          <div class="pic" style="background: linear-gradient(160deg, {{ block.settings.color_1 }}, {{ block.settings.color_2 }});">
+            {% if block.settings.is_soon %}
+              <span class="ribbon soon">Coming soon</span>
+            {% else %}
+              <span class="ribbon live">{{ block.settings.ribbon | default: 'Available' }}</span>
+            {% endif %}
+            {% if block.settings.image != blank %}<img src="{{ block.settings.image | image_url: width: 400 }}" alt="" style="width:60%;">{% endif %}
+          </div>
+          <div>
+            <h4>{{ block.settings.title }}</h4>
+            <p class="nm">{{ block.settings.subtitle }}</p>
+          </div>
+          <div class="footer">
+            <span class="price">{{ block.settings.price }}</span>
+            <span class="cta">{{ block.settings.cta | default: 'Subscribe →' }}</span>
+          </div>
+        </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Flavour lineup",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "default": "The lineup" },
+    { "type": "richtext", "id": "heading", "default": "<h2>One flavour live.<br>Three <em>coming soon.</em></h2>" },
+    { "type": "textarea", "id": "copy", "default": "Lemon is what's available now. Watermelon, Blueberry and Sour Mango drop next." },
+    { "type": "text", "id": "cta_text", "default": "Notify me →" },
+    { "type": "url", "id": "cta_url" }
+  ],
+  "blocks": [{
+    "type": "flavor", "name": "Flavour",
+    "settings": [
+      { "type": "text", "id": "title", "default": "Bamboo Salt — Lemon" },
+      { "type": "text", "id": "subtitle", "default": "Clean · Bright · Hydration N°01" },
+      { "type": "text", "id": "price", "default": "$42" },
+      { "type": "color", "id": "color_1", "default": "#F4ECDB" },
+      { "type": "color", "id": "color_2", "default": "#B0B8A4" },
+      { "type": "checkbox", "id": "is_soon", "default": false, "label": "Coming soon (faded look)" },
+      { "type": "text", "id": "ribbon", "default": "Available" },
+      { "type": "text", "id": "cta", "default": "Subscribe →" },
+      { "type": "image_picker", "id": "image" },
+      { "type": "url", "id": "url" }
+    ]
+  }],
+  "max_blocks": 8,
+  "presets": [{ "name": "Flavour lineup" }]
+}
+{% endschema %}

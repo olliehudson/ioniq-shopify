@@ -1,0 +1,57 @@
+<section class="protocol-use" id="section-{{ section.id }}">
+  <div class="wrap-wide">
+    <div class="pu-head">
+      <span class="eyebrow">{{ section.settings.eyebrow }}</span>
+      <h2>{{ section.settings.heading }}</h2>
+      <p>{{ section.settings.copy }}</p>
+    </div>
+    <div class="pu-grid">
+      {% for block in section.blocks %}
+        <div class="pu-card">
+          <div class="when"><span class="no">{{ block.settings.number }}</span><span class="lbl">{{ block.settings.timing }}</span></div>
+          <h4>{{ block.settings.title }}</h4>
+          <p class="quote">"{{ block.settings.quote }}"</p>
+          <p>{{ block.settings.body }}</p>
+          <div class="spec"><b>{{ block.settings.spec_bold }}</b> · {{ block.settings.spec_text }}</div>
+        </div>
+      {% endfor %}
+    </div>
+    {% if section.settings.foot_title != blank %}
+      <div class="pu-foot">
+        <div>
+          <div class="tt">{{ section.settings.foot_title }}</div>
+          <div class="ss">{{ section.settings.foot_sub }}</div>
+        </div>
+        {% if section.settings.cta_url != blank %}<a href="{{ section.settings.cta_url }}" class="btn btn-primary btn-sm">{{ section.settings.cta_text }}</a>{% endif %}
+      </div>
+    {% endif %}
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Athlete protocol",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "default": "When to take, how many" },
+    { "type": "richtext", "id": "heading", "default": "<h2>The athlete <em>protocol.</em></h2>" },
+    { "type": "textarea", "id": "copy" },
+    { "type": "text", "id": "foot_title", "default": "Most members settle into 1 morning + 1 pre-workout" },
+    { "type": "text", "id": "foot_sub" },
+    { "type": "text", "id": "cta_text", "default": "Subscribe — $42/mo →" },
+    { "type": "url", "id": "cta_url" }
+  ],
+  "blocks": [{
+    "type": "step", "name": "Protocol step",
+    "settings": [
+      { "type": "text", "id": "number", "default": "01" },
+      { "type": "text", "id": "timing", "default": "30–45 min before" },
+      { "type": "text", "id": "title", "default": "Pre-training" },
+      { "type": "text", "id": "quote", "default": "Take 1 before training." },
+      { "type": "textarea", "id": "body" },
+      { "type": "text", "id": "spec_bold", "default": "1 sachet" },
+      { "type": "text", "id": "spec_text", "default": "500ml cold water" }
+    ]
+  }],
+  "max_blocks": 4,
+  "presets": [{ "name": "Athlete protocol" }]
+}
+{% endschema %}

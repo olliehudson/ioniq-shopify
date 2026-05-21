@@ -1,0 +1,30 @@
+<div class="announce" style="background: var(--green); color: var(--white);">
+  {% for block in section.blocks %}
+    {% if forloop.index > 1 %}<span class="dot"></span>{% endif %}
+    <span>{{ block.settings.text | escape }}</span>
+  {% endfor %}
+</div>
+
+{% schema %}
+{
+  "name": "Announcement bar",
+  "max_blocks": 4,
+  "blocks": [
+    {
+      "type": "message",
+      "name": "Message",
+      "settings": [
+        { "type": "text", "id": "text", "label": "Message" }
+      ]
+    }
+  ],
+  "default": {
+    "blocks": [
+      { "type": "message", "settings": { "text": "Free shipping on subscription" } },
+      { "type": "message", "settings": { "text": "60-day risk-free guarantee" } },
+      { "type": "message", "settings": { "text": "Cancel anytime" } }
+    ]
+  },
+  "presets": [{ "name": "Announcement bar" }]
+}
+{% endschema %}

@@ -1,0 +1,18 @@
+{
+  "sections": {
+    "hero": {
+      "type": "faq-hero"
+    },
+    "faq": {
+      "type": "faq"
+    },
+    "cta": {
+      "type": "cta-band"
+    }
+  },
+  "order": [
+    "hero",
+    "faq",
+    "cta"
+  ]
+}

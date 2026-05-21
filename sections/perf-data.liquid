@@ -1,0 +1,50 @@
+<section class="data" id="section-{{ section.id }}">
+  <div class="wrap-wide">
+    <div class="data-grid">
+      <div>
+        <span class="eyebrow voltage">{{ section.settings.eyebrow }}</span>
+        <h2>{{ section.settings.heading }}</h2>
+        <p class="lede">{{ section.settings.lede }}</p>
+        <ul>{% for block in section.blocks %}{% if block.type == 'point' %}
+          <li><svg><use href="#i-check"/></svg><span>{{ block.settings.text }}</span></li>
+        {% endif %}{% endfor %}</ul>
+      </div>
+      <div class="chart">
+        <div class="chart-head"><div><h4>{{ section.settings.chart_title }}</h4><div class="sub">{{ section.settings.chart_sub }}</div></div></div>
+        <div class="chart-bars">
+          {% for block in section.blocks %}{% if block.type == 'bar' %}
+            <div class="bar-row">
+              <div class="lbl">{{ block.settings.label }}</div>
+              <div class="bar-track"><div class="bar-fill{% if block.settings.color == 'ember' %} ember{% elsif block.settings.color == 'muted' %} muted{% endif %}" style="width: {{ block.settings.width }}%;"></div></div>
+              <div class="val">{{ block.settings.value }}</div>
+            </div>
+          {% endif %}{% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Data & chart",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "default": "Clinical study, n=24" },
+    { "type": "richtext", "id": "heading" },
+    { "type": "textarea", "id": "lede" },
+    { "type": "text", "id": "chart_title", "default": "Hydration vs. water" },
+    { "type": "text", "id": "chart_sub", "default": "Plasma volume after 60min · n=24" }
+  ],
+  "blocks": [
+    { "type": "point", "name": "Bullet point", "settings": [{ "type": "richtext", "id": "text" }] },
+    { "type": "bar", "name": "Chart bar", "settings": [
+      { "type": "text", "id": "label", "default": "IONIQ" },
+      { "type": "number", "id": "width", "default": 92 },
+      { "type": "text", "id": "value", "default": "+64%" },
+      { "type": "select", "id": "color", "options": [
+        { "value": "green", "label": "Green" }, { "value": "ember", "label": "Ember" }, { "value": "muted", "label": "Muted" }
+      ], "default": "green" }
+    ]}
+  ],
+  "presets": [{ "name": "Data & chart" }]
+}
+{% endschema %}

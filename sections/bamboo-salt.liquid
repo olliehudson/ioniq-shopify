@@ -1,0 +1,67 @@
+<section class="bamboo-section" id="section-{{ section.id }}">
+  <div class="wrap-wide">
+    <div class="bamboo-grid">
+      <div class="salt-compare">
+        <div class="row is-head">
+          <div>{{ section.settings.col_header }}</div>
+          <div>{{ section.settings.col_1 }}</div>
+          <div>{{ section.settings.col_2 }}</div>
+          <div class="ours">{{ section.settings.col_ours }}</div>
+        </div>
+        {% for block in section.blocks %}
+          <div class="row">
+            <div class="lbl">{{ block.settings.label }}</div>
+            <div class="cell">{% if block.settings.val_1_dim %}<span class="x">{{ block.settings.val_1 }}</span>{% else %}{{ block.settings.val_1 }}{% endif %}</div>
+            <div class="cell">{% if block.settings.val_2_dim %}<span class="x">{{ block.settings.val_2 }}</span>{% else %}{{ block.settings.val_2 }}{% endif %}</div>
+            <div class="ours">{{ block.settings.val_ours }}</div>
+          </div>
+        {% endfor %}
+      </div>
+      <div>
+        <span class="eyebrow">{{ section.settings.eyebrow }}</span>
+        <h2>{{ section.settings.heading }}</h2>
+        <p class="lede">{{ section.settings.lede }}</p>
+        <ul class="bamboo-points">
+          {% for block in section.blocks %}{% if block.type == 'point' %}
+            <li><span class="dot"></span><div><b>{{ block.settings.title }}</b><p>{{ block.settings.body }}</p></div></li>
+          {% endif %}{% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Bamboo salt (hero ingredient)",
+  "settings": [
+    { "type": "header", "content": "Comparison table (left)" },
+    { "type": "text", "id": "col_header", "default": "Per gram" },
+    { "type": "text", "id": "col_1", "default": "Table salt" },
+    { "type": "text", "id": "col_2", "default": "Sea salt" },
+    { "type": "text", "id": "col_ours", "default": "Bamboo 9×" },
+    { "type": "header", "content": "Copy (right)" },
+    { "type": "text", "id": "eyebrow", "default": "Hero ingredient" },
+    { "type": "richtext", "id": "heading", "default": "<h2>Bamboo<br><em>Salt.</em></h2>" },
+    { "type": "textarea", "id": "lede", "default": "9× fire-roasted at 1,500°C — a Korean tradition practised for over 1,000 years, now in a daily sachet." }
+  ],
+  "blocks": [
+    { "type": "row", "name": "Comparison row",
+      "settings": [
+        { "type": "text", "id": "label", "default": "Trace minerals" },
+        { "type": "text", "id": "val_1", "default": "0–2" },
+        { "type": "checkbox", "id": "val_1_dim", "default": true, "label": "Show column 1 as dim/X" },
+        { "type": "text", "id": "val_2", "default": "~12" },
+        { "type": "checkbox", "id": "val_2_dim", "default": false },
+        { "type": "text", "id": "val_ours", "default": "70+" }
+      ]
+    },
+    { "type": "point", "name": "Bullet point",
+      "settings": [
+        { "type": "text", "id": "title", "default": "pH 12 — most alkaline food on Earth" },
+        { "type": "textarea", "id": "body", "default": "Supports a healthy acid-alkaline balance." }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Bamboo salt feature" }]
+}
+{% endschema %}

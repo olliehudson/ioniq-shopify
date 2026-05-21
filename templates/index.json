@@ -1,0 +1,34 @@
+{
+  "sections": {
+    "hero": {
+      "type": "home-hero"
+    },
+    "feature-strip": {
+      "type": "feature-strip"
+    },
+    "what-is": {
+      "type": "what-is"
+    },
+    "flavour-lineup": {
+      "type": "flavour-lineup"
+    },
+    "testimonials": {
+      "type": "testimonials"
+    },
+    "marquee": {
+      "type": "marquee"
+    },
+    "journal-teaser": {
+      "type": "journal-teaser"
+    }
+  },
+  "order": [
+    "hero",
+    "feature-strip",
+    "what-is",
+    "flavour-lineup",
+    "testimonials",
+    "marquee",
+    "journal-teaser"
+  ]
+}

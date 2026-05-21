@@ -1,0 +1,69 @@
+<header class="site-head">
+  <div class="wrap-wide head-inner">
+    <a href="{{ routes.root_url }}" class="brandmark">
+      <span class="glyph">I</span>
+      <span class="wordmark"><span class="ion">ION</span><span class="iq">IQ</span></span>
+    </a>
+    <nav class="nav-main">
+      {% for link in linklists[section.settings.menu].links %}
+        {% if link.title contains 'Journal' or link.title contains 'journal' %}
+          <div class="nav-item">
+            <a href="{{ link.url }}"{% if link.active %} class="is-current"{% endif %}>{{ link.title | escape }}</a>
+            {% if section.blocks.size > 0 %}
+              <div class="nav-dropdown">
+                <div class="nav-dropdown-head">
+                  <span class="ttl">Latest from the Journal</span>
+                  <a href="{{ link.url }}" class="all">View all &rarr;</a>
+                </div>
+                <div class="nav-dropdown-list">
+                  {% for block in section.blocks %}
+                    <a href="{{ block.settings.url }}" class="nav-dropdown-item">
+                      <div class="pic">{% if block.settings.image != blank %}<img src="{{ block.settings.image | image_url: width: 120 }}" alt="">{% endif %}</div>
+                      <div class="meta">
+                        <span class="tag">{{ block.settings.tag | escape }}</span>
+                        <span class="ttl">{{ block.settings.title | escape }}</span>
+                      </div>
+                      <span class="arrow">&rarr;</span>
+                    </a>
+                  {% endfor %}
+                </div>
+              </div>
+            {% endif %}
+          </div>
+        {% else %}
+          <a href="{{ link.url }}"{% if link.active %} class="is-current"{% endif %}>{{ link.title | escape }}</a>
+        {% endif %}
+      {% endfor %}
+    </nav>
+    <div class="head-cta">
+      <button class="icon-btn" aria-label="Search"><svg width="16" height="16"><use href="#i-search"/></svg></button>
+      <a href="{{ routes.account_url }}" class="icon-btn" aria-label="Account"><svg width="16" height="16"><use href="#i-user"/></svg></a>
+      <a href="{{ routes.cart_url }}" class="icon-btn" aria-label="Cart">
+        <svg width="16" height="16"><use href="#i-cart"/></svg>
+        <span class="cart-count">{{ cart.item_count }}</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+{% schema %}
+{
+  "name": "Header",
+  "settings": [
+    { "type": "link_list", "id": "menu", "label": "Main menu", "default": "main-menu" }
+  ],
+  "blocks": [
+    {
+      "type": "journal_article",
+      "name": "Journal dropdown article",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Thumbnail" },
+        { "type": "text", "id": "tag", "label": "Tag (e.g. 'Science · 5 min')" },
+        { "type": "text", "id": "title", "label": "Headline" },
+        { "type": "url", "id": "url", "label": "Link" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Header" }]
+}
+{% endschema %}

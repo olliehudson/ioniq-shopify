@@ -1,0 +1,39 @@
+<section class="values" id="section-{{ section.id }}">
+  <div class="wrap-wide">
+    <div class="values-head">
+      <div>
+        <span class="eyebrow">{{ section.settings.eyebrow }}</span>
+        <h2>{{ section.settings.heading }}</h2>
+      </div>
+      <p>{{ section.settings.copy }}</p>
+    </div>
+    <div class="values-grid">
+      {% for block in section.blocks %}
+        <div class="value">
+          <div class="num">{{ block.settings.num }}</div>
+          <h3>{{ block.settings.title }}</h3>
+          <p>{{ block.settings.body }}</p>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Values grid",
+  "settings": [
+    { "type": "text", "id": "eyebrow" },
+    { "type": "richtext", "id": "heading" },
+    { "type": "textarea", "id": "copy" }
+  ],
+  "blocks": [{
+    "type": "value", "name": "Value",
+    "settings": [
+      { "type": "text", "id": "num", "default": "N°01" },
+      { "type": "text", "id": "title" },
+      { "type": "textarea", "id": "body" }
+    ]
+  }],
+  "presets": [{ "name": "Values grid" }]
+}
+{% endschema %}

@@ -1,0 +1,42 @@
+<section class="faq-body" id="section-{{ section.id }}">
+  <div class="wrap-wide">
+    <div class="faq-grid">
+      <aside class="faq-nav">
+        {% for block in section.blocks %}{% if block.type == 'category' %}
+          <a href="#cat-{{ forloop.index }}-{{ section.id }}"{% if forloop.first %} class="is-active"{% endif %}>{{ block.settings.title }}</a>
+        {% endif %}{% endfor %}
+      </aside>
+      <div class="faq-col">
+        {% assign cat_index = 0 %}
+        {% for block in section.blocks %}
+          {% if block.type == 'category' %}
+            {% assign cat_index = cat_index | plus: 1 %}
+            <div class="faq-section" id="cat-{{ cat_index }}-{{ section.id }}">
+              <h2>{{ block.settings.title }}</h2>
+            </div>
+          {% elsif block.type == 'qa' %}
+            <details class="qa">
+              <summary>{{ block.settings.question }}</summary>
+              <div class="body">{{ block.settings.answer }}</div>
+            </details>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "FAQ",
+  "blocks": [
+    { "type": "category", "name": "Category heading", "settings": [
+      { "type": "text", "id": "title", "default": "About IONIQ" }
+    ]},
+    { "type": "qa", "name": "Question", "settings": [
+      { "type": "text", "id": "question" },
+      { "type": "richtext", "id": "answer" }
+    ]}
+  ],
+  "presets": [{ "name": "FAQ with side nav" }]
+}
+{% endschema %}

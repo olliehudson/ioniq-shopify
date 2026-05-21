@@ -1,0 +1,34 @@
+<section class="perf-faq" id="section-{{ section.id }}">
+  <div class="wrap-wide">
+    <div class="perf-faq-grid">
+      <div>
+        <span class="eyebrow voltage">{{ section.settings.eyebrow }}</span>
+        <h2>{{ section.settings.heading }}</h2>
+        <p>{{ section.settings.copy }}</p>
+      </div>
+      <div>
+        {% for block in section.blocks %}
+          <details>
+            <summary>{{ block.settings.question }}</summary>
+            <div class="body-text">{{ block.settings.answer }}</div>
+          </details>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Performance FAQ",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "default": "Questions, answered" },
+    { "type": "richtext", "id": "heading" },
+    { "type": "textarea", "id": "copy" }
+  ],
+  "blocks": [{
+    "type": "qa", "name": "Q&A",
+    "settings": [{ "type": "text", "id": "question" }, { "type": "richtext", "id": "answer" }]
+  }],
+  "presets": [{ "name": "Performance FAQ" }]
+}
+{% endschema %}

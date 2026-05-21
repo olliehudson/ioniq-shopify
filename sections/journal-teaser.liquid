@@ -1,0 +1,42 @@
+<section class="journal" id="section-{{ section.id }}">
+  <div class="wrap-wide">
+    <div class="journal-head">
+      <div>
+        <span class="eyebrow">{{ section.settings.eyebrow }}</span>
+        <h2>{{ section.settings.heading }}</h2>
+      </div>
+      {% if section.settings.cta_url != blank %}<a href="{{ section.settings.cta_url }}" class="btn btn-ghost btn-sm">{{ section.settings.cta_text }}</a>{% endif %}
+    </div>
+    <div class="journal-grid">
+      {% for block in section.blocks %}
+        <a href="{{ block.settings.url }}" class="journal-card{% if forloop.first %} is-featured{% endif %}">
+          <div class="img">{% if block.settings.image != blank %}<img src="{{ block.settings.image | image_url: width: 1200 }}" alt="">{% endif %}</div>
+          <div class="meta">{{ block.settings.meta }}</div>
+          <h4>{{ block.settings.title }}</h4>
+        </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Journal teaser",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "default": "From the journal" },
+    { "type": "richtext", "id": "heading", "default": "<h2>The <em>science</em> & the ritual.</h2>" },
+    { "type": "text", "id": "cta_text", "default": "All articles →" },
+    { "type": "url", "id": "cta_url" }
+  ],
+  "blocks": [{
+    "type": "article", "name": "Article card",
+    "settings": [
+      { "type": "image_picker", "id": "image" },
+      { "type": "text", "id": "meta", "default": "Science · 5 min read" },
+      { "type": "text", "id": "title" },
+      { "type": "url", "id": "url" }
+    ]
+  }],
+  "max_blocks": 3,
+  "presets": [{ "name": "Journal teaser" }]
+}
+{% endschema %}

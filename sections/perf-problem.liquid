@@ -1,0 +1,38 @@
+<section class="perf-problem" id="section-{{ section.id }}">
+  <div class="wrap-wide">
+    <div class="head">
+      <h2>{{ section.settings.heading }}</h2>
+      <p>{{ section.settings.copy }}</p>
+    </div>
+    <div class="compare-row">
+      <div class="compare-card compare-them">
+        <span class="tag">{{ section.settings.them_tag }}</span>
+        <h3>{{ section.settings.them_heading }}</h3>
+        <ul>{% for block in section.blocks %}{% if block.type == 'them' %}<li><svg><use href="#i-x"/></svg>{{ block.settings.text }}</li>{% endif %}{% endfor %}</ul>
+      </div>
+      <div class="compare-card compare-us">
+        <span class="tag">{{ section.settings.us_tag }}</span>
+        <h3>{{ section.settings.us_heading }}</h3>
+        <ul>{% for block in section.blocks %}{% if block.type == 'us' %}<li><svg><use href="#i-check"/></svg>{{ block.settings.text }}</li>{% endif %}{% endfor %}</ul>
+      </div>
+    </div>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Compare them vs us",
+  "settings": [
+    { "type": "richtext", "id": "heading", "default": "<h2>Most sports drinks are <em>sugar.</em></h2>" },
+    { "type": "textarea", "id": "copy" },
+    { "type": "text", "id": "them_tag", "default": "The other guys" },
+    { "type": "richtext", "id": "them_heading", "default": "<h3>A sugar bomb<br>in disguise.</h3>" },
+    { "type": "text", "id": "us_tag", "default": "IONIQ Performance" },
+    { "type": "richtext", "id": "us_heading", "default": "<h3>Clinical-dose<br>fuel.</h3>" }
+  ],
+  "blocks": [
+    { "type": "them", "name": "Their bullet (with X)", "settings": [{ "type": "text", "id": "text" }] },
+    { "type": "us", "name": "Our bullet (with check)", "settings": [{ "type": "text", "id": "text" }] }
+  ],
+  "presets": [{ "name": "Compare them vs us" }]
+}
+{% endschema %}

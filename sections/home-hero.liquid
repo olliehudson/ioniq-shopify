@@ -1,0 +1,76 @@
+<section class="ioniq-hero" id="section-{{ section.id }}">
+  <div class="wrap-wide">
+    <div class="ioniq-hero-grid">
+      <div class="ioniq-hero-copy">
+        <div>
+          <div class="ioniq-hero-eyebrow-row">
+            <span>{{ section.settings.eyebrow }}</span>
+            <span class="sep"></span>
+            <span>{{ section.settings.subtitle }}</span>
+            {% if section.settings.badge != blank %}<span class="sep"></span><strong>{{ section.settings.badge }}</strong>{% endif %}
+          </div>
+          <h1>{{ section.settings.heading }}</h1>
+          <p class="ioniq-hero-lede">{{ section.settings.lede }}</p>
+          <div class="ioniq-hero-spec">
+            {% for block in section.blocks %}{% if block.type == 'spec' %}
+              <div class="cell"><span class="num">{{ block.settings.value }}</span><span class="lbl">{{ block.settings.label }}</span></div>
+            {% endif %}{% endfor %}
+          </div>
+          <div class="ioniq-hero-ctas">
+            <a href="{{ section.settings.cta_url }}" class="btn btn-primary btn-lg">{{ section.settings.cta_text }}</a>
+            <span class="small">{{ section.settings.cta_note }}</span>
+          </div>
+        </div>
+        <div class="ioniq-hero-meta">
+          <span class="stars">{% for i in (1..5) %}<svg><use href="#i-star"/></svg>{% endfor %}</span>
+          <span><strong>{{ section.settings.rating }}</strong> · {{ section.settings.review_count }}</span>
+          <span class="sep-v"></span>
+          <span>{{ section.settings.meta_right }}</span>
+        </div>
+      </div>
+      <div class="ioniq-hero-art">
+        {% if section.settings.badge_text != blank %}<div class="badge-best"><div>{{ section.settings.badge_text }}</div></div>{% endif %}
+        {% if section.settings.image != blank %}
+          <img class="ioniq-hero-art-img" src="{{ section.settings.image | image_url: width: 1200 }}" alt="{{ section.settings.image.alt | escape }}" loading="eager">
+        {% endif %}
+        {% if section.settings.tag_text != blank %}
+          <span class="ioniq-hero-art-tag"><span class="dot"></span>{{ section.settings.tag_text }}</span>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Hero",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "N°01 · Bamboo Salt Elixir" },
+    { "type": "text", "id": "subtitle", "label": "Subtitle", "default": "30 sachets" },
+    { "type": "text", "id": "badge", "label": "Badge", "default": "#1 best seller" },
+    { "type": "richtext", "id": "heading", "label": "Heading", "default": "<h1>Hydration. Recovery. Clean <em>energy.</em></h1>" },
+    { "type": "textarea", "id": "lede", "label": "Lede", "default": "One sachet covers all three. 750mg sodium, 200mg potassium, 50mg magnesium, plus 70+ trace minerals, nootropics and antioxidants — calibrated to what athletes actually need." },
+    { "type": "text", "id": "cta_text", "label": "CTA text", "default": "Subscribe — $42/mo" },
+    { "type": "url", "id": "cta_url", "label": "CTA link" },
+    { "type": "text", "id": "cta_note", "label": "CTA note", "default": "One-time $52 · cancel anytime" },
+    { "type": "text", "id": "rating", "label": "Rating", "default": "4.9" },
+    { "type": "text", "id": "review_count", "label": "Review count", "default": "2,400+ reviews" },
+    { "type": "text", "id": "meta_right", "label": "Meta right text", "default": "60-day risk-free guarantee" },
+    { "type": "image_picker", "id": "image", "label": "Hero image" },
+    { "type": "text", "id": "badge_text", "label": "Badge text", "default": "#1<br>Best<br>Selling" },
+    { "type": "text", "id": "tag_text", "label": "Floating tag", "default": "Bamboo Salt · Lemon" }
+  ],
+  "blocks": [
+    { "type": "spec", "name": "Spec cell", "settings": [
+      { "type": "text", "id": "value", "label": "Value", "default": "750mg" },
+      { "type": "text", "id": "label", "label": "Label", "default": "Sodium" }
+    ]}
+  ],
+  "max_blocks": 4,
+  "presets": [{ "name": "Hero", "blocks": [
+    { "type": "spec", "settings": { "value": "750mg", "label": "Sodium" } },
+    { "type": "spec", "settings": { "value": "200mg", "label": "Potassium" } },
+    { "type": "spec", "settings": { "value": "50mg", "label": "Magnesium" } }
+  ]}]
+}
+{% endschema %}

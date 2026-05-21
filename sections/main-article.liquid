@@ -1,0 +1,12 @@
+<article style="padding: clamp(48px, 7vw, 96px) 0; background: var(--paper);">
+  <div class="wrap-narrow" style="max-width: 760px;">
+    <a href="{{ blog.url }}" style="font-family: var(--font-mono); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-soft);">← Back to the Journal</a>
+    <h1 style="font-family: var(--font-display); font-weight: 900; font-size: clamp(36px, 5vw, 64px); line-height: 1.02; letter-spacing: -.02em; margin: 24px 0 18px;">{{ article.title }}</h1>
+    <p style="font-family: var(--font-mono); font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-soft); margin: 0 0 28px;">{{ article.published_at | date: "%-d %b, %Y" }} · {{ article.author }}</p>
+    {% if article.image %}<img src="{{ article.image | image_url: width: 2000 }}" alt="" style="width: 100%; border-radius: var(--radius-lg); margin-bottom: 36px;">{% endif %}
+    <div class="article-body" style="font-size: 18px; line-height: 1.65;">{{ article.content }}</div>
+  </div>
+</article>
+{% schema %}
+{ "name": "Article", "enabled_on": { "templates": ["article"] } }
+{% endschema %}

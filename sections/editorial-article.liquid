@@ -1,0 +1,44 @@
+<article class="article" id="section-{{ section.id }}">
+  <div class="wrap-wide">
+    <div class="article-grid">
+      <aside class="side-left">
+        {% if section.settings.side_left_num != blank %}
+          <div class="side-note">
+            <div class="num">{{ section.settings.side_left_num }}</div>
+            <span class="label">{{ section.settings.side_left_label }}</span>
+            <p class="desc">{{ section.settings.side_left_desc }}</p>
+          </div>
+        {% endif %}
+      </aside>
+      <div class="article-body">
+        {{ section.settings.body }}
+      </div>
+      <aside class="side-right">
+        {% if section.settings.side_right_num != blank %}
+          <div class="side-note">
+            <div class="num">{{ section.settings.side_right_num }}</div>
+            <span class="label">{{ section.settings.side_right_label }}</span>
+            <p class="desc">{{ section.settings.side_right_desc }}</p>
+          </div>
+        {% endif %}
+      </aside>
+    </div>
+  </div>
+</article>
+{% schema %}
+{
+  "name": "Editorial article body",
+  "settings": [
+    { "type": "richtext", "id": "body", "label": "Article HTML — paste your full article body here" },
+    { "type": "header", "content": "Left margin note" },
+    { "type": "text", "id": "side_left_num" },
+    { "type": "text", "id": "side_left_label" },
+    { "type": "textarea", "id": "side_left_desc" },
+    { "type": "header", "content": "Right margin note" },
+    { "type": "text", "id": "side_right_num" },
+    { "type": "text", "id": "side_right_label" },
+    { "type": "textarea", "id": "side_right_desc" }
+  ],
+  "presets": [{ "name": "Editorial article body" }]
+}
+{% endschema %}

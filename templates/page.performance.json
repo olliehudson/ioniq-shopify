@@ -1,0 +1,54 @@
+{
+  "sections": {
+    "hero": {
+      "type": "perf-hero"
+    },
+    "problem": {
+      "type": "perf-problem"
+    },
+    "whole-body": {
+      "type": "whole-body-benefits"
+    },
+    "protocol": {
+      "type": "perf-protocol"
+    },
+    "ingredients": {
+      "type": "perf-ingredients"
+    },
+    "vs": {
+      "type": "perf-vs"
+    },
+    "data": {
+      "type": "perf-data"
+    },
+    "experts": {
+      "type": "experts"
+    },
+    "certs": {
+      "type": "certifications"
+    },
+    "marquee": {
+      "type": "marquee"
+    },
+    "cta": {
+      "type": "cta-band"
+    },
+    "faq": {
+      "type": "perf-faq"
+    }
+  },
+  "order": [
+    "hero",
+    "problem",
+    "whole-body",
+    "protocol",
+    "ingredients",
+    "vs",
+    "data",
+    "experts",
+    "certs",
+    "marquee",
+    "cta",
+    "faq"
+  ]
+}

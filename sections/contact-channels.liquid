@@ -1,0 +1,45 @@
+<section class="channels" id="section-{{ section.id }}">
+  <div class="wrap-wide">
+    <div class="channels-head">
+      <span class="eyebrow">{{ section.settings.eyebrow }}</span>
+      <h2>{{ section.settings.heading }}</h2>
+      <p>{{ section.settings.copy }}</p>
+    </div>
+    <div class="channels-grid">
+      {% for block in section.blocks %}
+        <a href="{{ block.settings.url }}" class="channel">
+          <div class="ico"><svg><use href="#i-{{ block.settings.icon }}"/></svg></div>
+          <h4>{{ block.settings.title }}</h4>
+          <p>{{ block.settings.body }}</p>
+          <span class="ln">{{ block.settings.link_text }}</span>
+        </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Contact channels",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "default": "Other ways to reach us" },
+    { "type": "richtext", "id": "heading", "default": "<h2>Pick a <em>channel.</em></h2>" },
+    { "type": "textarea", "id": "copy" }
+  ],
+  "blocks": [{
+    "type": "channel", "name": "Channel",
+    "settings": [
+      { "type": "select", "id": "icon", "options": [
+        { "value": "mail", "label": "Mail" }, { "value": "chat", "label": "Chat" },
+        { "value": "press", "label": "Press" }, { "value": "store", "label": "Store" },
+        { "value": "shield", "label": "Shield" }, { "value": "user", "label": "User" }
+      ], "default": "mail" },
+      { "type": "text", "id": "title" },
+      { "type": "textarea", "id": "body" },
+      { "type": "text", "id": "link_text" },
+      { "type": "url", "id": "url" }
+    ]
+  }],
+  "max_blocks": 4,
+  "presets": [{ "name": "Contact channels" }]
+}
+{% endschema %}

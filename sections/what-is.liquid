@@ -1,0 +1,40 @@
+<section class="what-is" id="section-{{ section.id }}">
+  <div class="wrap-wide">
+    <div class="what-is-head">
+      <span class="eyebrow">{{ section.settings.eyebrow }}</span>
+      <h2>{{ section.settings.heading }}</h2>
+      <p>{{ section.settings.copy }}</p>
+    </div>
+    {% if section.settings.image != blank %}
+      <div class="what-is-diagram">
+        <img src="{{ section.settings.image | image_url: width: 2000 }}" alt="{{ section.settings.image.alt | escape }}" loading="lazy">
+      </div>
+    {% endif %}
+    <div class="what-is-pills">
+      {% for block in section.blocks %}
+        <span class="pill-feat"><span class="dot"></span>{{ block.settings.text }}</span>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "What is it (diagram)",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "default": "What is IONIQ" },
+    { "type": "richtext", "id": "heading", "default": "<h2>14+ ingredients. 4 supplement types. <em>1 sachet.</em></h2>" },
+    { "type": "textarea", "id": "copy", "default": "Most people take an electrolyte, a nootropic, a multi-mineral, and an antioxidant — that's four bottles. IONIQ is all of them in one daily ritual." },
+    { "type": "image_picker", "id": "image", "label": "Diagram image" }
+  ],
+  "blocks": [
+    { "type": "pill", "name": "Pill", "settings": [{ "type": "text", "id": "text", "default": "Electrolytes" }] }
+  ],
+  "max_blocks": 6,
+  "presets": [{ "name": "What is it", "blocks": [
+    { "type": "pill", "settings": { "text": "Electrolytes" }},
+    { "type": "pill", "settings": { "text": "Nootropics" }},
+    { "type": "pill", "settings": { "text": "Minerals" }},
+    { "type": "pill", "settings": { "text": "Antioxidants" }}
+  ]}]
+}
+{% endschema %}

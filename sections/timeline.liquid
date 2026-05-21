@@ -1,0 +1,41 @@
+<section class="timeline-sec" id="section-{{ section.id }}">
+  <div class="wrap-wide">
+    <div class="timeline-head">
+      <span class="eyebrow">{{ section.settings.eyebrow }}</span>
+      <h2>{{ section.settings.heading }}</h2>
+      <p>{{ section.settings.copy }}</p>
+    </div>
+    <div class="timeline">
+      {% for block in section.blocks %}
+        <div class="timeline-item{% if block.settings.is_key %} is-key{% endif %}">
+          <span class="dot"></span>
+          <div>
+            <div class="yr">{{ block.settings.date }}</div>
+            <h4>{{ block.settings.title }}</h4>
+            <p>{{ block.settings.body }}</p>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Timeline",
+  "settings": [
+    { "type": "text", "id": "eyebrow" },
+    { "type": "richtext", "id": "heading" },
+    { "type": "textarea", "id": "copy" }
+  ],
+  "blocks": [{
+    "type": "item", "name": "Timeline item",
+    "settings": [
+      { "type": "text", "id": "date", "default": "Jan 2024" },
+      { "type": "text", "id": "title" },
+      { "type": "textarea", "id": "body" },
+      { "type": "checkbox", "id": "is_key", "label": "Key moment (filled dot)", "default": false }
+    ]
+  }],
+  "presets": [{ "name": "Timeline" }]
+}
+{% endschema %}

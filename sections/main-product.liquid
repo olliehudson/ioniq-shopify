@@ -1,0 +1,175 @@
+<section class="pdp" id="section-{{ section.id }}">
+  <div class="wrap-wide">
+    <div class="pdp-grid">
+
+      <!-- GALLERY -->
+      <div class="gallery">
+        <div class="gallery-main">
+          {% if section.settings.show_badge %}
+            <div class="badge-best"><div>{{ section.settings.badge_text }}</div></div>
+          {% endif %}
+          {% if product.featured_image %}
+            <img id="hero-img-{{ section.id }}" src="{{ product.featured_image | image_url: width: 1200 }}" alt="{{ product.featured_image.alt | escape }}">
+          {% endif %}
+        </div>
+        {% if product.images.size > 1 %}
+          <div class="gallery-thumbs">
+            {% for img in product.images limit: 4 %}
+              <button class="thumb{% if forloop.first %} is-active{% endif %}" data-img="{{ img | image_url: width: 1200 }}">
+                <img src="{{ img | image_url: width: 200 }}" alt="">
+              </button>
+            {% endfor %}
+          </div>
+        {% endif %}
+      </div>
+
+      <!-- BUY -->
+      <div class="buy">
+        <div class="buy-rating">
+          <span class="stars">{% for i in (1..5) %}<svg width="14" height="14"><use href="#i-star"/></svg>{% endfor %}</span>
+          <strong>{{ section.settings.rating }}</strong>
+          <span>· {{ section.settings.review_count }}</span>
+        </div>
+
+        <div>
+          <div class="buy-title-row">
+            <h1>{{ product.title }}</h1>
+            {% if section.settings.badge_tag != blank %}<span class="buy-tag"><span class="dot"></span>{{ section.settings.badge_tag }}</span>{% endif %}
+          </div>
+          <p class="buy-summary" style="margin-top:14px;">{{ section.settings.summary }}</p>
+        </div>
+
+        <div class="buy-meta">
+          {% for block in section.blocks %}{% if block.type == 'spec' %}
+            <span><strong>{{ block.settings.value }}</strong> {{ block.settings.label }}</span>{% unless forloop.last %}<span class="sep"></span>{% endunless %}
+          {% endif %}{% endfor %}
+        </div>
+
+        {% form 'product', product, id: 'product-form-{{ section.id }}' %}
+          {% if product.variants.size > 1 %}
+            <div>
+              <div class="section-label">{{ product.options.first }}</div>
+              <div class="flavors">
+                {% for variant in product.variants %}
+                  <button type="button" class="flavor{% if variant == product.selected_or_first_available_variant %} is-selected{% endif %}{% unless variant.available %} is-soon{% endunless %}" data-variant-id="{{ variant.id }}">
+                    {% unless variant.available %}<span class="ribbon">Soon</span>{% endunless %}
+                    <span class="swatch" style="background: linear-gradient(160deg, #F4ECDB, #B0B8A4);"></span>
+                    <span class="nm">{{ variant.title }}</span>
+                  </button>
+                {% endfor %}
+              </div>
+              <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+            </div>
+          {% endif %}
+
+          {% if product.selling_plan_groups.size > 0 %}
+            <div>
+              <div class="section-label">Delivery</div>
+              <div class="delivery">
+                {% for group in product.selling_plan_groups %}
+                  {% for plan in group.selling_plans %}
+                    <label class="opt{% if forloop.first %} is-selected{% endif %}">
+                      <input type="radio" name="selling_plan" value="{{ plan.id }}" style="display:none;">
+                      <span class="radio"></span>
+                      <div>
+                        <div class="opt-title">{{ plan.name }} {% if plan.price_adjustments %}<span class="save-pill">{{ plan.price_adjustments.first.value | times: -1 }}% off</span>{% endif %}</div>
+                        <div class="opt-sub">{{ plan.description }}</div>
+                      </div>
+                      <div class="price-block">
+                        <div class="now">{{ product.price | money_without_trailing_zeros }}</div>
+                        {% if product.compare_at_price > product.price %}<div class="compare">{{ product.compare_at_price | money_without_trailing_zeros }}</div>{% endif %}
+                      </div>
+                    </label>
+                  {% endfor %}
+                {% endfor %}
+                <label class="opt">
+                  <input type="radio" name="selling_plan" value="" style="display:none;">
+                  <span class="radio"></span>
+                  <div>
+                    <div class="opt-title">One-Time Purchase</div>
+                    <div class="opt-sub">Ships once · no commitment</div>
+                  </div>
+                  <div class="price-block">
+                    <div class="now">{{ product.compare_at_price | default: product.price | money_without_trailing_zeros }}</div>
+                  </div>
+                </label>
+              </div>
+            </div>
+          {% endif %}
+
+          <div class="atc-row">
+            <div class="qty">
+              <button type="button" data-qty="-1">−</button>
+              <input type="number" name="quantity" value="1" min="1" style="width:32px;text-align:center;border:none;background:transparent;font-family:var(--font-display);font-weight:800;font-size:15px;">
+              <button type="button" data-qty="+1">+</button>
+            </div>
+            <button type="submit" class="atc-btn">
+              <span>Add to cart</span>
+              <span>{{ product.price | money_without_trailing_zeros }}</span>
+            </button>
+          </div>
+        {% endform %}
+
+        <div class="atc-meta">{{ section.settings.atc_meta }}</div>
+
+        {% for block in section.blocks %}{% if block.type == 'accordion' %}
+          <details class="acc"{% if block.settings.open %} open{% endif %}>
+            <summary>{{ block.settings.title }}</summary>
+            <div class="body">{{ block.settings.body }}</div>
+          </details>
+        {% endif %}{% endfor %}
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.querySelectorAll('#section-{{ section.id }} .thumb').forEach(t => {
+    t.addEventListener('click', () => {
+      document.querySelectorAll('#section-{{ section.id }} .thumb').forEach(x => x.classList.remove('is-active'));
+      t.classList.add('is-active');
+      document.getElementById('hero-img-{{ section.id }}').src = t.dataset.img;
+    });
+  });
+  document.querySelectorAll('#section-{{ section.id }} .flavor:not(.is-soon)').forEach(f => {
+    f.addEventListener('click', () => {
+      document.querySelectorAll('#section-{{ section.id }} .flavor').forEach(x => x.classList.remove('is-selected'));
+      f.classList.add('is-selected');
+      document.querySelector('#section-{{ section.id }} [name="id"]').value = f.dataset.variantId;
+    });
+  });
+  document.querySelectorAll('#section-{{ section.id }} .qty button').forEach(b => {
+    b.addEventListener('click', () => {
+      const input = b.parentNode.querySelector('input');
+      input.value = Math.max(1, parseInt(input.value) + parseInt(b.dataset.qty));
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Main product",
+  "settings": [
+    { "type": "checkbox", "id": "show_badge", "default": true, "label": "Show #1 best seller badge" },
+    { "type": "text", "id": "badge_text", "default": "#1<br>Best<br>Selling" },
+    { "type": "text", "id": "badge_tag", "default": "New" },
+    { "type": "text", "id": "rating", "default": "4.9" },
+    { "type": "text", "id": "review_count", "default": "2,400+ verified reviews" },
+    { "type": "textarea", "id": "summary", "default": "For athletes, runners, padel players and anyone who sweats for real. IONIQ replaces the electrolyte, the nootropic, the magnesium and the recovery drink with one sachet." },
+    { "type": "richtext", "id": "atc_meta", "default": "<p>Tax included. <a href='#'>Shipping calculated at checkout.</a><br>60-day risk-free guarantee — refund any unused box.</p>" }
+  ],
+  "blocks": [
+    { "type": "spec", "name": "Spec pill", "settings": [
+      { "type": "text", "id": "value", "default": "750mg" },
+      { "type": "text", "id": "label", "default": "sodium" }
+    ]},
+    { "type": "accordion", "name": "Accordion", "settings": [
+      { "type": "text", "id": "title", "default": "Key benefits" },
+      { "type": "richtext", "id": "body", "default": "<p>Sustained energy from a full mineral charge.</p>" },
+      { "type": "checkbox", "id": "open", "default": false }
+    ]}
+  ],
+  "enabled_on": { "templates": ["product"] }
+}
+{% endschema %}

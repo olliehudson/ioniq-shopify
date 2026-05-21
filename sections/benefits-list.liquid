@@ -1,0 +1,27 @@
+<section class="benefits" id="section-{{ section.id }}">
+  <div class="wrap-wide">
+    <div class="benefits-head">
+      <span class="eyebrow">{{ section.settings.eyebrow }}</span>
+      <h2>{{ section.settings.heading }}</h2>
+    </div>
+    <ul class="benefits-list">
+      {% for block in section.blocks %}
+        <li><span class="marker"></span>{{ block.settings.text }}</li>
+      {% endfor %}
+    </ul>
+    {% if section.settings.foot != blank %}<p class="benefits-foot">{{ section.settings.foot }}</p>{% endif %}
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Benefits list",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "default": "What IONIQ does for your body" },
+    { "type": "richtext", "id": "heading", "default": "<h2>5 benefits.<br><em>One sachet.</em></h2>" },
+    { "type": "richtext", "id": "foot", "default": "<p>No caffeine. No proprietary blends. <strong>No compromise.</strong></p>" }
+  ],
+  "blocks": [{ "type": "benefit", "name": "Benefit", "settings": [{ "type": "text", "id": "text" }] }],
+  "max_blocks": 8,
+  "presets": [{ "name": "Benefits list" }]
+}
+{% endschema %}

@@ -1,0 +1,18 @@
+{
+  "sections": {
+    "hero": {
+      "type": "faq-hero",
+      "settings": {
+        "eyebrow": "The Journal",
+        "heading": "<h1>Long reads from <em>inside IONIQ.</em></h1>"
+      }
+    },
+    "list": {
+      "type": "blog-list"
+    }
+  },
+  "order": [
+    "hero",
+    "list"
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-product"
+    },
+    "sodium-math": {
+      "type": "sodium-math"
+    },
+    "bamboo-salt": {
+      "type": "bamboo-salt"
+    },
+    "benefits-list": {
+      "type": "benefits-list"
+    },
+    "athlete-benefits": {
+      "type": "athlete-benefits"
+    },
+    "stack-compare": {
+      "type": "stack-compare"
+    },
+    "athlete-protocol": {
+      "type": "athlete-protocol"
+    },
+    "reviews-grid": {
+      "type": "reviews-grid"
+    },
+    "guarantee": {
+      "type": "guarantee"
+    }
+  },
+  "order": [
+    "main",
+    "sodium-math",
+    "bamboo-salt",
+    "benefits-list",
+    "athlete-benefits",
+    "stack-compare",
+    "athlete-protocol",
+    "reviews-grid",
+    "guarantee"
+  ]
+}

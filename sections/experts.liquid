@@ -1,0 +1,41 @@
+<section class="experts" id="section-{{ section.id }}">
+  <div class="wrap-wide">
+    <div class="experts-head">
+      <span class="eyebrow">{{ section.settings.eyebrow }}</span>
+      <h2>{{ section.settings.heading }}</h2>
+      <p>{{ section.settings.copy }}</p>
+    </div>
+    <div class="experts-grid">
+      {% for block in section.blocks %}
+        <div class="expert-card">
+          <blockquote>"{{ block.settings.quote }}"</blockquote>
+          <div class="by">
+            <span class="avt">{{ block.settings.initials }}</span>
+            <div class="who"><strong>{{ block.settings.name }}</strong><span class="role">{{ block.settings.role }}</span></div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Expert quotes",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "default": "Endorsed by experts" },
+    { "type": "richtext", "id": "heading" },
+    { "type": "textarea", "id": "copy" }
+  ],
+  "blocks": [{
+    "type": "quote", "name": "Expert quote",
+    "settings": [
+      { "type": "textarea", "id": "quote" },
+      { "type": "text", "id": "initials", "default": "AM" },
+      { "type": "text", "id": "name" },
+      { "type": "text", "id": "role" }
+    ]
+  }],
+  "max_blocks": 3,
+  "presets": [{ "name": "Expert quotes" }]
+}
+{% endschema %}

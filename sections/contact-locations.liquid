@@ -1,0 +1,38 @@
+<section class="locations" id="section-{{ section.id }}">
+  <div class="wrap-wide">
+    <div class="locations-head">
+      <span class="eyebrow">{{ section.settings.eyebrow }}</span>
+      <h2>{{ section.settings.heading }}</h2>
+    </div>
+    <div class="locations-grid">
+      {% for block in section.blocks %}
+        <div class="loc">
+          <div class="role">{{ block.settings.role }}</div>
+          <h4>{{ block.settings.city }}</h4>
+          <p class="addr">{{ block.settings.address }}</p>
+          <div class="hours">{{ block.settings.hours }}</div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Locations",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "default": "Where we are" },
+    { "type": "richtext", "id": "heading", "default": "<h2>HQ, kiln, <em>everything in between.</em></h2>" }
+  ],
+  "blocks": [{
+    "type": "location", "name": "Location",
+    "settings": [
+      { "type": "text", "id": "role", "default": "Headquarters" },
+      { "type": "text", "id": "city", "default": "Brooklyn, NY" },
+      { "type": "richtext", "id": "address" },
+      { "type": "text", "id": "hours" }
+    ]
+  }],
+  "max_blocks": 6,
+  "presets": [{ "name": "Locations" }]
+}
+{% endschema %}

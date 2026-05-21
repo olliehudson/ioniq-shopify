@@ -1,0 +1,45 @@
+<section class="perf-science" id="section-{{ section.id }}">
+  <div class="wrap-wide">
+    <div class="perf-science-head">
+      <div><span class="eyebrow ember">{{ section.settings.eyebrow }}</span><h2>{{ section.settings.heading }}</h2></div>
+      <p>{{ section.settings.copy }}</p>
+    </div>
+    <div class="ing-table">
+      <div class="row is-head">
+        <div>N°</div><div>Ingredient</div><div>Category</div><div>Source</div><div>Role</div><div style="text-align:right">Dose</div>
+      </div>
+      {% for block in section.blocks %}
+        <div class="row">
+          <div class="no">{{ block.settings.no }}</div>
+          <div class="nm">{{ block.settings.name }}</div>
+          <div class="cat">{{ block.settings.category }}</div>
+          <div class="src">{{ block.settings.source }}</div>
+          <div class="why">{{ block.settings.role }}</div>
+          <div class="amt">{{ block.settings.dose }}</div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Ingredients table",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "default": "The formula" },
+    { "type": "richtext", "id": "heading", "default": "<h2>14+ ingredients. Every milligram <em>labelled.</em></h2>" },
+    { "type": "textarea", "id": "copy" }
+  ],
+  "blocks": [{
+    "type": "row", "name": "Ingredient",
+    "settings": [
+      { "type": "text", "id": "no", "default": "01" },
+      { "type": "text", "id": "name", "default": "Sodium" },
+      { "type": "text", "id": "category", "default": "Electrolyte" },
+      { "type": "text", "id": "source", "default": "Bamboo salt" },
+      { "type": "text", "id": "role" },
+      { "type": "text", "id": "dose", "default": "750 mg" }
+    ]
+  }],
+  "presets": [{ "name": "Ingredients table" }]
+}
+{% endschema %}

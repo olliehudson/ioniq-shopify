@@ -1,0 +1,41 @@
+<section class="story-hero" id="section-{{ section.id }}">
+  <div class="wrap-wide">
+    <div class="story-hero-grid">
+      <div>
+        <span class="eyebrow">{{ section.settings.eyebrow }}</span>
+        <h1>{{ section.settings.heading }}</h1>
+        <p class="lede">{{ section.settings.lede }}</p>
+        {% if section.settings.cta_url != blank %}<a href="{{ section.settings.cta_url }}" class="btn btn-primary btn-lg">{{ section.settings.cta_text }}</a>{% endif %}
+      </div>
+      <div class="story-hero-img">
+        {% if section.settings.image != blank %}<img src="{{ section.settings.image | image_url: width: 1400 }}" alt="">{% endif %}
+      </div>
+    </div>
+    {% if section.blocks.size > 0 %}
+      <div class="story-stats">
+        {% for block in section.blocks %}
+          <div class="story-stat"><div class="num">{{ block.settings.value }}</div><div class="lbl">{{ block.settings.label }}</div></div>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Story hero",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "default": "Our story" },
+    { "type": "richtext", "id": "heading", "default": "<h1>A 1,000-year-old tradition for the way we live <em>now.</em></h1>" },
+    { "type": "textarea", "id": "lede" },
+    { "type": "text", "id": "cta_text", "default": "Shop IONIQ — $42/mo" },
+    { "type": "url", "id": "cta_url" },
+    { "type": "image_picker", "id": "image" }
+  ],
+  "blocks": [{ "type": "stat", "name": "Stat", "settings": [
+    { "type": "text", "id": "value", "default": "1,000+" },
+    { "type": "text", "id": "label", "default": "Years of tradition" }
+  ]}],
+  "max_blocks": 4,
+  "presets": [{ "name": "Story hero" }]
+}
+{% endschema %}

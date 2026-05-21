@@ -1,0 +1,22 @@
+{
+  "sections": {
+    "hero": {
+      "type": "contact-hero"
+    },
+    "form": {
+      "type": "contact-form"
+    },
+    "channels": {
+      "type": "contact-channels"
+    },
+    "locations": {
+      "type": "contact-locations"
+    }
+  },
+  "order": [
+    "hero",
+    "form",
+    "channels",
+    "locations"
+  ]
+}

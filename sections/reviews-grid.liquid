@@ -1,0 +1,48 @@
+<section class="reviews-mini" id="section-{{ section.id }}">
+  <div class="wrap-wide">
+    <div class="reviews-mini-head">
+      <span class="eyebrow">{{ section.settings.eyebrow }}</span>
+      <h2>{{ section.settings.heading }}</h2>
+      <div class="reviews-mini-meta">
+        <span class="stars">{% for i in (1..5) %}<svg width="16" height="16"><use href="#i-star"/></svg>{% endfor %}</span>
+        <strong>{{ section.settings.rating }}</strong>
+        <span>{{ section.settings.rating_meta }}</span>
+      </div>
+    </div>
+    <div class="reviews-mini-grid">
+      {% for block in section.blocks %}
+        <div class="rev-card">
+          <div class="stars">{% for i in (1..5) %}<svg><use href="#i-star"/></svg>{% endfor %}</div>
+          {% if block.settings.sport_tag != blank %}<span class="sport-tag">{{ block.settings.sport_tag }}</span>{% endif %}
+          <h5>{{ block.settings.headline }}</h5>
+          <p>{{ block.settings.body }}</p>
+          <div class="by"><span class="avt">{{ block.settings.initials }}</span><span><strong>{{ block.settings.name }}</strong>{{ block.settings.role }}</span></div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Reviews grid",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "default": "Real reviews" },
+    { "type": "richtext", "id": "heading", "default": "<h2>Trusted by <em>athletes</em> across every sport.</h2>" },
+    { "type": "text", "id": "rating", "default": "4.9 / 5" },
+    { "type": "text", "id": "rating_meta", "default": "Based on 2,400+ verified reviews" }
+  ],
+  "blocks": [{
+    "type": "review", "name": "Review",
+    "settings": [
+      { "type": "text", "id": "sport_tag", "default": "🎾 Tennis · 4x / week" },
+      { "type": "text", "id": "headline" },
+      { "type": "textarea", "id": "body" },
+      { "type": "text", "id": "initials", "default": "SK" },
+      { "type": "text", "id": "name" },
+      { "type": "text", "id": "role", "default": "Verified buyer · Tennis player" }
+    ]
+  }],
+  "max_blocks": 9,
+  "presets": [{ "name": "Reviews grid" }]
+}
+{% endschema %}

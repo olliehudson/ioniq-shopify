@@ -1,0 +1,59 @@
+<section class="perf-hero" id="section-{{ section.id }}">
+  <span class="vrail">{{ section.settings.vrail }}</span>
+  <div class="wrap-wide" style="position:relative;z-index:3;">
+    <div class="perf-hero-eyebrow"><span class="blink"></span>{{ section.settings.eyebrow }}</div>
+    <div class="perf-hero-grid">
+      <div>
+        <h1>{{ section.settings.heading }}</h1>
+        <p class="perf-hero-lede">{{ section.settings.lede }}</p>
+        <div class="perf-hero-ctas">
+          <a href="{{ section.settings.cta_url }}" class="btn btn-voltage btn-lg">{{ section.settings.cta_text }}</a>
+          <span class="note">{{ section.settings.cta_note }}</span>
+        </div>
+      </div>
+      <div class="perf-hero-side">
+        {% if section.settings.image != blank %}
+          <div class="perf-hero-product"><img src="{{ section.settings.image | image_url: width: 1000 }}" alt=""></div>
+        {% endif %}
+        <div class="perf-hero-tiles">
+          {% for block in section.blocks %}
+            <div class="perf-hero-tile"><div class="num">{{ block.settings.value }}</div><div class="lbl">{{ block.settings.label }}</div></div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+    {% if section.settings.ticker_1 != blank %}
+      <div class="perf-hero-ticker">
+        <div class="cell">{{ section.settings.ticker_1 }}</div>
+        <div class="cell">{{ section.settings.ticker_2 }}</div>
+        <div class="cell">{{ section.settings.ticker_3 }}</div>
+        <div class="cell">{{ section.settings.ticker_4 }}</div>
+      </div>
+    {% endif %}
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Performance hero",
+  "settings": [
+    { "type": "text", "id": "vrail", "default": "IONIQ Performance · N°02 — recovery & cellular energy" },
+    { "type": "text", "id": "eyebrow", "default": "IONIQ Performance — N°02" },
+    { "type": "richtext", "id": "heading", "default": "<h1>Hydration. Recovery. Clean <em>energy.</em></h1>" },
+    { "type": "textarea", "id": "lede" },
+    { "type": "text", "id": "cta_text", "default": "Start the protocol — $42/mo" },
+    { "type": "url", "id": "cta_url" },
+    { "type": "text", "id": "cta_note", "default": "Subscribe & save · cancel anytime" },
+    { "type": "image_picker", "id": "image" },
+    { "type": "text", "id": "ticker_1", "default": "Total electrolytes <b>1,000 mg</b>" },
+    { "type": "text", "id": "ticker_2", "default": "Sugar / Caffeine <b>0 g / 0 mg</b>" },
+    { "type": "text", "id": "ticker_3", "default": "vs water absorption <b>+64%</b>" },
+    { "type": "text", "id": "ticker_4", "default": "Cost / serving <b>$1.40</b>" }
+  ],
+  "blocks": [{
+    "type": "tile", "name": "Spec tile",
+    "settings": [{ "type": "text", "id": "value", "default": "750mg" }, { "type": "text", "id": "label", "default": "Sodium" }]
+  }],
+  "max_blocks": 4,
+  "presets": [{ "name": "Performance hero" }]
+}
+{% endschema %}

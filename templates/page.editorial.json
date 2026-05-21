@@ -1,0 +1,22 @@
+{
+  "sections": {
+    "hero": {
+      "type": "editorial-hero"
+    },
+    "article": {
+      "type": "editorial-article"
+    },
+    "cta": {
+      "type": "cta-band"
+    },
+    "related": {
+      "type": "related-articles"
+    }
+  },
+  "order": [
+    "hero",
+    "article",
+    "cta",
+    "related"
+  ]
+}

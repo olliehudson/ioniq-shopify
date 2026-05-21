@@ -1,0 +1,25 @@
+{
+  "shop": {
+    "name": "IONIQ"
+  },
+  "general": {
+    "currency": {
+      "symbol": "$"
+    },
+    "search": {
+      "placeholder": "Search"
+    }
+  },
+  "products": {
+    "product": {
+      "add_to_cart": "Add to cart",
+      "sold_out": "Sold out",
+      "unavailable": "Unavailable"
+    }
+  },
+  "cart": {
+    "general": {
+      "title": "Cart"
+    }
+  }
+}

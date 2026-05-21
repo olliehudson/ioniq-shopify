@@ -1,0 +1,50 @@
+<section class="praise" id="section-{{ section.id }}">
+  <div class="wrap-wide">
+    <div class="praise-head">
+      <span class="eyebrow">{{ section.settings.eyebrow }}</span>
+      <h2>{{ section.settings.heading }}</h2>
+      <div class="meta">
+        <span class="stars">{% for i in (1..5) %}<svg><use href="#i-star"/></svg>{% endfor %}</span>
+        <strong>{{ section.settings.rating }}</strong>
+        <span>{{ section.settings.rating_meta }}</span>
+      </div>
+    </div>
+    <div class="praise-grid">
+      {% for block in section.blocks %}
+        <div class="praise-card">
+          <span class="stars">{% for i in (1..5) %}<svg><use href="#i-star"/></svg>{% endfor %}</span>
+          <h5>{{ block.settings.headline }}</h5>
+          <blockquote>{{ block.settings.body }}</blockquote>
+          <div class="by">
+            <span class="avt">{{ block.settings.initials }}</span>
+            <div><strong>{{ block.settings.name }}</strong>{{ block.settings.role }}</div>
+            <span class="v"><svg><use href="#i-verified"/></svg></span>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Testimonials",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "default": "The reviews" },
+    { "type": "richtext", "id": "heading", "default": "<h2>Trusted by athletes across <em>every sport.</em></h2>" },
+    { "type": "text", "id": "rating", "default": "4.9 / 5" },
+    { "type": "text", "id": "rating_meta", "default": "Based on 2,400+ verified reviews" }
+  ],
+  "blocks": [{
+    "type": "review", "name": "Review",
+    "settings": [
+      { "type": "text", "id": "headline" },
+      { "type": "textarea", "id": "body" },
+      { "type": "text", "id": "initials", "default": "SK" },
+      { "type": "text", "id": "name" },
+      { "type": "text", "id": "role", "default": "Verified buyer" }
+    ]
+  }],
+  "max_blocks": 6,
+  "presets": [{ "name": "Testimonials" }]
+}
+{% endschema %}

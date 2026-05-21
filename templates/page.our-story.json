@@ -1,0 +1,45 @@
+{
+  "sections": {
+    "hero": {
+      "type": "story-hero"
+    },
+    "chapter-1": {
+      "type": "story-chapter"
+    },
+    "chapter-2": {
+      "type": "story-chapter",
+      "settings": {
+        "alt": true,
+        "background": "paper"
+      }
+    },
+    "chapter-3": {
+      "type": "story-chapter",
+      "settings": {
+        "background": "white"
+      }
+    },
+    "timeline": {
+      "type": "timeline"
+    },
+    "values": {
+      "type": "values-grid"
+    },
+    "team": {
+      "type": "team-grid"
+    },
+    "cta": {
+      "type": "cta-band"
+    }
+  },
+  "order": [
+    "hero",
+    "chapter-1",
+    "chapter-2",
+    "chapter-3",
+    "timeline",
+    "values",
+    "team",
+    "cta"
+  ]
+}

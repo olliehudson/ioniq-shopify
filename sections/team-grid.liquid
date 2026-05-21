@@ -1,0 +1,43 @@
+<section class="team" id="section-{{ section.id }}">
+  <div class="wrap-wide">
+    <div class="team-head">
+      <span class="eyebrow">{{ section.settings.eyebrow }}</span>
+      <h2>{{ section.settings.heading }}</h2>
+      <p>{{ section.settings.copy }}</p>
+    </div>
+    <div class="team-grid">
+      {% for block in section.blocks %}
+        <div class="team-card">
+          <div class="pic"{% if block.settings.image != blank %} style="background-image:url({{ block.settings.image | image_url: width: 800 }});background-size:cover;"{% endif %}>
+            {% if block.settings.image == blank %}<div class="ph"></div>{% endif %}
+          </div>
+          <div class="body">
+            <div class="role">{{ block.settings.role }}</div>
+            <h4>{{ block.settings.name }}</h4>
+            <p>{{ block.settings.bio }}</p>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Team grid",
+  "settings": [
+    { "type": "text", "id": "eyebrow" },
+    { "type": "richtext", "id": "heading" },
+    { "type": "textarea", "id": "copy" }
+  ],
+  "blocks": [{
+    "type": "person", "name": "Team member",
+    "settings": [
+      { "type": "image_picker", "id": "image" },
+      { "type": "text", "id": "role" },
+      { "type": "text", "id": "name" },
+      { "type": "textarea", "id": "bio" }
+    ]
+  }],
+  "presets": [{ "name": "Team grid" }]
+}
+{% endschema %}

@@ -1,0 +1,28 @@
+<section class="stack" id="section-{{ section.id }}">
+  <div class="wrap-wide">
+    <div class="stack-head">
+      <span class="eyebrow">{{ section.settings.eyebrow }}</span>
+      <h2>{{ section.settings.heading }}</h2>
+      <p>{{ section.settings.copy }}</p>
+    </div>
+    {% if section.settings.image != blank %}
+      <div class="stack-figure">
+        <img src="{{ section.settings.image | image_url: width: 2000 }}" alt="{{ section.settings.image.alt | escape }}">
+      </div>
+    {% endif %}
+    {% if section.settings.foot != blank %}<p class="stack-foot">{{ section.settings.foot }}</p>{% endif %}
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Stack comparison",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "default": "One ritual replaces five" },
+    { "type": "richtext", "id": "heading", "default": "<h2>Same coverage.<br>One product. <em>$168 less.</em></h2>" },
+    { "type": "textarea", "id": "copy" },
+    { "type": "image_picker", "id": "image", "label": "Comparison image" },
+    { "type": "richtext", "id": "foot", "default": "<p>Same coverage. One product. <strong>$168 less per month.</strong></p>" }
+  ],
+  "presets": [{ "name": "Stack compare" }]
+}
+{% endschema %}

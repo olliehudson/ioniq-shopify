@@ -1,0 +1,84 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "IONIQ",
+    "theme_version": "1.0.0",
+    "theme_author": "IONIQ Inc.",
+    "theme_documentation_url": "https://drinkioniq.com"
+  },
+  {
+    "name": "Brand",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "logo",
+        "label": "Logo"
+      },
+      {
+        "type": "image_picker",
+        "id": "favicon",
+        "label": "Favicon"
+      }
+    ]
+  },
+  {
+    "name": "Colors",
+    "settings": [
+      {
+        "type": "color",
+        "id": "color_green",
+        "label": "Primary green",
+        "default": "#1A8859"
+      },
+      {
+        "type": "color",
+        "id": "color_green_deep",
+        "label": "Green deep",
+        "default": "#0F6B40"
+      },
+      {
+        "type": "color",
+        "id": "color_paper",
+        "label": "Paper / cream background",
+        "default": "#F4ECDB"
+      },
+      {
+        "type": "color",
+        "id": "color_ink",
+        "label": "Ink (text)",
+        "default": "#0E0E0E"
+      },
+      {
+        "type": "color",
+        "id": "color_bamboo",
+        "label": "Bamboo accent (purple)",
+        "default": "#3B0E78"
+      }
+    ]
+  },
+  {
+    "name": "Social",
+    "settings": [
+      {
+        "type": "url",
+        "id": "social_instagram",
+        "label": "Instagram"
+      },
+      {
+        "type": "url",
+        "id": "social_tiktok",
+        "label": "TikTok"
+      },
+      {
+        "type": "url",
+        "id": "social_youtube",
+        "label": "YouTube"
+      },
+      {
+        "type": "url",
+        "id": "social_facebook",
+        "label": "Facebook"
+      }
+    ]
+  }
+]

@@ -1,0 +1,16 @@
+<section style="padding: clamp(56px, 8vw, 100px) 0; background: var(--paper);">
+  <div class="wrap-wide">
+    <div class="journal-grid">
+      {% for article in blog.articles %}
+        <a href="{{ article.url }}" class="journal-card{% if forloop.first %} is-featured{% endif %}">
+          {% if article.image %}<div class="img"><img src="{{ article.image | image_url: width: 1200 }}" alt=""></div>{% endif %}
+          <div class="meta">{{ article.tags | first }} · {{ article.content | strip_html | truncatewords: 1 }}</div>
+          <h4>{{ article.title }}</h4>
+        </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% schema %}
+{ "name": "Blog post list", "enabled_on": { "templates": ["blog"] } }
+{% endschema %}

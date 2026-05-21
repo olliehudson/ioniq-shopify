@@ -1,0 +1,52 @@
+<section class="perf-vs" id="section-{{ section.id }}">
+  <div class="wrap-wide">
+    <div class="perf-vs-head">
+      <span class="eyebrow voltage">{{ section.settings.eyebrow }}</span>
+      <h2>{{ section.settings.heading }}</h2>
+      <p>{{ section.settings.copy }}</p>
+    </div>
+    <div class="vs-table">
+      <div class="vs-row is-head">
+        <div></div>
+        <div class="ours">{{ section.settings.h_ours }}</div>
+        <div>{{ section.settings.h_1 }}</div>
+        <div>{{ section.settings.h_2 }}</div>
+        <div>{{ section.settings.h_3 }}</div>
+      </div>
+      {% for block in section.blocks %}
+        <div class="vs-row">
+          <div class="label-cell">{{ block.settings.label }}</div>
+          <div class="ours">{{ block.settings.ours }}</div>
+          <div class="cell">{% if block.settings.v1_x %}<span class="x">{{ block.settings.v1 }}</span>{% else %}{{ block.settings.v1 }}{% endif %}</div>
+          <div class="cell">{% if block.settings.v2_x %}<span class="x">{{ block.settings.v2 }}</span>{% else %}{{ block.settings.v2 }}{% endif %}</div>
+          <div class="cell">{% if block.settings.v3_x %}<span class="x">{{ block.settings.v3 }}</span>{% else %}{{ block.settings.v3 }}{% endif %}</div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Versus table",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "default": "Head to head" },
+    { "type": "richtext", "id": "heading", "default": "<h2>Compare the<br><em>numbers.</em></h2>" },
+    { "type": "textarea", "id": "copy" },
+    { "type": "text", "id": "h_ours", "default": "IONIQ" },
+    { "type": "text", "id": "h_1", "default": "Sports A" },
+    { "type": "text", "id": "h_2", "default": "Sports B" },
+    { "type": "text", "id": "h_3", "default": "Salt Tabs" }
+  ],
+  "blocks": [{
+    "type": "row", "name": "Comparison row",
+    "settings": [
+      { "type": "text", "id": "label", "default": "Sodium" },
+      { "type": "text", "id": "ours", "default": "750 mg" },
+      { "type": "text", "id": "v1", "default": "160 mg" }, { "type": "checkbox", "id": "v1_x", "default": false },
+      { "type": "text", "id": "v2", "default": "110 mg" }, { "type": "checkbox", "id": "v2_x", "default": false },
+      { "type": "text", "id": "v3", "default": "300 mg" }, { "type": "checkbox", "id": "v3_x", "default": false }
+    ]
+  }],
+  "presets": [{ "name": "Versus table" }]
+}
+{% endschema %}

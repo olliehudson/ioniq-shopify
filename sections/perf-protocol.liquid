@@ -1,0 +1,41 @@
+<section class="protocol" id="section-{{ section.id }}">
+  <div class="wrap-wide">
+    <div class="protocol-head">
+      <span class="eyebrow voltage">{{ section.settings.eyebrow }}</span>
+      <h2>{{ section.settings.heading }}</h2>
+      <p>{{ section.settings.copy }}</p>
+    </div>
+    <div class="protocol-grid">
+      {% for block in section.blocks %}
+        <div class="protocol-step">
+          <div class="when"><div class="no">{{ block.settings.number }}</div><div class="lbl">{{ block.settings.label }}</div></div>
+          <h3>{{ block.settings.title }}</h3>
+          <p>{{ block.settings.body }}</p>
+          <div class="timing"><span>{{ block.settings.timing }}</span></div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Pre/Intra/Post protocol",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "default": "The protocol" },
+    { "type": "richtext", "id": "heading", "default": "<h2>Pre. Intra. Post.<br>One <em>sachet.</em></h2>" },
+    { "type": "textarea", "id": "copy" }
+  ],
+  "blocks": [{
+    "type": "step", "name": "Step",
+    "settings": [
+      { "type": "text", "id": "number", "default": "01" },
+      { "type": "text", "id": "label", "default": "Pre · 30–60min before" },
+      { "type": "text", "id": "title", "default": "Prime the system" },
+      { "type": "textarea", "id": "body" },
+      { "type": "text", "id": "timing", "default": "1 sachet in 500ml cold water" }
+    ]
+  }],
+  "max_blocks": 3,
+  "presets": [{ "name": "Pre/Intra/Post" }]
+}
+{% endschema %}

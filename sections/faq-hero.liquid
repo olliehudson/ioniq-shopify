@@ -1,0 +1,20 @@
+<section class="faq-hero" id="section-{{ section.id }}">
+  <div class="wrap-wide">
+    <div class="faq-hero-inner">
+      <span class="eyebrow">{{ section.settings.eyebrow }}</span>
+      <h1>{{ section.settings.heading }}</h1>
+      <p>{{ section.settings.copy }}</p>
+    </div>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "FAQ hero",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "default": "Frequently asked" },
+    { "type": "richtext", "id": "heading", "default": "<h1>Questions, <em>answered.</em></h1>" },
+    { "type": "textarea", "id": "copy" }
+  ],
+  "presets": [{ "name": "FAQ hero" }]
+}
+{% endschema %}

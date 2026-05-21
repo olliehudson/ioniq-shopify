@@ -1,0 +1,45 @@
+<section class="sodium-sci" id="section-{{ section.id }}">
+  <div class="wrap-wide">
+    <div class="ss-head">
+      <div>
+        <span class="eyebrow">{{ section.settings.eyebrow }}</span>
+        <h2>{{ section.settings.heading }}</h2>
+      </div>
+      <p>{{ section.settings.copy }}</p>
+    </div>
+    <div class="ss-grid">
+      {% for block in section.blocks %}
+        <div class="ss-card{% if block.settings.is_ours %} is-ours{% else %} is-them{% endif %}">
+          {% if block.settings.is_ours %}<span class="pill">{{ block.settings.pill }}</span>{% else %}<span class="lbl">{{ block.settings.label }}</span>{% endif %}
+          <div class="big">{{ block.settings.value }}<small style="font-family:var(--font-mono); font-size:14px; letter-spacing:.1em; color:var(--ink-mute); display:block; margin-top:6px;">{{ block.settings.unit }}</small></div>
+          <p class="desc">{{ block.settings.description }}</p>
+        </div>
+      {% endfor %}
+    </div>
+    {% if section.settings.foot != blank %}<p class="ss-foot">{{ section.settings.foot }}</p>{% endif %}
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Sodium math (3 cards)",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "default": "The sodium math" },
+    { "type": "richtext", "id": "heading", "default": "<h2>Real hydration<br>needs <em>real</em> sodium.</h2>" },
+    { "type": "textarea", "id": "copy", "default": "Sodium is the mineral your body actually loses when you sweat — and the one most sports drinks under-dose for taste, not performance." },
+    { "type": "richtext", "id": "foot", "default": "<p>\"This formula is designed for real hydration. <strong>Not flavoured water.</strong>\"</p>" }
+  ],
+  "blocks": [{
+    "type": "card", "name": "Card",
+    "settings": [
+      { "type": "checkbox", "id": "is_ours", "label": "Is this the IONIQ card?", "default": false },
+      { "type": "text", "id": "label", "default": "What your body loses" },
+      { "type": "text", "id": "pill", "default": "IONIQ" },
+      { "type": "text", "id": "value", "default": "800–1,200" },
+      { "type": "text", "id": "unit", "default": "mg / hour sweating" },
+      { "type": "textarea", "id": "description" }
+    ]
+  }],
+  "max_blocks": 3,
+  "presets": [{ "name": "Sodium math" }]
+}
+{% endschema %}
