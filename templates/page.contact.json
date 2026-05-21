@@ -1,16 +1,206 @@
 {
   "sections": {
     "hero": {
-      "type": "contact-hero"
+      "type": "contact-hero",
+      "settings": {
+        "eyebrow": "Get in touch",
+        "heading": "We're <em>here</em> when you need us.",
+        "copy": "Real people, real answers — within 24 hours, Mon–Fri. We read every message."
+      }
     },
     "form": {
-      "type": "contact-form"
+      "type": "contact-form",
+      "settings": {
+        "heading": "Send us a <em>message.</em>",
+        "lede": "Whatever it's about — an order, the formula, a partnership — drop a line below and we'll route it to the right person.",
+        "support_email": "hello@drinkioniq.com"
+      },
+      "blocks": {
+        "t1": {
+          "type": "topic",
+          "settings": {
+            "text": "An order — shipping / refund / damage"
+          }
+        },
+        "t2": {
+          "type": "topic",
+          "settings": {
+            "text": "The product — ingredients / dosing / safety"
+          }
+        },
+        "t3": {
+          "type": "topic",
+          "settings": {
+            "text": "My subscription"
+          }
+        },
+        "t4": {
+          "type": "topic",
+          "settings": {
+            "text": "Wholesale / retail partnership"
+          }
+        },
+        "t5": {
+          "type": "topic",
+          "settings": {
+            "text": "Press or PR enquiry"
+          }
+        },
+        "t6": {
+          "type": "topic",
+          "settings": {
+            "text": "Practitioner / clinic enquiry"
+          }
+        },
+        "t7": {
+          "type": "topic",
+          "settings": {
+            "text": "Something else"
+          }
+        },
+        "s1": {
+          "type": "side_card",
+          "settings": {
+            "is_green": true,
+            "heading": "Fastest answer",
+            "link_text": "Read the FAQ",
+            "subtext": "90% of what we get asked is already in the FAQ. Worth a 30-second scan before emailing."
+          }
+        },
+        "s2": {
+          "type": "side_card",
+          "settings": {
+            "is_green": false,
+            "heading": "General support",
+            "link_text": "hello@drinkioniq.com",
+            "subtext": "Orders, subscription, product questions. We reply within 24 hours."
+          }
+        },
+        "s3": {
+          "type": "side_card",
+          "settings": {
+            "is_green": false,
+            "heading": "Press & partnerships",
+            "link_text": "press@drinkioniq.com",
+            "subtext": "Media enquiries, brand collaborations, athlete partnerships."
+          }
+        },
+        "s4": {
+          "type": "side_card",
+          "settings": {
+            "is_green": false,
+            "heading": "Wholesale",
+            "link_text": "wholesale@drinkioniq.com",
+            "subtext": "Stocking IONIQ in your studio, gym, clinic? Email us — we'll send the deck."
+          }
+        }
+      },
+      "block_order": [
+        "t1",
+        "t2",
+        "t3",
+        "t4",
+        "t5",
+        "t6",
+        "t7",
+        "s1",
+        "s2",
+        "s3",
+        "s4"
+      ]
     },
     "channels": {
-      "type": "contact-channels"
+      "type": "contact-channels",
+      "settings": {
+        "eyebrow": "Other ways to reach us",
+        "heading": "Pick a <em>channel.</em>",
+        "copy": "Some questions are faster on socials. Some are easier by email."
+      },
+      "blocks": {
+        "c1": {
+          "type": "channel",
+          "settings": {
+            "icon": "mail",
+            "title": "Email",
+            "body": "Reply within 24 hours, Mon–Fri.",
+            "link_text": "hello@drinkioniq.com →"
+          }
+        },
+        "c2": {
+          "type": "channel",
+          "settings": {
+            "icon": "chat",
+            "title": "Live chat",
+            "body": "9am–6pm ET, Mon–Fri. Bottom-right corner.",
+            "link_text": "Open chat →"
+          }
+        },
+        "c3": {
+          "type": "channel",
+          "settings": {
+            "icon": "press",
+            "title": "Instagram DM",
+            "body": "We respond to DMs daily — often faster than email.",
+            "link_text": "@drinkioniq →"
+          }
+        },
+        "c4": {
+          "type": "channel",
+          "settings": {
+            "icon": "store",
+            "title": "Stockist?",
+            "body": "Find IONIQ in 200+ studios, clinics and shops worldwide.",
+            "link_text": "Find a stockist →"
+          }
+        }
+      },
+      "block_order": [
+        "c1",
+        "c2",
+        "c3",
+        "c4"
+      ]
     },
     "locations": {
-      "type": "contact-locations"
+      "type": "contact-locations",
+      "settings": {
+        "eyebrow": "Where we are",
+        "heading": "HQ, kiln, <em>everything in between.</em>"
+      },
+      "blocks": {
+        "l1": {
+          "type": "location",
+          "settings": {
+            "role": "Headquarters",
+            "city": "Brooklyn, NY",
+            "address": "<p>112 Bedford Avenue<br>Brooklyn, NY 11211<br>United States</p>",
+            "hours": "Mon–Fri · 9am–6pm ET"
+          }
+        },
+        "l2": {
+          "type": "location",
+          "settings": {
+            "role": "Salt sourcing",
+            "city": "Sancheong, South Korea",
+            "address": "<p>9× fire-roasting kiln<br>Sancheong-gun, Gyeongnam<br>Republic of Korea</p>",
+            "hours": "By appointment only"
+          }
+        },
+        "l3": {
+          "type": "location",
+          "settings": {
+            "role": "European fulfilment",
+            "city": "Rotterdam, NL",
+            "address": "<p>Maashaven warehouse<br>3072 LE Rotterdam<br>Netherlands</p>",
+            "hours": "Mon–Fri · 8am–5pm CET"
+          }
+        }
+      },
+      "block_order": [
+        "l1",
+        "l2",
+        "l3"
+      ]
     }
   },
   "order": [

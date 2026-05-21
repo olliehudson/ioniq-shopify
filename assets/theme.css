@@ -1,10 +1,10 @@
 /* ==========================================================
-   MERIDIAN â€” Shopify Theme
+   MERIDIAN — Shopify Theme
    Shared system across Home, Performance landing, Editorial.
    ========================================================== */
 
 :root{
-  /* IONIQ Brand â€” Emerald + Sage + Cream */
+  /* IONIQ Brand — Emerald + Sage + Cream */
   --green: #1A8859;             /* primary CTA green */
   --green-bright: #22A06A;
   --green-deep: #0F6B40;
@@ -21,7 +21,7 @@
   --ink-soft: #3F4438;
   --ink-mute: #767A6E;
 
-  /* Paper â€” warm cream */
+  /* Paper — warm cream */
   --white: #FFFFFF;
   --paper: #F4ECDB;             /* warm cream like IONIQ bg */
   --paper-2: #ECE2CC;
@@ -267,7 +267,7 @@ section{ position: relative; }
 .nav-item{ position: relative; }
 .nav-item > a{ display: inline-flex; align-items: center; gap: 4px; }
 .nav-item > a::after{
-  content: "â–¾"; font-size: 8px; margin-left: 2px; opacity: .55;
+  content: "▾"; font-size: 8px; margin-left: 2px; opacity: .55;
   transition: transform .2s ease;
 }
 .nav-item:hover > a::after{ transform: rotate(180deg); opacity: 1; }
@@ -2373,7 +2373,7 @@ section{ position: relative; }
     color: var(--ink);
   }
   .side-card a.line:hover{ color: var(--green-deep); }
-  .side-card a.line::after{ content: "â†’"; color: var(--green-deep); margin-left: auto; }
+  .side-card a.line::after{ content: "→"; color: var(--green-deep); margin-left: auto; }
   .side-card .sub{ font-size: 13px; color: var(--ink-soft); margin-top: 8px; }
 
   .side-card.is-green{ background: var(--green); color: var(--white); border: 0; position: relative; overflow: hidden; }
@@ -2496,7 +2496,7 @@ section{ position: relative; }
     color: var(--ink-soft);
   }
   .ed-back:hover{ color: var(--green-deep); }
-  .ed-back::before{ content: "â†"; }
+  .ed-back::before{ content: "←"; }
 
   /* ============ HERO ============ */
   .ed-hero{
@@ -2845,7 +2845,7 @@ section{ position: relative; }
   body{ background: var(--paper); color: var(--ink); }
   ::selection{ background: var(--green); color: var(--white); }
 
-  /* Header â€” light, default style.css applies */
+  /* Header — light, default style.css applies */
   .announce{ background: var(--green); color: var(--white); }
 
   /* ======== HERO ======== */
@@ -3464,7 +3464,7 @@ section{ position: relative; }
     padding-top: 16px; max-width: 60ch;
   }
 
-  /* ======== BAMBOO STRIP (kept dark purple â€” hero ingredient feature) ======== */
+  /* ======== BAMBOO STRIP (kept dark purple — hero ingredient feature) ======== */
   .bamboo-strip{
     background: var(--bamboo); color: var(--white);
     padding: clamp(56px, 7vw, 80px) 0;

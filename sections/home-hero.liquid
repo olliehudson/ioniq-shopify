@@ -30,9 +30,7 @@
       </div>
       <div class="ioniq-hero-art">
         {% if section.settings.badge_text != blank %}<div class="badge-best"><div>{{ section.settings.badge_text }}</div></div>{% endif %}
-        {% if section.settings.image != blank %}
-          <img class="ioniq-hero-art-img" src="{{ section.settings.image | image_url: width: 1200 }}" alt="{{ section.settings.image.alt | escape }}" loading="eager">
-        {% endif %}
+        <img class="ioniq-hero-art-img" src="{% if section.settings.image != blank %}{{ section.settings.image | image_url: width: 1200 }}{% else %}{{ 'product-hero.webp' | asset_url }}{% endif %}" alt="{{ section.settings.image.alt | escape }}" loading="eager">
         {% if section.settings.tag_text != blank %}
           <span class="ioniq-hero-art-tag"><span class="dot"></span>{{ section.settings.tag_text }}</span>
         {% endif %}

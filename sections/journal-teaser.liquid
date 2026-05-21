@@ -10,7 +10,7 @@
     <div class="journal-grid">
       {% for block in section.blocks %}
         <a href="{{ block.settings.url }}" class="journal-card{% if forloop.first %} is-featured{% endif %}">
-          <div class="img">{% if block.settings.image != blank %}<img src="{{ block.settings.image | image_url: width: 1200 }}" alt="">{% endif %}</div>
+          <div class="img">{% if block.settings.image != blank %}<img src="{{ block.settings.image | image_url: width: 1200 }}" alt="">{% elsif forloop.index0 == 0 %}<img src="{{ 'bamboo-salt.png' | asset_url }}" alt="">{% elsif forloop.index0 == 1 %}<img src="{{ 'product-pour.webp' | asset_url }}" alt="">{% else %}<img src="{{ 'benefits.png' | asset_url }}" alt="">{% endif %}</div>
           <div class="meta">{{ block.settings.meta }}</div>
           <h4>{{ block.settings.title }}</h4>
         </a>

@@ -1,25 +1,336 @@
 {
   "sections": {
     "hero": {
-      "type": "home-hero"
+      "type": "home-hero",
+      "settings": {
+        "eyebrow": "N°01 · Bamboo Salt Elixir",
+        "subtitle": "30 sachets",
+        "badge": "#1 best seller",
+        "heading": "It's not just aging. It's <em>depletion.</em>",
+        "lede": "Modern life drains the minerals your cells need to function. IONIQ puts them back — with 9× fire-roasted bamboo salt, 70+ trace minerals, and nootropics. One sachet, before your first coffee.",
+        "cta_text": "Subscribe — $42/mo",
+        "cta_note": "One-time $52 · cancel anytime",
+        "rating": "4.9",
+        "review_count": "2,400+ reviews",
+        "meta_right": "60-day risk-free guarantee",
+        "badge_text": "#1 Best Selling",
+        "tag_text": "Bamboo Salt · Lemon"
+      },
+      "blocks": {
+        "spec1": {
+          "type": "spec",
+          "settings": {
+            "value": "750mg",
+            "label": "Sodium"
+          }
+        },
+        "spec2": {
+          "type": "spec",
+          "settings": {
+            "value": "200mg",
+            "label": "Potassium"
+          }
+        },
+        "spec3": {
+          "type": "spec",
+          "settings": {
+            "value": "50mg",
+            "label": "Magnesium"
+          }
+        }
+      },
+      "block_order": [
+        "spec1",
+        "spec2",
+        "spec3"
+      ]
     },
     "feature-strip": {
-      "type": "feature-strip"
+      "type": "feature-strip",
+      "blocks": {
+        "f1": {
+          "type": "feature",
+          "settings": {
+            "icon": "bolt",
+            "text": "Sustained energy"
+          }
+        },
+        "f2": {
+          "type": "feature",
+          "settings": {
+            "icon": "brain",
+            "text": "Mental clarity"
+          }
+        },
+        "f3": {
+          "type": "feature",
+          "settings": {
+            "icon": "no-caf",
+            "text": "No caffeine"
+          }
+        },
+        "f4": {
+          "type": "feature",
+          "settings": {
+            "icon": "leaf",
+            "text": "No fillers"
+          }
+        },
+        "f5": {
+          "type": "feature",
+          "settings": {
+            "icon": "shield",
+            "text": "3rd-party tested"
+          }
+        }
+      },
+      "block_order": [
+        "f1",
+        "f2",
+        "f3",
+        "f4",
+        "f5"
+      ]
     },
     "what-is": {
-      "type": "what-is"
+      "type": "what-is",
+      "settings": {
+        "eyebrow": "What is IONIQ",
+        "heading": "14+ ingredients. 4 supplement types. <em>1 sachet.</em>",
+        "copy": "Most people take an electrolyte, a nootropic, a multi-mineral, and an antioxidant — that's four different bottles. IONIQ is all of them in one daily ritual."
+      },
+      "blocks": {
+        "p1": {
+          "type": "pill",
+          "settings": {
+            "text": "Electrolytes"
+          }
+        },
+        "p2": {
+          "type": "pill",
+          "settings": {
+            "text": "Nootropics"
+          }
+        },
+        "p3": {
+          "type": "pill",
+          "settings": {
+            "text": "Minerals"
+          }
+        },
+        "p4": {
+          "type": "pill",
+          "settings": {
+            "text": "Antioxidants"
+          }
+        },
+        "p5": {
+          "type": "pill",
+          "settings": {
+            "text": "Anti-inflammatory"
+          }
+        }
+      },
+      "block_order": [
+        "p1",
+        "p2",
+        "p3",
+        "p4",
+        "p5"
+      ]
     },
     "flavour-lineup": {
-      "type": "flavour-lineup"
+      "type": "flavour-lineup",
+      "settings": {
+        "eyebrow": "The lineup",
+        "heading": "One flavour live. Three <em>coming soon.</em>",
+        "copy": "Lemon is what's in your cabinet right now. Watermelon, Blueberry and Sour Mango land in your next box.",
+        "cta_text": "Notify me on new flavours →"
+      },
+      "blocks": {
+        "f1": {
+          "type": "flavor",
+          "settings": {
+            "title": "Bamboo Salt — Lemon",
+            "subtitle": "Clean · Bright · Hydration N°01",
+            "price": "$42 (from $52)",
+            "color_1": "#F4ECDB",
+            "color_2": "#B0B8A4",
+            "is_soon": false,
+            "ribbon": "Available",
+            "cta": "Subscribe →"
+          }
+        },
+        "f2": {
+          "type": "flavor",
+          "settings": {
+            "title": "Bamboo Salt — Watermelon",
+            "subtitle": "Juicy · Summer · Recovery",
+            "price": "Q3 2026",
+            "color_1": "#F4B2BB",
+            "color_2": "#C84055",
+            "is_soon": true,
+            "ribbon": "Coming soon",
+            "cta": "Notify me →"
+          }
+        },
+        "f3": {
+          "type": "flavor",
+          "settings": {
+            "title": "Bamboo Salt — Blueberry",
+            "subtitle": "Antioxidant · Wild · Cognitive",
+            "price": "Q3 2026",
+            "color_1": "#6B85C2",
+            "color_2": "#2A3B6F",
+            "is_soon": true,
+            "ribbon": "Coming soon",
+            "cta": "Notify me →"
+          }
+        },
+        "f4": {
+          "type": "flavor",
+          "settings": {
+            "title": "Bamboo Salt — Sour Mango",
+            "subtitle": "Tart · Tropical · Pre-workout",
+            "price": "Q4 2026",
+            "color_1": "#E6D265",
+            "color_2": "#B5961B",
+            "is_soon": true,
+            "ribbon": "Coming soon",
+            "cta": "Notify me →"
+          }
+        }
+      },
+      "block_order": [
+        "f1",
+        "f2",
+        "f3",
+        "f4"
+      ]
     },
     "testimonials": {
-      "type": "testimonials"
+      "type": "testimonials",
+      "settings": {
+        "eyebrow": "The reviews",
+        "heading": "They stopped feeling like themselves. Then this <em>brought it back.</em>",
+        "rating": "4.9 / 5",
+        "rating_meta": "Based on 2,400+ reviews"
+      },
+      "blocks": {
+        "r1": {
+          "type": "review",
+          "settings": {
+            "headline": "The 3pm slump just stopped",
+            "body": "I was drinking three coffees a day to get through the afternoon. One IONIQ before breakfast and I'm sharp until dinner. I don't even crave the second coffee anymore.",
+            "initials": "SK",
+            "name": "Sarah K.",
+            "role": "Verified buyer"
+          }
+        },
+        "r2": {
+          "type": "review",
+          "settings": {
+            "headline": "Replaced four supplements",
+            "body": "I was taking electrolytes, magnesium, a nootropic and an adaptogen. Now I take IONIQ. My counter is clean, I'm saving money, and honestly I feel better than I did on the stack.",
+            "initials": "MP",
+            "name": "Mark P.",
+            "role": "Verified buyer"
+          }
+        },
+        "r3": {
+          "type": "review",
+          "settings": {
+            "headline": "The mental clarity is real",
+            "body": "I'm in my 40s and I had been blaming \"getting older.\" Three weeks on IONIQ — the brain fog is gone, sleep is better, recovery from training is faster. It really wasn't aging.",
+            "initials": "JD",
+            "name": "James D.",
+            "role": "Verified buyer"
+          }
+        }
+      },
+      "block_order": [
+        "r1",
+        "r2",
+        "r3"
+      ]
     },
     "marquee": {
-      "type": "marquee"
+      "type": "marquee",
+      "blocks": {
+        "m1": {
+          "type": "item",
+          "settings": {
+            "text": "Hydration that reaches your cells"
+          }
+        },
+        "m2": {
+          "type": "item",
+          "settings": {
+            "text": "Sustained energy"
+          }
+        },
+        "m3": {
+          "type": "item",
+          "settings": {
+            "text": "Mental clarity"
+          }
+        },
+        "m4": {
+          "type": "item",
+          "settings": {
+            "text": "Faster recovery"
+          }
+        },
+        "m5": {
+          "type": "item",
+          "settings": {
+            "text": "Longevity"
+          }
+        }
+      },
+      "block_order": [
+        "m1",
+        "m2",
+        "m3",
+        "m4",
+        "m5"
+      ]
     },
     "journal-teaser": {
-      "type": "journal-teaser"
+      "type": "journal-teaser",
+      "settings": {
+        "eyebrow": "From the journal",
+        "heading": "The <em>science</em> & the ritual.",
+        "cta_text": "All articles →"
+      },
+      "blocks": {
+        "j1": {
+          "type": "article",
+          "settings": {
+            "meta": "Hero ingredient · 8 min read",
+            "title": "It all starts with salt. Most brands use the wrong kind."
+          }
+        },
+        "j2": {
+          "type": "article",
+          "settings": {
+            "meta": "Performance · 5 min read",
+            "title": "Why hydration that doesn't reach your cells is just expensive water."
+          }
+        },
+        "j3": {
+          "type": "article",
+          "settings": {
+            "meta": "Science · 6 min read",
+            "title": "Modern life is depleting you. Here's the audit no one ran."
+          }
+        }
+      },
+      "block_order": [
+        "j1",
+        "j2",
+        "j3"
+      ]
     }
   },
   "order": [

@@ -8,7 +8,7 @@
         {% if section.settings.cta_url != blank %}<a href="{{ section.settings.cta_url }}" class="btn btn-primary btn-lg">{{ section.settings.cta_text }}</a>{% endif %}
       </div>
       <div class="story-hero-img">
-        {% if section.settings.image != blank %}<img src="{{ section.settings.image | image_url: width: 1400 }}" alt="">{% endif %}
+        <img src="{% if section.settings.image != blank %}{{ section.settings.image | image_url: width: 1400 }}{% else %}{{ 'bamboo-salt.png' | asset_url }}{% endif %}" alt="">
       </div>
     </div>
     {% if section.blocks.size > 0 %}
