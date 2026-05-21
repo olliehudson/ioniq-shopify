@@ -9,8 +9,9 @@
         {% if link.title contains 'Journal' or link.title contains 'journal' %}
           <div class="nav-item">
             <a href="{{ link.url }}"{% if link.active %} class="is-current"{% endif %}>{{ link.title | escape }}</a>
-            {% assign journal_blog = blogs[section.settings.journal_blog] %}
-            {% if journal_blog and journal_blog.articles_count > 0 %}
+            {% assign jbh = section.settings.journal_blog | default: 'journal' %}
+            {% assign journal_blog = blogs[jbh] %}
+            {% if journal_blog != blank and journal_blog.articles.size > 0 %}
               <div class="nav-dropdown">
                 <div class="nav-dropdown-head">
                   <span class="ttl">Latest from the Journal</span>

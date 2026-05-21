@@ -1,25 +1,41 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "hero": {
-      "type": "story-hero"
+      "type": "story-hero",
+      "settings": {}
     },
     "chapter-1": {
-      "type": "story-chapter-1"
+      "type": "story-chapter-1",
+      "settings": {}
     },
     "chapter-2": {
-      "type": "story-chapter-2"
+      "type": "story-chapter-2",
+      "settings": {}
     },
     "chapter-3": {
-      "type": "story-chapter-3"
+      "type": "story-chapter-3",
+      "settings": {}
     },
     "timeline": {
-      "type": "timeline"
+      "type": "timeline",
+      "settings": {}
     },
     "values": {
-      "type": "values-grid"
+      "type": "values-grid",
+      "settings": {}
     },
     "team": {
-      "type": "team-grid"
+      "type": "team-grid",
+      "settings": {}
     },
     "cta": {
       "type": "cta-band",
