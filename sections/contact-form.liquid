@@ -1,9 +1,9 @@
-<section class="contact-body" id="section-{{ section.id }}">
+<section class="contact-body">
   <div class="wrap-wide">
     <div class="contact-grid">
       {% form 'contact', class: 'form-card' %}
-        <h2>{{ section.settings.heading }}</h2>
-        <p class="lede">{{ section.settings.lede }}</p>
+        <h2>Send us a <em>message.</em></h2>
+        <p class="lede">Whatever it's about — an order, the formula, a partnership — drop a line below and we'll route it to the right person.</p>
         {% if form.posted_successfully? %}<p style="color:var(--green-deep);">Message received — we'll get back within 24 hours.</p>{% endif %}
         <div class="form-row two">
           <div><label>First name</label><input type="text" name="contact[first_name]" required></div>
@@ -17,107 +17,56 @@
           <label>What's this about?</label>
           <select name="contact[topic]" required>
             <option value="">Select a topic</option>
-            {% for block in section.blocks %}{% if block.type == 'topic' %}
-              <option>{{ block.settings.text }}</option>
-            {% endif %}{% endfor %}
+            <option>An order — shipping / refund / damage</option>
+            <option>The product — ingredients / dosing / safety</option>
+            <option>My subscription</option>
+            <option>Wholesale / retail partnership</option>
+            <option>Press or PR enquiry</option>
+            <option>Practitioner / clinic enquiry</option>
+            <option>Something else</option>
           </select>
         </div>
         <div class="form-row">
           <label>Your message</label>
           <textarea name="contact[body]" required></textarea>
-          <span class="hint">We reply within 24 hours, Mon–Fri.</span>
+          <span class="hint">We reply within 24 hours, Mon-Fri.</span>
         </div>
         <div class="form-actions">
           <button type="submit" class="btn btn-primary btn-lg">Send message</button>
-          <span class="small">Or email <a href="mailto:{{ section.settings.support_email }}" style="color:var(--green-deep);text-decoration:underline;">{{ section.settings.support_email }}</a></span>
+          <span class="small">Or email <a href="mailto:hello@drinkioniq.com" style="color:var(--green-deep);text-decoration:underline;">hello@drinkioniq.com</a></span>
         </div>
       {% endform %}
 
       <div class="contact-side">
-        {% for block in section.blocks %}{% if block.type == 'side_card' %}
-          <div class="side-card{% if block.settings.is_green %} is-green{% endif %}">
-            <h3>{{ block.settings.heading }}</h3>
-            <a class="line" href="{{ block.settings.link }}">{{ block.settings.link_text }}</a>
-            <p class="sub">{{ block.settings.subtext }}</p>
-          </div>
-        {% endif %}{% endfor %}
+        <div class="side-card is-green">
+          <h3>Fastest answer</h3>
+          <a class="line" href="/pages/faq">Read the FAQ</a>
+          <p class="sub">90% of what we get asked is already in the FAQ. Worth a 30-second scan before emailing.</p>
+        </div>
+        <div class="side-card">
+          <h3>General support</h3>
+          <a class="line" href="mailto:hello@drinkioniq.com">hello@drinkioniq.com</a>
+          <p class="sub">Orders, subscription, product questions. We reply within 24 hours.</p>
+        </div>
+        <div class="side-card">
+          <h3>Press &amp; partnerships</h3>
+          <a class="line" href="mailto:press@drinkioniq.com">press@drinkioniq.com</a>
+          <p class="sub">Media enquiries, brand collaborations, athlete partnerships, podcast outreach.</p>
+        </div>
+        <div class="side-card">
+          <h3>Wholesale</h3>
+          <a class="line" href="mailto:wholesale@drinkioniq.com">wholesale@drinkioniq.com</a>
+          <p class="sub">Stocking IONIQ in your studio, gym, clinic? Email us — we'll send the deck.</p>
+        </div>
+        <div class="side-card">
+          <h3>Practitioners</h3>
+          <a class="line" href="mailto:clinic@drinkioniq.com">clinic@drinkioniq.com</a>
+          <p class="sub">Clinician programs, sample requests, and lab reports for practitioner reference.</p>
+        </div>
       </div>
     </div>
   </div>
 </section>
 {% schema %}
-{
-  "name": "Contact form",
-  "settings": [
-    {
-      "type": "inline_richtext",
-      "id": "heading",
-      "default": "Send us a <em>message.</em>",
-      "label": "Heading"
-    },
-    {
-      "type": "textarea",
-      "id": "lede",
-      "label": "Lede"
-    },
-    {
-      "type": "text",
-      "id": "support_email",
-      "default": "hello@drinkioniq.com",
-      "label": "Support Email"
-    }
-  ],
-  "blocks": [
-    {
-      "type": "topic",
-      "name": "Topic option",
-      "settings": [
-        {
-          "type": "text",
-          "id": "text",
-          "default": "An order — shipping / refund / damage",
-          "label": "Text"
-        }
-      ]
-    },
-    {
-      "type": "side_card",
-      "name": "Sidebar card",
-      "settings": [
-        {
-          "type": "checkbox",
-          "id": "is_green",
-          "default": false,
-          "label": "Is Green"
-        },
-        {
-          "type": "text",
-          "id": "heading",
-          "default": "General support",
-          "label": "Heading"
-        },
-        {
-          "type": "text",
-          "id": "link_text",
-          "label": "Link Text"
-        },
-        {
-          "type": "url",
-          "id": "link",
-          "label": "Link"
-        },
-        {
-          "type": "textarea",
-          "id": "subtext",
-          "label": "Subtext"
-        }
-      ]
-    }
-  ],
-  "presets": [
-    {
-      "name": "Contact form"
-    }
-  ]
-}
+{ "name": "Contact form", "presets": [{ "name": "Contact form" }] }
 {% endschema %}

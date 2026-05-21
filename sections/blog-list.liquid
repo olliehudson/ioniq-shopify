@@ -1,23 +1,42 @@
-<section style="padding: clamp(56px, 8vw, 100px) 0; background: var(--paper);">
+<section class="ed-pre"><div class="wrap-wide"><a href="{{ routes.root_url }}" class="ed-back">Back to IONIQ</a></div></section>
+
+<section class="faq-hero" style="border-bottom: 1px solid var(--line); padding-bottom: clamp(40px,5vw,72px);">
   <div class="wrap-wide">
-    <div class="journal-grid">
-      {% for article in blog.articles %}
-        <a href="{{ article.url }}" class="journal-card{% if forloop.first %} is-featured{% endif %}">
-          {% if article.image %}<div class="img"><img src="{{ article.image | image_url: width: 1200 }}" alt=""></div>{% endif %}
-          <div class="meta">{{ article.tags | first }} · {{ article.content | strip_html | truncatewords: 1 }}</div>
-          <h4>{{ article.title }}</h4>
-        </a>
-      {% endfor %}
+    <div class="faq-hero-inner">
+      <span class="eyebrow">The Journal</span>
+      <h1>Long reads from <em>inside IONIQ.</em></h1>
+      <p>Essays on hydration, recovery, cellular energy, and the science behind every milligram in our formula.</p>
     </div>
   </div>
 </section>
+
+<section class="journal" style="padding: clamp(56px, 8vw, 100px) 0;">
+  <div class="wrap-wide">
+    {% paginate blog.articles by 12 %}
+      {% if blog.articles.size > 0 %}
+        <div class="journal-grid" style="grid-template-columns: repeat(3, 1fr);">
+          {% for article in blog.articles %}
+            <a href="{{ article.url }}" class="journal-card{% if forloop.first %} is-featured{% endif %}" style="{% if forloop.first %}grid-column: 1 / -1;{% endif %}">
+              <div class="img">
+                {% if article.image %}<img src="{{ article.image | image_url: width: 1600 }}" alt="">
+                {% else %}<img src="{{ 'bamboo-salt.png' | asset_url }}" alt="">{% endif %}
+              </div>
+              <div class="meta">{{ article.tags | first | default: 'Journal' }} &middot; {{ article.content | strip_html | size | divided_by: 1000 | plus: 1 }} min read &middot; {{ article.published_at | date: "%-d %b %Y" }}</div>
+              <h4>{{ article.title | escape }}</h4>
+            </a>
+          {% endfor %}
+        </div>
+        {% if paginate.pages > 1 %}
+          <div style="text-align:center; padding-top: 48px;">
+            {{ paginate | default_pagination }}
+          </div>
+        {% endif %}
+      {% else %}
+        <p style="text-align:center; font-family: var(--font-serif); font-style: italic; font-size: 24px; color: var(--ink-soft);">No articles yet. Check back soon.</p>
+      {% endif %}
+    {% endpaginate %}
+  </div>
+</section>
 {% schema %}
-{
-  "name": "Blog post list",
-  "enabled_on": {
-    "templates": [
-      "blog"
-    ]
-  }
-}
+{ "name": "Journal index", "enabled_on": { "templates": ["blog"] } }
 {% endschema %}

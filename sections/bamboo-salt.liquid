@@ -1,156 +1,27 @@
-<section class="bamboo-section" id="section-{{ section.id }}">
+<section class="bamboo-section" id="bamboo">
   <div class="wrap-wide">
     <div class="bamboo-grid">
       <div class="salt-compare">
-        <div class="row is-head">
-          <div>{{ section.settings.col_header }}</div>
-          <div>{{ section.settings.col_1 }}</div>
-          <div>{{ section.settings.col_2 }}</div>
-          <div class="ours">{{ section.settings.col_ours }}</div>
-        </div>
-        {% for block in section.blocks %}
-          <div class="row">
-            <div class="lbl">{{ block.settings.label }}</div>
-            <div class="cell">{% if block.settings.val_1_dim %}<span class="x">{{ block.settings.val_1 }}</span>{% else %}{{ block.settings.val_1 }}{% endif %}</div>
-            <div class="cell">{% if block.settings.val_2_dim %}<span class="x">{{ block.settings.val_2 }}</span>{% else %}{{ block.settings.val_2 }}{% endif %}</div>
-            <div class="ours">{{ block.settings.val_ours }}</div>
-          </div>
-        {% endfor %}
+        <div class="row is-head"><div>Per gram</div><div>Table salt</div><div>Sea salt</div><div class="ours">Bamboo 9×</div></div>
+        <div class="row"><div class="lbl">Trace minerals</div><div class="cell"><span class="x">0–2</span></div><div class="cell">~12</div><div class="ours">70+</div></div>
+        <div class="row"><div class="lbl">pH</div><div class="cell">~7</div><div class="cell">~7</div><div class="ours">12</div></div>
+        <div class="row"><div class="lbl">Hydroxyl ions</div><div class="cell"><span class="x">None</span></div><div class="cell"><span class="x">None</span></div><div class="ours">Yes</div></div>
+        <div class="row"><div class="lbl">Anti-caking agents</div><div class="cell"><span class="x">Yes</span></div><div class="cell">Often</div><div class="ours">None</div></div>
       </div>
       <div>
-        <span class="eyebrow">{{ section.settings.eyebrow }}</span>
-        <h2>{{ section.settings.heading }}</h2>
-        <p class="lede">{{ section.settings.lede }}</p>
+        <span class="eyebrow">Hero ingredient</span>
+        <h2>Bamboo<br><em>Salt.</em></h2>
+        <p class="lede">9× fire-roasted at 1,500°C — a Korean tradition practised for over 1,000 years, now in a daily sachet.</p>
         <ul class="bamboo-points">
-          {% for block in section.blocks %}{% if block.type == 'point' %}
-            <li><span class="dot"></span><div><b>{{ block.settings.title }}</b><p>{{ block.settings.body }}</p></div></li>
-          {% endif %}{% endfor %}
+          <li><span class="dot"></span><div><b>pH 12 — most alkaline food on Earth</b><p>Supports a healthy acid-alkaline balance.</p></div></li>
+          <li><span class="dot"></span><div><b>70+ trace minerals</b><p>Far beyond sodium, potassium and magnesium.</p></div></li>
+          <li><span class="dot"></span><div><b>Hydroxyl ions</b><p>The only food-based source — supports cellular antioxidant activity.</p></div></li>
+          <li><span class="dot"></span><div><b>No fillers, no artificial minerals</b><p>Just bamboo salt — exactly as it comes from the kiln.</p></div></li>
         </ul>
       </div>
     </div>
   </div>
 </section>
 {% schema %}
-{
-  "name": "Bamboo salt",
-  "settings": [
-    {
-      "type": "header",
-      "content": "Comparison table (left)"
-    },
-    {
-      "type": "text",
-      "id": "col_header",
-      "default": "Per gram",
-      "label": "Col Header"
-    },
-    {
-      "type": "text",
-      "id": "col_1",
-      "default": "Table salt",
-      "label": "Col 1"
-    },
-    {
-      "type": "text",
-      "id": "col_2",
-      "default": "Sea salt",
-      "label": "Col 2"
-    },
-    {
-      "type": "text",
-      "id": "col_ours",
-      "default": "Bamboo 9×",
-      "label": "Col Ours"
-    },
-    {
-      "type": "header",
-      "content": "Copy (right)"
-    },
-    {
-      "type": "text",
-      "id": "eyebrow",
-      "default": "Hero ingredient",
-      "label": "Eyebrow"
-    },
-    {
-      "type": "inline_richtext",
-      "id": "heading",
-      "default": "Bamboo <em>Salt.</em>",
-      "label": "Heading"
-    },
-    {
-      "type": "textarea",
-      "id": "lede",
-      "default": "9× fire-roasted at 1,500°C — a Korean tradition practised for over 1,000 years, now in a daily sachet.",
-      "label": "Lede"
-    }
-  ],
-  "blocks": [
-    {
-      "type": "row",
-      "name": "Comparison row",
-      "settings": [
-        {
-          "type": "text",
-          "id": "label",
-          "default": "Trace minerals",
-          "label": "Label"
-        },
-        {
-          "type": "text",
-          "id": "val_1",
-          "default": "0–2",
-          "label": "Val 1"
-        },
-        {
-          "type": "checkbox",
-          "id": "val_1_dim",
-          "default": true,
-          "label": "Show column 1 as dim/X"
-        },
-        {
-          "type": "text",
-          "id": "val_2",
-          "default": "~12",
-          "label": "Val 2"
-        },
-        {
-          "type": "checkbox",
-          "id": "val_2_dim",
-          "default": false,
-          "label": "Val 2 Dim"
-        },
-        {
-          "type": "text",
-          "id": "val_ours",
-          "default": "70+",
-          "label": "Val Ours"
-        }
-      ]
-    },
-    {
-      "type": "point",
-      "name": "Bullet point",
-      "settings": [
-        {
-          "type": "text",
-          "id": "title",
-          "default": "pH 12 — most alkaline food on Earth",
-          "label": "Title"
-        },
-        {
-          "type": "textarea",
-          "id": "body",
-          "default": "Supports a healthy acid-alkaline balance.",
-          "label": "Body"
-        }
-      ]
-    }
-  ],
-  "presets": [
-    {
-      "name": "Bamboo salt feature"
-    }
-  ]
-}
+{ "name": "Bamboo salt", "presets": [{ "name": "Bamboo salt" }] }
 {% endschema %}

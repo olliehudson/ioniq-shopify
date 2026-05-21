@@ -1,55 +1,16 @@
-<section class="stack" id="section-{{ section.id }}">
+<section class="stack">
   <div class="wrap-wide">
     <div class="stack-head">
-      <span class="eyebrow">{{ section.settings.eyebrow }}</span>
-      <h2>{{ section.settings.heading }}</h2>
-      <p>{{ section.settings.copy }}</p>
+      <span class="eyebrow">One ritual replaces five</span>
+      <h2>Same coverage.<br>One product. <em>$168 less.</em></h2>
+      <p>Most people stack electrolytes, nootropics, minerals, antioxidants and anti-inflammatories — roughly $210 a month across five products. IONIQ does it in one.</p>
     </div>
-    {% if section.settings.image != blank %}
-      <div class="stack-figure">
-        <img src="{{ section.settings.image | image_url: width: 2000 }}" alt="{{ section.settings.image.alt | escape }}">
-      </div>
-    {% endif %}
-    {% if section.settings.foot != blank %}<p class="stack-foot">{{ section.settings.foot }}</p>{% endif %}
+    <div class="stack-figure">
+      <img src="{{ 'stack-compare.png' | asset_url }}" alt="Comparison: your current stack of 5 products at $210/month vs IONIQ at $42/month">
+    </div>
+    <p class="stack-foot">Same coverage. One product. <strong>$168 less per month.</strong></p>
   </div>
 </section>
 {% schema %}
-{
-  "name": "Stack comparison",
-  "settings": [
-    {
-      "type": "text",
-      "id": "eyebrow",
-      "default": "One ritual replaces five",
-      "label": "Eyebrow"
-    },
-    {
-      "type": "inline_richtext",
-      "id": "heading",
-      "default": "Same coverage. One product. <em>$168 less.</em>",
-      "label": "Heading"
-    },
-    {
-      "type": "textarea",
-      "id": "copy",
-      "label": "Copy"
-    },
-    {
-      "type": "image_picker",
-      "id": "image",
-      "label": "Comparison image"
-    },
-    {
-      "type": "inline_richtext",
-      "id": "foot",
-      "default": "Same coverage. One product. <strong>$168 less per month.</strong>",
-      "label": "Foot"
-    }
-  ],
-  "presets": [
-    {
-      "name": "Stack compare"
-    }
-  ]
-}
+{ "name": "Stack compare", "presets": [{ "name": "Stack compare" }] }
 {% endschema %}

@@ -1,112 +1,38 @@
-<section class="athlete-benefits" id="section-{{ section.id }}">
+<section class="athlete-benefits">
   <div class="wrap-wide">
     <div class="ab-head">
-      <span class="eyebrow">{{ section.settings.eyebrow }}</span>
-      <h2>{{ section.settings.heading }}</h2>
-      <p>{{ section.settings.copy }}</p>
+      <span class="eyebrow">Built for sports</span>
+      <h2>The four things <em>athletes</em> feel first.</h2>
+      <p>Within the first 7 days on IONIQ, members tracking training data report measurable changes across the four metrics that move the needle on performance.</p>
     </div>
     <div class="ab-grid">
-      {% for block in section.blocks %}
-        <div class="ab-card">
-          <div class="ico"><svg><use href="#i-{{ block.settings.icon }}"/></svg></div>
-          <h4>{{ block.settings.title }}</h4>
-          <p>{{ block.settings.body }}</p>
-          <div class="ctx"><b>{{ block.settings.stat }}</b>{{ block.settings.stat_label }}</div>
-        </div>
-      {% endfor %}
+      <div class="ab-card">
+        <div class="ico"><svg><use href="#i-run"/></svg></div>
+        <h4>Endurance improvement</h4>
+        <p>Pre-loaded sodium expands plasma volume so the heart pumps less for the same workload. Same effort, longer before fatigue.</p>
+        <div class="ctx"><b>+9%</b>time to exhaustion</div>
+      </div>
+      <div class="ab-card">
+        <div class="ico"><svg><use href="#i-drop"/></svg></div>
+        <h4>Hydration efficiency</h4>
+        <p>Sodium-glucose co-transport pulls water into cells — not just through them. 9× more trace minerals than sea salt means deeper rehydration.</p>
+        <div class="ctx"><b>+64%</b>vs water alone</div>
+      </div>
+      <div class="ab-card">
+        <div class="ico"><svg><use href="#i-muscle"/></svg></div>
+        <h4>Reduced cramps</h4>
+        <p>The 3:1 sodium-to-potassium ratio matches what you lose in sweat — and 50mg magnesium clears calcium after contraction. Cramps stop happening.</p>
+        <div class="ctx"><b>−72%</b>cramping (self-reported)</div>
+      </div>
+      <div class="ab-card">
+        <div class="ico"><svg><use href="#i-brain"/></svg></div>
+        <h4>Mental sharpness, no crash</h4>
+        <p>950mg of nootropics — Cognizin®, L-tyrosine, Rhodiola. Stay sharp during long sessions. Maintain focus under fatigue. No caffeine crash.</p>
+        <div class="ctx"><b>950mg</b>nootropic stack</div>
+      </div>
     </div>
   </div>
 </section>
 {% schema %}
-{
-  "name": "Athlete benefits",
-  "settings": [
-    {
-      "type": "text",
-      "id": "eyebrow",
-      "default": "Built for sports",
-      "label": "Eyebrow"
-    },
-    {
-      "type": "inline_richtext",
-      "id": "heading",
-      "default": "The four things <em>athletes</em> feel first.",
-      "label": "Heading"
-    },
-    {
-      "type": "textarea",
-      "id": "copy",
-      "label": "Copy"
-    }
-  ],
-  "blocks": [
-    {
-      "type": "card",
-      "name": "Benefit card",
-      "settings": [
-        {
-          "type": "select",
-          "id": "icon",
-          "options": [
-            {
-              "value": "run",
-              "label": "Run"
-            },
-            {
-              "value": "drop",
-              "label": "Drop"
-            },
-            {
-              "value": "muscle",
-              "label": "Muscle"
-            },
-            {
-              "value": "brain",
-              "label": "Brain"
-            },
-            {
-              "value": "bolt",
-              "label": "Bolt"
-            },
-            {
-              "value": "shield",
-              "label": "Shield"
-            }
-          ],
-          "default": "run",
-          "label": "Icon"
-        },
-        {
-          "type": "text",
-          "id": "title",
-          "default": "Endurance improvement",
-          "label": "Title"
-        },
-        {
-          "type": "textarea",
-          "id": "body",
-          "label": "Body"
-        },
-        {
-          "type": "text",
-          "id": "stat",
-          "default": "+9%",
-          "label": "Stat"
-        },
-        {
-          "type": "text",
-          "id": "stat_label",
-          "default": "time to exhaustion",
-          "label": "Stat Label"
-        }
-      ]
-    }
-  ],
-  "max_blocks": 4,
-  "presets": [
-    {
-      "name": "Athlete benefits"
-    }
-  ]
-}
+{ "name": "Athlete benefits", "presets": [{ "name": "Athlete benefits" }] }
 {% endschema %}

@@ -19,7 +19,20 @@
             {% else %}
               <span class="ribbon live">{{ block.settings.ribbon | default: 'Available' }}</span>
             {% endif %}
-            {% if block.settings.image != blank %}<img src="{{ block.settings.image | image_url: width: 400 }}" alt="" style="width:60%;">{% endif %}
+            {% if block.settings.image != blank %}<img src="{{ block.settings.image | image_url: width: 400 }}" alt="" style="width:60%;">{% else %}<svg viewBox="0 0 100 130" xmlns="http://www.w3.org/2000/svg" style="width:55%;height:auto;filter:drop-shadow(0 8px 18px rgba(14,14,14,.18));">
+  <defs>
+    <linearGradient id="sachet-shine" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="rgba(255,255,255,.35)"/><stop offset=".5" stop-color="rgba(255,255,255,0)"/><stop offset="1" stop-color="rgba(0,0,0,.18)"/></linearGradient>
+  </defs>
+  <rect x="20" y="10" width="60" height="115" rx="3" fill="rgba(255,255,255,.94)"/>
+  <rect x="20" y="10" width="60" height="115" rx="3" fill="url(#sachet-shine)" opacity=".6"/>
+  <path d="M 20 14 L 80 14 L 78 8 Q 76 5 72 5 L 28 5 Q 24 5 22 8 Z" fill="rgba(14,14,14,.85)"/>
+  <text x="50" y="50" text-anchor="middle" font-family="Archivo, sans-serif" font-weight="900" font-size="14" fill="#0E0E0E" letter-spacing="0.5">IONIQ</text>
+  <line x1="28" y1="58" x2="72" y2="58" stroke="rgba(14,14,14,.18)" stroke-width="0.6"/>
+  <text x="50" y="74" text-anchor="middle" font-family="Manrope, sans-serif" font-weight="700" font-size="4.5" fill="rgba(14,14,14,.6)" letter-spacing="0.6">BAMBOO SALT ELIXIR</text>
+  <text x="50" y="92" text-anchor="middle" font-family="Archivo, sans-serif" font-weight="900" font-size="9" fill="#0F6B40">750mg Na</text>
+  <text x="50" y="103" text-anchor="middle" font-family="Manrope, sans-serif" font-weight="600" font-size="4" fill="rgba(14,14,14,.5)" letter-spacing="0.5">+ 200mg K + 50mg Mg</text>
+  <rect x="32" y="113" width="36" height="2" rx="1" fill="#1A8859"/>
+</svg>{% endif %}
           </div>
           <div>
             <h4>{{ block.settings.title }}</h4>

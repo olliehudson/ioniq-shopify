@@ -1,78 +1,21 @@
-<section class="timeline-sec" id="section-{{ section.id }}">
+<section class="timeline-sec">
   <div class="wrap-wide">
     <div class="timeline-head">
-      <span class="eyebrow">{{ section.settings.eyebrow }}</span>
-      <h2>{{ section.settings.heading }}</h2>
-      <p>{{ section.settings.copy }}</p>
+      <span class="eyebrow">From kiln to kitchen</span>
+      <h2>How <em>IONIQ</em> got here.</h2>
+      <p>Two years from the first founding memo to the first box shipped.</p>
     </div>
     <div class="timeline">
-      {% for block in section.blocks %}
-        <div class="timeline-item{% if block.settings.is_key %} is-key{% endif %}">
-          <span class="dot"></span>
-          <div>
-            <div class="yr">{{ block.settings.date }}</div>
-            <h4>{{ block.settings.title }}</h4>
-            <p>{{ block.settings.body }}</p>
-          </div>
-        </div>
-      {% endfor %}
+      <div class="timeline-item is-key"><span class="dot"></span><div><div class="yr">Jan 2024</div><h4>The founding memo</h4><p>The original observation: people are buying four supplements to chase symptoms that aren't getting better. Most aren't aging — they're depleting.</p></div></div>
+      <div class="timeline-item"><span class="dot"></span><div><div class="yr">Apr 2024</div><h4>The first salt trial</h4><p>We tested 23 commercial salts — sea, Himalayan, Celtic, lake — looking for one with a mineral profile that could anchor a real formula.</p></div></div>
+      <div class="timeline-item is-key"><span class="dot"></span><div><div class="yr">Aug 2024</div><h4>First trip to Korea</h4><p>Spent six weeks visiting traditional bamboo-salt kilns. Came back convinced 9× was the only product that could carry the formula.</p></div></div>
+      <div class="timeline-item"><span class="dot"></span><div><div class="yr">Dec 2024</div><h4>Formulation locked</h4><p>14+ ingredients across four supplement categories. Every dose clinical. Every milligram on the label.</p></div></div>
+      <div class="timeline-item"><span class="dot"></span><div><div class="yr">Mar 2025</div><h4>Clinical pilot — n=24</h4><p>Independent lab measured plasma volume, RPE and recovery markers in 24 athletes. 64% improvement in hydration vs water.</p></div></div>
+      <div class="timeline-item is-key"><span class="dot"></span><div><div class="yr">Sep 2025</div><h4>First box ships</h4><p>IONIQ Bamboo Salt Elixir — Lemon — ships from our Brooklyn warehouse. Launch month sells out in three weeks.</p></div></div>
+      <div class="timeline-item"><span class="dot"></span><div><div class="yr">Q3 2026</div><h4>New flavours</h4><p>Watermelon and Blueberry launch. Sour Mango drops in Q4.</p></div></div>
     </div>
   </div>
 </section>
 {% schema %}
-{
-  "name": "Timeline",
-  "settings": [
-    {
-      "type": "text",
-      "id": "eyebrow",
-      "label": "Eyebrow"
-    },
-    {
-      "type": "inline_richtext",
-      "id": "heading",
-      "label": "Heading"
-    },
-    {
-      "type": "textarea",
-      "id": "copy",
-      "label": "Copy"
-    }
-  ],
-  "blocks": [
-    {
-      "type": "item",
-      "name": "Timeline item",
-      "settings": [
-        {
-          "type": "text",
-          "id": "date",
-          "default": "Jan 2024",
-          "label": "Date"
-        },
-        {
-          "type": "text",
-          "id": "title",
-          "label": "Title"
-        },
-        {
-          "type": "textarea",
-          "id": "body",
-          "label": "Body"
-        },
-        {
-          "type": "checkbox",
-          "id": "is_key",
-          "label": "Key moment (filled dot)",
-          "default": false
-        }
-      ]
-    }
-  ],
-  "presets": [
-    {
-      "name": "Timeline"
-    }
-  ]
-}
+{ "name": "Timeline", "presets": [{ "name": "Timeline" }] }
 {% endschema %}

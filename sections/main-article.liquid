@@ -1,19 +1,79 @@
-<article style="padding: clamp(48px, 7vw, 96px) 0; background: var(--paper);">
-  <div class="wrap-narrow" style="max-width: 760px;">
-    <a href="{{ blog.url }}" style="font-family: var(--font-mono); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-soft);">← Back to the Journal</a>
-    <h1 style="font-family: var(--font-display); font-weight: 900; font-size: clamp(36px, 5vw, 64px); line-height: 1.02; letter-spacing: -.02em; margin: 24px 0 18px;">{{ article.title }}</h1>
-    <p style="font-family: var(--font-mono); font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-soft); margin: 0 0 28px;">{{ article.published_at | date: "%-d %b, %Y" }} · {{ article.author }}</p>
-    {% if article.image %}<img src="{{ article.image | image_url: width: 2000 }}" alt="" style="width: 100%; border-radius: var(--radius-lg); margin-bottom: 36px;">{% endif %}
-    <div class="article-body" style="font-size: 18px; line-height: 1.65;">{{ article.content }}</div>
+<section class="ed-pre"><div class="wrap-wide"><a href="{{ blog.url }}" class="ed-back">Back to the Journal</a></div></section>
+
+<section class="ed-hero">
+  <div class="wrap-wide">
+    <div class="ed-hero-inner">
+      <div class="ed-meta-top">
+        <span class="num">N°{{ article.id | modulo: 100 | prepend: '00' | slice: -2, 2 }}</span><span class="dot"></span>
+        <span>{{ article.tags | first | default: 'Journal' }}</span><span class="dot"></span>
+        <span>{{ article.content | strip_html | size | divided_by: 1000 | plus: 1 }} min read</span>
+      </div>
+      <h1>{{ article.title }}</h1>
+      {% if article.excerpt != blank %}<p class="ed-deck">{{ article.excerpt | strip_html }}</p>{% endif %}
+      <div class="ed-byline">
+        <div class="item"><span class="lbl">Words by</span><span class="val">{{ article.author }}</span></div>
+        <div class="item"><span class="lbl">Published</span><span class="val">{{ article.published_at | date: "%-d %b, %Y" }}</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% if article.image %}
+<div class="wrap-wide">
+  <figure class="ed-hero-img">
+    <img src="{{ article.image | image_url: width: 2400 }}" alt="">
+  </figure>
+</div>
+{% endif %}
+
+<article class="article">
+  <div class="wrap-wide">
+    <div class="article-grid">
+      <aside class="side-left"></aside>
+      <div class="article-body">
+        {{ article.content }}
+      </div>
+      <aside class="side-right"></aside>
+    </div>
   </div>
 </article>
+
+<section class="ed-cta">
+  <div class="wrap-wide">
+    <div class="ed-cta-inner">
+      <div>
+        <h2>It's not just aging. It's <em>depletion.</em></h2>
+        <p>IONIQ is sold direct, subscription-first, shipped free. Try it for 60 days.</p>
+      </div>
+      <div class="right">
+        <a href="{{ routes.all_products_collection_url }}" class="btn btn-ink btn-lg">Subscribe — $42/mo</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="related">
+  <div class="wrap-wide">
+    <div class="related-head">
+      <h2>More from <em>the Journal</em></h2>
+      <a href="{{ blog.url }}" class="btn btn-ghost btn-sm">All articles &rarr;</a>
+    </div>
+    <div class="related-grid">
+      {% assign others = blog.articles | where: 'id', article.id | size %}
+      {% assign count = 0 %}
+      {% for a in blog.articles %}
+        {% if a.id != article.id and count < 3 %}
+          <a href="{{ a.url }}" class="related-card">
+            <div class="img">{% if a.image %}<img src="{{ a.image | image_url: width: 1200 }}" alt="">{% else %}<img src="{{ 'product-pour.webp' | asset_url }}" alt="">{% endif %}</div>
+            <span class="meta">{{ a.tags | first | default: 'Journal' }} &middot; {{ a.content | strip_html | size | divided_by: 1000 | plus: 1 }} min</span>
+            <h4>{{ a.title | escape }}</h4>
+          </a>
+          {% assign count = count | plus: 1 %}
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
 {% schema %}
-{
-  "name": "Article",
-  "enabled_on": {
-    "templates": [
-      "article"
-    ]
-  }
-}
+{ "name": "Article", "enabled_on": { "templates": ["article"] } }
 {% endschema %}

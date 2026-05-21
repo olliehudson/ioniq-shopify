@@ -9,19 +9,20 @@
         {% if link.title contains 'Journal' or link.title contains 'journal' %}
           <div class="nav-item">
             <a href="{{ link.url }}"{% if link.active %} class="is-current"{% endif %}>{{ link.title | escape }}</a>
-            {% if section.blocks.size > 0 %}
+            {% assign journal_blog = blogs[section.settings.journal_blog] %}
+            {% if journal_blog and journal_blog.articles_count > 0 %}
               <div class="nav-dropdown">
                 <div class="nav-dropdown-head">
                   <span class="ttl">Latest from the Journal</span>
-                  <a href="{{ link.url }}" class="all">View all &rarr;</a>
+                  <a href="{{ journal_blog.url }}" class="all">View all &rarr;</a>
                 </div>
                 <div class="nav-dropdown-list">
-                  {% for block in section.blocks %}
-                    <a href="{{ block.settings.url }}" class="nav-dropdown-item">
-                      <div class="pic">{% if block.settings.image != blank %}<img src="{{ block.settings.image | image_url: width: 120 }}" alt="">{% endif %}</div>
+                  {% for article in journal_blog.articles limit: 3 %}
+                    <a href="{{ article.url }}" class="nav-dropdown-item">
+                      <div class="pic">{% if article.image %}<img src="{{ article.image | image_url: width: 120 }}" alt="">{% endif %}</div>
                       <div class="meta">
-                        <span class="tag">{{ block.settings.tag | escape }}</span>
-                        <span class="ttl">{{ block.settings.title | escape }}</span>
+                        <span class="tag">{{ article.tags | first | default: 'Journal' }} &middot; {{ article.content | strip_html | size | divided_by: 1000 | plus: 1 }} min read</span>
+                        <span class="ttl">{{ article.title | escape }}</span>
                       </div>
                       <span class="arrow">&rarr;</span>
                     </a>
@@ -45,50 +46,13 @@
     </div>
   </div>
 </header>
-
 {% schema %}
 {
   "name": "Header",
   "settings": [
-    {
-      "type": "link_list",
-      "id": "menu",
-      "label": "Main menu",
-      "default": "main-menu"
-    }
+    { "type": "link_list", "id": "menu", "label": "Main menu", "default": "main-menu" },
+    { "type": "text", "id": "journal_blog", "label": "Journal blog handle", "default": "journal" }
   ],
-  "blocks": [
-    {
-      "type": "journal_article",
-      "name": "Journal dropdown article",
-      "settings": [
-        {
-          "type": "image_picker",
-          "id": "image",
-          "label": "Thumbnail"
-        },
-        {
-          "type": "text",
-          "id": "tag",
-          "label": "Tag (e.g. 'Science · 5 min')"
-        },
-        {
-          "type": "text",
-          "id": "title",
-          "label": "Headline"
-        },
-        {
-          "type": "url",
-          "id": "url",
-          "label": "Link"
-        }
-      ]
-    }
-  ],
-  "presets": [
-    {
-      "name": "Header"
-    }
-  ]
+  "presets": [{ "name": "Header" }]
 }
 {% endschema %}

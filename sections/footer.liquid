@@ -1,114 +1,67 @@
 <footer class="foot">
   <div class="wrap-wide">
-    <div class="foot-mark">{{ section.settings.mega_word | default: 'IONIQ' }}</div>
+    <div class="foot-mark">IONIQ</div>
     <div class="foot-top">
       <div class="col brand-block">
         <div class="lockup"><span class="glyph">I</span>IONIQ</div>
-        <p>{{ section.settings.tagline | default: 'Hydration & cellular energy. 9× fire-roasted bamboo salt with 70+ trace minerals, hydroxyl ions and nootropics. One sachet.' }}</p>
+        <p>Hydration &amp; cellular energy. 9x fire-roasted bamboo salt with 70+ trace minerals, hydroxyl ions and nootropics. One sachet.</p>
       </div>
-      {% for block in section.blocks %}
-        {% if block.type == 'menu' %}
-          <div class="col">
-            <h5>{{ block.settings.heading | escape }}</h5>
-            <ul>
-              {% for link in linklists[block.settings.menu].links %}
-                <li><a href="{{ link.url }}">{{ link.title | escape }}</a></li>
-              {% endfor %}
-            </ul>
-          </div>
-        {% elsif block.type == 'newsletter' %}
-          <div class="col newsletter">
-            <h5>{{ block.settings.heading | escape }}</h5>
-            {% form 'customer', class: 'input-row' %}
-              <input type="hidden" name="contact[tags]" value="newsletter">
-              <input type="email" name="contact[email]" placeholder="Email address" required>
-              <button type="submit" class="signup-btn">Sign up</button>
-            {% endform %}
-            <p style="color:rgba(255,255,255,.6);font-size:13px;margin:0">{{ block.settings.subtext | escape }}</p>
-            <div class="badges">
-              {% if settings.social_instagram != blank %}<a class="b" href="{{ settings.social_instagram }}">IG</a>{% endif %}
-              {% if settings.social_tiktok != blank %}<a class="b" href="{{ settings.social_tiktok }}">TT</a>{% endif %}
-              {% if settings.social_youtube != blank %}<a class="b" href="{{ settings.social_youtube }}">YT</a>{% endif %}
-              {% if settings.social_facebook != blank %}<a class="b" href="{{ settings.social_facebook }}">FB</a>{% endif %}
-            </div>
-          </div>
-        {% endif %}
-      {% endfor %}
+      <div class="col">
+        <h5>Shop</h5>
+        <ul>
+          <li><a href="{{ routes.all_products_collection_url }}">All products</a></li>
+          <li><a href="/collections/all">Bamboo Salt Elixir</a></li>
+          <li><a href="/pages/performance">Performance</a></li>
+          <li><a href="#">Subscription</a></li>
+          <li><a href="#">Gift cards</a></li>
+        </ul>
+      </div>
+      <div class="col">
+        <h5>About</h5>
+        <ul>
+          <li><a href="/pages/our-story">Our story</a></li>
+          <li><a href="/blogs/journal">Journal</a></li>
+          <li><a href="#">Bamboo Salt</a></li>
+          <li><a href="#">Sourcing</a></li>
+          <li><a href="#">Press</a></li>
+        </ul>
+      </div>
+      <div class="col">
+        <h5>Help</h5>
+        <ul>
+          <li><a href="/pages/faq">FAQ</a></li>
+          <li><a href="/pages/contact-us">Contact us</a></li>
+          <li><a href="#">Shipping</a></li>
+          <li><a href="#">60-day guarantee</a></li>
+          <li><a href="#">Manage subscription</a></li>
+        </ul>
+      </div>
+      <div class="col newsletter">
+        <h5>Stay charged</h5>
+        {% form 'customer', class: 'input-row' %}
+          <input type="hidden" name="contact[tags]" value="newsletter">
+          <input type="email" name="contact[email]" placeholder="Email address" required>
+          <button type="submit" class="signup-btn">Sign up</button>
+        {% endform %}
+        <p style="color:rgba(255,255,255,.6);font-size:13px;margin:0">Get $10 off your first box, plus new flavour drops first.</p>
+        <div class="badges">
+          {% if settings.social_instagram != blank %}<a class="b" href="{{ settings.social_instagram }}">IG</a>{% else %}<a class="b" href="#">IG</a>{% endif %}
+          {% if settings.social_tiktok != blank %}<a class="b" href="{{ settings.social_tiktok }}">TT</a>{% else %}<a class="b" href="#">TT</a>{% endif %}
+          {% if settings.social_youtube != blank %}<a class="b" href="{{ settings.social_youtube }}">YT</a>{% else %}<a class="b" href="#">YT</a>{% endif %}
+          {% if settings.social_facebook != blank %}<a class="b" href="{{ settings.social_facebook }}">FB</a>{% else %}<a class="b" href="#">FB</a>{% endif %}
+        </div>
+      </div>
     </div>
     <div class="foot-base">
-      <span>&copy; {{ 'now' | date: '%Y' }} {{ shop.name }}. All rights reserved. Statements not evaluated by the FDA.</span>
+      <span>&copy; {{ 'now' | date: '%Y' }} IONIQ. All rights reserved. Statements not evaluated by the FDA.</span>
       <div class="links">
-        {% for link in linklists[section.settings.legal_menu].links %}
-          <a href="{{ link.url }}">{{ link.title | escape }}</a>
-        {% endfor %}
+        <a href="/policies/privacy-policy">Privacy</a>
+        <a href="/policies/terms-of-service">Terms</a>
+        <a href="/policies/refund-policy">Refund policy</a>
       </div>
     </div>
   </div>
 </footer>
-
 {% schema %}
-{
-  "name": "Footer",
-  "settings": [
-    {
-      "type": "text",
-      "id": "mega_word",
-      "label": "Big footer word",
-      "default": "IONIQ"
-    },
-    {
-      "type": "textarea",
-      "id": "tagline",
-      "label": "Brand tagline"
-    },
-    {
-      "type": "link_list",
-      "id": "legal_menu",
-      "label": "Legal menu"
-    }
-  ],
-  "blocks": [
-    {
-      "type": "menu",
-      "name": "Menu column",
-      "settings": [
-        {
-          "type": "text",
-          "id": "heading",
-          "label": "Heading",
-          "default": "Shop"
-        },
-        {
-          "type": "link_list",
-          "id": "menu",
-          "label": "Menu"
-        }
-      ]
-    },
-    {
-      "type": "newsletter",
-      "name": "Newsletter",
-      "limit": 1,
-      "settings": [
-        {
-          "type": "text",
-          "id": "heading",
-          "label": "Heading",
-          "default": "Stay charged"
-        },
-        {
-          "type": "textarea",
-          "id": "subtext",
-          "label": "Subtext",
-          "default": "Get $10 off your first box, plus new flavour drops first."
-        }
-      ]
-    }
-  ],
-  "presets": [
-    {
-      "name": "Footer"
-    }
-  ]
-}
+{ "name": "Footer", "presets": [{ "name": "Footer" }] }
 {% endschema %}

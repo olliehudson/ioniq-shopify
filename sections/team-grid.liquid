@@ -1,78 +1,26 @@
-<section class="team" id="section-{{ section.id }}">
+<section class="team">
   <div class="wrap-wide">
     <div class="team-head">
-      <span class="eyebrow">{{ section.settings.eyebrow }}</span>
-      <h2>{{ section.settings.heading }}</h2>
-      <p>{{ section.settings.copy }}</p>
+      <span class="eyebrow">The team</span>
+      <h2>Who's <em>behind</em> it.</h2>
+      <p>A small team — formulation scientists, athletes and operators — building IONIQ from a single warehouse in Brooklyn.</p>
     </div>
     <div class="team-grid">
-      {% for block in section.blocks %}
-        <div class="team-card">
-          <div class="pic"{% if block.settings.image != blank %} style="background-image:url({{ block.settings.image | image_url: width: 800 }});background-size:cover;"{% endif %}>
-            {% if block.settings.image == blank %}<div class="ph"></div>{% endif %}
-          </div>
-          <div class="body">
-            <div class="role">{{ block.settings.role }}</div>
-            <h4>{{ block.settings.name }}</h4>
-            <p>{{ block.settings.bio }}</p>
-          </div>
-        </div>
-      {% endfor %}
+      <div class="team-card">
+        <div class="pic"><div class="ph"></div></div>
+        <div class="body"><div class="role">Founder &amp; CEO</div><h4>Min-Jae Park</h4><p>Spent six years in Korean food-science research before starting IONIQ. The trip to the bamboo kilns was, in retrospect, inevitable.</p></div>
+      </div>
+      <div class="team-card">
+        <div class="pic" style="background: linear-gradient(135deg, #B0B8A4, #97A78A);"><div class="ph"></div></div>
+        <div class="body"><div class="role">Chief Scientific Officer</div><h4>Dr. Anya Mehta</h4><p>Exercise physiologist with a PhD in cellular hydration. Designed the formula and runs the clinical trials. Won't ship anything she can't defend on a paper.</p></div>
+      </div>
+      <div class="team-card">
+        <div class="pic" style="background: linear-gradient(135deg, #D6EBDF, #B0B8A4);"><div class="ph"></div></div>
+        <div class="body"><div class="role">Head of Sourcing</div><h4>Joren Cull</h4><p>Lives between Brooklyn and the Korean kilns. Has personally inspected every batch of bamboo salt that's shipped in an IONIQ sachet.</p></div>
+      </div>
     </div>
   </div>
 </section>
 {% schema %}
-{
-  "name": "Team grid",
-  "settings": [
-    {
-      "type": "text",
-      "id": "eyebrow",
-      "label": "Eyebrow"
-    },
-    {
-      "type": "inline_richtext",
-      "id": "heading",
-      "label": "Heading"
-    },
-    {
-      "type": "textarea",
-      "id": "copy",
-      "label": "Copy"
-    }
-  ],
-  "blocks": [
-    {
-      "type": "person",
-      "name": "Team member",
-      "settings": [
-        {
-          "type": "image_picker",
-          "id": "image",
-          "label": "Image"
-        },
-        {
-          "type": "text",
-          "id": "role",
-          "label": "Role"
-        },
-        {
-          "type": "text",
-          "id": "name",
-          "label": "Name"
-        },
-        {
-          "type": "textarea",
-          "id": "bio",
-          "label": "Bio"
-        }
-      ]
-    }
-  ],
-  "presets": [
-    {
-      "name": "Team grid"
-    }
-  ]
-}
+{ "name": "Team grid", "presets": [{ "name": "Team grid" }] }
 {% endschema %}

@@ -1,102 +1,60 @@
-<section class="reviews-mini" id="section-{{ section.id }}">
+<section class="reviews-mini">
   <div class="wrap-wide">
     <div class="reviews-mini-head">
-      <span class="eyebrow">{{ section.settings.eyebrow }}</span>
-      <h2>{{ section.settings.heading }}</h2>
+      <span class="eyebrow">Real reviews</span>
+      <h2>Trusted by <em>athletes</em> across every sport.</h2>
       <div class="reviews-mini-meta">
         <span class="stars">{% for i in (1..5) %}<svg width="16" height="16"><use href="#i-star"/></svg>{% endfor %}</span>
-        <strong>{{ section.settings.rating }}</strong>
-        <span>{{ section.settings.rating_meta }}</span>
+        <strong>4.9 / 5</strong>
+        <span>Based on 2,400+ verified reviews</span>
       </div>
     </div>
     <div class="reviews-mini-grid">
-      {% for block in section.blocks %}
-        <div class="rev-card">
-          <div class="stars">{% for i in (1..5) %}<svg><use href="#i-star"/></svg>{% endfor %}</div>
-          {% if block.settings.sport_tag != blank %}<span class="sport-tag">{{ block.settings.sport_tag }}</span>{% endif %}
-          <h5>{{ block.settings.headline }}</h5>
-          <p>{{ block.settings.body }}</p>
-          <div class="by"><span class="avt">{{ block.settings.initials }}</span><span><strong>{{ block.settings.name }}</strong>{{ block.settings.role }}</span></div>
-        </div>
-      {% endfor %}
+      <div class="rev-card">
+        <div class="stars">{% for i in (1..5) %}<svg><use href="#i-star"/></svg>{% endfor %}</div>
+        <span class="sport-tag">🎾 Tennis · 4x / week</span>
+        <h5>Cramping just stopped</h5>
+        <p>Used to cramp in the third set every match in summer. One IONIQ before warm-up, one between sets. Hasn't happened in three months. My second serve is still there at 5–5.</p>
+        <div class="by"><span class="avt">SK</span><span><strong>Sarah K.</strong>Verified buyer · Tennis player</span></div>
+      </div>
+      <div class="rev-card">
+        <div class="stars">{% for i in (1..5) %}<svg><use href="#i-star"/></svg>{% endfor %}</div>
+        <span class="sport-tag">🏃 Marathon · 60km/wk</span>
+        <h5>Long-run recovery is night-and-day</h5>
+        <p>Switched off sugar gels mid-block, ran the IONIQ protocol pre and post. Two months in, my recovery between long runs is the best it's been in five years.</p>
+        <div class="by"><span class="avt">MP</span><span><strong>Mark P.</strong>Verified buyer · Marathon</span></div>
+      </div>
+      <div class="rev-card">
+        <div class="stars">{% for i in (1..5) %}<svg><use href="#i-star"/></svg>{% endfor %}</div>
+        <span class="sport-tag">🥎 Padel · 3x / week</span>
+        <h5>Sharper in the third set</h5>
+        <p>Padel in Dubai heat is brutal — by the third set I'd be sloppy on the glass. One before warm-up, one mid-match. Focus stays sharp until the end.</p>
+        <div class="by"><span class="avt">JD</span><span><strong>James D.</strong>Verified buyer · Padel player</span></div>
+      </div>
+      <div class="rev-card">
+        <div class="stars">{% for i in (1..5) %}<svg><use href="#i-star"/></svg>{% endfor %}</div>
+        <span class="sport-tag">⚽ Football · 5-a-side</span>
+        <h5>Replaced four products with one</h5>
+        <p>Was carrying electrolyte tabs, a pre-workout, magnesium for sleep, and a vitamin B12 spray. Now it's one sachet pre, one post. Same training load, less stuff.</p>
+        <div class="by"><span class="avt">ML</span><span><strong>Marco L.</strong>Verified buyer · 5-a-side football</span></div>
+      </div>
+      <div class="rev-card">
+        <div class="stars">{% for i in (1..5) %}<svg><use href="#i-star"/></svg>{% endfor %}</div>
+        <span class="sport-tag">🚴 Cycling · 200km / wk</span>
+        <h5>Hot-weather riding finally works</h5>
+        <p>Used to bonk on summer rides — bottle of sugar drink wasn't cutting it. IONIQ pre, IONIQ during, IONIQ post on big days. Heat doesn't break me the same way anymore.</p>
+        <div class="by"><span class="avt">AR</span><span><strong>Anna R.</strong>Verified buyer · Cyclist</span></div>
+      </div>
+      <div class="rev-card">
+        <div class="stars">{% for i in (1..5) %}<svg><use href="#i-star"/></svg>{% endfor %}</div>
+        <span class="sport-tag">🏋️ CrossFit · 5x / week</span>
+        <h5>The mental focus is the unlock</h5>
+        <p>Strength gains were already there, but the focus on heavy days under fatigue — that was new. Nootropics actually working at clinical doses.</p>
+        <div class="by"><span class="avt">TG</span><span><strong>Tom G.</strong>Verified buyer · CrossFit</span></div>
+      </div>
     </div>
   </div>
 </section>
 {% schema %}
-{
-  "name": "Reviews grid",
-  "settings": [
-    {
-      "type": "text",
-      "id": "eyebrow",
-      "default": "Real reviews",
-      "label": "Eyebrow"
-    },
-    {
-      "type": "inline_richtext",
-      "id": "heading",
-      "default": "Trusted by <em>athletes</em> across every sport.",
-      "label": "Heading"
-    },
-    {
-      "type": "text",
-      "id": "rating",
-      "default": "4.9 / 5",
-      "label": "Rating"
-    },
-    {
-      "type": "text",
-      "id": "rating_meta",
-      "default": "Based on 2,400+ verified reviews",
-      "label": "Rating Meta"
-    }
-  ],
-  "blocks": [
-    {
-      "type": "review",
-      "name": "Review",
-      "settings": [
-        {
-          "type": "text",
-          "id": "sport_tag",
-          "default": "🎾 Tennis · 4x / week",
-          "label": "Sport Tag"
-        },
-        {
-          "type": "text",
-          "id": "headline",
-          "label": "Headline"
-        },
-        {
-          "type": "textarea",
-          "id": "body",
-          "label": "Body"
-        },
-        {
-          "type": "text",
-          "id": "initials",
-          "default": "SK",
-          "label": "Initials"
-        },
-        {
-          "type": "text",
-          "id": "name",
-          "label": "Name"
-        },
-        {
-          "type": "text",
-          "id": "role",
-          "default": "Verified buyer · Tennis player",
-          "label": "Role"
-        }
-      ]
-    }
-  ],
-  "max_blocks": 9,
-  "presets": [
-    {
-      "name": "Reviews grid"
-    }
-  ]
-}
+{ "name": "Reviews grid", "presets": [{ "name": "Reviews grid" }] }
 {% endschema %}

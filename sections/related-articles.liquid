@@ -1,74 +1,28 @@
-<section class="related" id="section-{{ section.id }}">
+<section class="related">
   <div class="wrap-wide">
     <div class="related-head">
-      <h2>{{ section.settings.heading }}</h2>
-      {% if section.settings.cta_url != blank %}<a href="{{ section.settings.cta_url }}" class="btn btn-ghost btn-sm">{{ section.settings.cta_text }}</a>{% endif %}
+      <h2>More from <em>the Journal</em></h2>
+      <a href="/blogs/journal" class="btn btn-ghost btn-sm">All articles →</a>
     </div>
     <div class="related-grid">
-      {% for block in section.blocks %}
-        <a href="{{ block.settings.url }}" class="related-card">
-          <div class="img">{% if block.settings.image != blank %}<img src="{{ block.settings.image | image_url: width: 1200 }}" alt="">{% endif %}</div>
-          <span class="meta">{{ block.settings.meta }}</span>
-          <h4>{{ block.settings.title }}</h4>
-        </a>
-      {% endfor %}
+      <a href="#" class="related-card">
+        <div class="img"><img src="{{ 'product-pour.webp' | asset_url }}" alt=""></div>
+        <span class="meta">Science · 5 min</span>
+        <h4>Why "hydration" that doesn't reach your cells is just expensive water.</h4>
+      </a>
+      <a href="#" class="related-card">
+        <div class="img"><img src="{{ 'benefits.png' | asset_url }}" alt=""></div>
+        <span class="meta">Science · 6 min</span>
+        <h4>Modern life is depleting you. Here's the audit no one ran.</h4>
+      </a>
+      <a href="#" class="related-card">
+        <div class="img"><img src="{{ 'stack-compare.png' | asset_url }}" alt=""></div>
+        <span class="meta">The stack · 4 min</span>
+        <h4>How four bottles became one sachet (and $168 a month).</h4>
+      </a>
     </div>
   </div>
 </section>
 {% schema %}
-{
-  "name": "Related articles",
-  "settings": [
-    {
-      "type": "inline_richtext",
-      "id": "heading",
-      "default": "More from <em>the Journal</em>",
-      "label": "Heading"
-    },
-    {
-      "type": "text",
-      "id": "cta_text",
-      "default": "All articles →",
-      "label": "Cta Text"
-    },
-    {
-      "type": "url",
-      "id": "cta_url",
-      "label": "Cta Url"
-    }
-  ],
-  "blocks": [
-    {
-      "type": "article",
-      "name": "Article",
-      "settings": [
-        {
-          "type": "image_picker",
-          "id": "image",
-          "label": "Image"
-        },
-        {
-          "type": "text",
-          "id": "meta",
-          "label": "Meta"
-        },
-        {
-          "type": "text",
-          "id": "title",
-          "label": "Title"
-        },
-        {
-          "type": "url",
-          "id": "url",
-          "label": "Url"
-        }
-      ]
-    }
-  ],
-  "presets": [
-    {
-      "name": "Related articles"
-    }
-  ]
-}
+{ "name": "Related articles", "presets": [{ "name": "Related articles" }] }
 {% endschema %}
