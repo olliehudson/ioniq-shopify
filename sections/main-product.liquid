@@ -1,15 +1,15 @@
-<section class="pdp" id="section-{{ section.id }}">
+<section class="pdp">
   <div class="wrap-wide">
     <div class="pdp-grid">
 
       <!-- GALLERY -->
       <div class="gallery">
         <div class="gallery-main">
-          {% if section.settings.show_badge %}
-            <div class="badge-best"><div>{{ section.settings.badge_text }}</div></div>
-          {% endif %}
+          <div class="badge-best"><div>#1<br>Best<br>Selling</div></div>
           {% if product.featured_image %}
             <img id="hero-img-{{ section.id }}" src="{{ product.featured_image | image_url: width: 1200 }}" alt="{{ product.featured_image.alt | escape }}">
+          {% else %}
+            <img id="hero-img-{{ section.id }}" src="{{ 'product-hero.webp' | asset_url }}" alt="IONIQ">
           {% endif %}
         </div>
         {% if product.images.size > 1 %}
@@ -27,22 +27,23 @@
       <div class="buy">
         <div class="buy-rating">
           <span class="stars">{% for i in (1..5) %}<svg width="14" height="14"><use href="#i-star"/></svg>{% endfor %}</span>
-          <strong>{{ section.settings.rating }}</strong>
-          <span>· {{ section.settings.review_count }}</span>
+          <strong>4.9</strong>
+          <span>· 2,400+ verified reviews</span>
         </div>
 
         <div>
           <div class="buy-title-row">
             <h1>{{ product.title }}</h1>
-            {% if section.settings.badge_tag != blank %}<span class="buy-tag"><span class="dot"></span>{{ section.settings.badge_tag }}</span>{% endif %}
+            <span class="buy-tag"><span class="dot"></span>New</span>
           </div>
-          <p class="buy-summary" style="margin-top:14px;">{{ section.settings.summary }}</p>
+          <p class="buy-summary" style="margin-top:14px;">For athletes, runners, padel players and anyone who sweats for real. IONIQ replaces the electrolyte, the nootropic, the magnesium and the recovery drink with one sachet — calibrated to what the body actually loses, so your hydration, recovery and clean energy stay locked in. No caffeine. No sugar. No flavoured water.</p>
         </div>
 
         <div class="buy-meta">
-          {% for block in section.blocks %}{% if block.type == 'spec' %}
-            <span><strong>{{ block.settings.value }}</strong> {{ block.settings.label }}</span>{% unless forloop.last %}<span class="sep"></span>{% endunless %}
-          {% endif %}{% endfor %}
+          <span><strong>750mg</strong> sodium</span><span class="sep"></span>
+          <span><strong>200mg</strong> potassium</span><span class="sep"></span>
+          <span><strong>50mg</strong> magnesium</span><span class="sep"></span>
+          <span>30 sachets</span>
         </div>
 
         {% form 'product', product, id: 'product-form-{{ section.id }}' %}
@@ -62,44 +63,9 @@
             </div>
           {% endif %}
 
-          {% if product.selling_plan_groups.size > 0 %}
-            <div>
-              <div class="section-label">Delivery</div>
-              <div class="delivery">
-                {% for group in product.selling_plan_groups %}
-                  {% for plan in group.selling_plans %}
-                    <label class="opt{% if forloop.first %} is-selected{% endif %}">
-                      <input type="radio" name="selling_plan" value="{{ plan.id }}" style="display:none;">
-                      <span class="radio"></span>
-                      <div>
-                        <div class="opt-title">{{ plan.name }} {% if plan.price_adjustments %}<span class="save-pill">{{ plan.price_adjustments.first.value | times: -1 }}% off</span>{% endif %}</div>
-                        <div class="opt-sub">{{ plan.description }}</div>
-                      </div>
-                      <div class="price-block">
-                        <div class="now">{{ product.price | money_without_trailing_zeros }}</div>
-                        {% if product.compare_at_price > product.price %}<div class="compare">{{ product.compare_at_price | money_without_trailing_zeros }}</div>{% endif %}
-                      </div>
-                    </label>
-                  {% endfor %}
-                {% endfor %}
-                <label class="opt">
-                  <input type="radio" name="selling_plan" value="" style="display:none;">
-                  <span class="radio"></span>
-                  <div>
-                    <div class="opt-title">One-Time Purchase</div>
-                    <div class="opt-sub">Ships once · no commitment</div>
-                  </div>
-                  <div class="price-block">
-                    <div class="now">{{ product.compare_at_price | default: product.price | money_without_trailing_zeros }}</div>
-                  </div>
-                </label>
-              </div>
-            </div>
-          {% endif %}
-
           <div class="atc-row">
             <div class="qty">
-              <button type="button" data-qty="-1">−</button>
+              <button type="button" data-qty="-1">-</button>
               <input type="number" name="quantity" value="1" min="1" style="width:32px;text-align:center;border:none;background:transparent;font-family:var(--font-display);font-weight:800;font-size:15px;">
               <button type="button" data-qty="+1">+</button>
             </div>
@@ -110,138 +76,72 @@
           </div>
         {% endform %}
 
-        <div class="atc-meta">{{ section.settings.atc_meta }}</div>
+        <div class="atc-meta">Tax included. <a href="#">Shipping calculated at checkout.</a> 60-day risk-free guarantee — refund any unused box.</div>
 
-        {% for block in section.blocks %}{% if block.type == 'accordion' %}
-          <details class="acc"{% if block.settings.open %} open{% endif %}>
-            <summary>{{ block.settings.title }}</summary>
-            <div class="body">{{ block.settings.body }}</div>
-          </details>
-        {% endif %}{% endfor %}
-
+        <details class="acc" open>
+          <summary>Key benefits</summary>
+          <div class="body">
+            <ul style="margin:0; padding-left:18px; list-style:disc;">
+              <li><strong>Sustained energy</strong> — from a full mineral charge, not stimulants.</li>
+              <li><strong>Mental clarity &amp; focus</strong> — Cognizin® citicoline, L-tyrosine, Rhodiola.</li>
+              <li><strong>Faster recovery &amp; reduced inflammation</strong> — magnesium, ALCAR, taurine.</li>
+              <li><strong>Longevity support</strong> — pH 12 alkaline, antioxidant hydroxyl ions.</li>
+              <li><strong>Hydration that reaches your cells</strong> — bamboo salt + 70+ trace minerals.</li>
+            </ul>
+          </div>
+        </details>
+        <details class="acc">
+          <summary>How to use</summary>
+          <div class="body">
+            <p>Tear one sachet, pour into 500ml of cold water, stir until fully dissolved. Drink in the morning — ideally before your first coffee. On training days, drink one pre-workout and one within 30 min of finishing.</p>
+          </div>
+        </details>
+        <details class="acc">
+          <summary>Full ingredient list</summary>
+          <div class="body">
+            <p>9× fire-roasted bamboo salt (sodium, potassium chloride, 70+ trace minerals, hydroxyl ions), magnesium citrate, Cognizin® citicoline, L-tyrosine, Rhodiola rosea (3% rosavins), ALCAR (acetyl-L-carnitine), taurine, natural lemon flavour, organic stevia leaf extract. No fillers, no proprietary blends, no artificial colours, no artificial flavours.</p>
+          </div>
+        </details>
+        <details class="acc">
+          <summary>Nutritional info</summary>
+          <div class="body">
+            <p>Per sachet (5,000mg total active): Energy 8 kcal · Sodium 750mg · Potassium 200mg · Magnesium 50mg · Cognizin® 250mg · L-Tyrosine 500mg · Rhodiola 200mg · ALCAR 300mg · Taurine 500mg · Total sugars 0mg · Caffeine 0mg.</p>
+          </div>
+        </details>
+        <details class="acc">
+          <summary>Shipping &amp; returns</summary>
+          <div class="body">
+            <p>Free shipping on all subscriptions. Orders typically deliver in 2-4 business days. 60-day risk-free guarantee on every order — if it doesn't work for you, send the box back for a full refund. No restocking fees, ever.</p>
+          </div>
+        </details>
       </div>
     </div>
   </div>
 </section>
-
 <script>
-  document.querySelectorAll('#section-{{ section.id }} .thumb').forEach(t => {
+  document.querySelectorAll('.thumb').forEach(t => {
     t.addEventListener('click', () => {
-      document.querySelectorAll('#section-{{ section.id }} .thumb').forEach(x => x.classList.remove('is-active'));
+      document.querySelectorAll('.thumb').forEach(x => x.classList.remove('is-active'));
       t.classList.add('is-active');
-      document.getElementById('hero-img-{{ section.id }}').src = t.dataset.img;
+      const heroImg = document.querySelector('[id^="hero-img-"]');
+      if (heroImg) heroImg.src = t.dataset.img;
     });
   });
-  document.querySelectorAll('#section-{{ section.id }} .flavor:not(.is-soon)').forEach(f => {
+  document.querySelectorAll('.flavor:not(.is-soon)').forEach(f => {
     f.addEventListener('click', () => {
-      document.querySelectorAll('#section-{{ section.id }} .flavor').forEach(x => x.classList.remove('is-selected'));
+      document.querySelectorAll('.flavor').forEach(x => x.classList.remove('is-selected'));
       f.classList.add('is-selected');
-      document.querySelector('#section-{{ section.id }} [name="id"]').value = f.dataset.variantId;
+      const idField = document.querySelector('[name="id"]');
+      if (idField) idField.value = f.dataset.variantId;
     });
   });
-  document.querySelectorAll('#section-{{ section.id }} .qty button').forEach(b => {
+  document.querySelectorAll('.qty button').forEach(b => {
     b.addEventListener('click', () => {
       const input = b.parentNode.querySelector('input');
       input.value = Math.max(1, parseInt(input.value) + parseInt(b.dataset.qty));
     });
   });
 </script>
-
 {% schema %}
-{
-  "name": "Main product",
-  "settings": [
-    {
-      "type": "checkbox",
-      "id": "show_badge",
-      "default": true,
-      "label": "Show #1 best seller badge"
-    },
-    {
-      "type": "text",
-      "id": "badge_text",
-      "default": "#1 Best Selling",
-      "label": "Badge Text"
-    },
-    {
-      "type": "text",
-      "id": "badge_tag",
-      "default": "New",
-      "label": "Badge Tag"
-    },
-    {
-      "type": "text",
-      "id": "rating",
-      "default": "4.9",
-      "label": "Rating"
-    },
-    {
-      "type": "text",
-      "id": "review_count",
-      "default": "2,400+ verified reviews",
-      "label": "Review Count"
-    },
-    {
-      "type": "textarea",
-      "id": "summary",
-      "default": "For athletes, runners, padel players and anyone who sweats for real. IONIQ replaces the electrolyte, the nootropic, the magnesium and the recovery drink with one sachet.",
-      "label": "Summary"
-    },
-    {
-      "type": "inline_richtext",
-      "id": "atc_meta",
-      "default": "Tax included. <a href='#'>Shipping calculated at checkout.</a> 60-day risk-free guarantee — refund any unused box.",
-      "label": "Atc Meta"
-    }
-  ],
-  "blocks": [
-    {
-      "type": "spec",
-      "name": "Spec pill",
-      "settings": [
-        {
-          "type": "text",
-          "id": "value",
-          "default": "750mg",
-          "label": "Value"
-        },
-        {
-          "type": "text",
-          "id": "label",
-          "default": "sodium",
-          "label": "Label"
-        }
-      ]
-    },
-    {
-      "type": "accordion",
-      "name": "Accordion",
-      "settings": [
-        {
-          "type": "text",
-          "id": "title",
-          "default": "Key benefits",
-          "label": "Title"
-        },
-        {
-          "type": "inline_richtext",
-          "id": "body",
-          "default": "Sustained energy from a full mineral charge.",
-          "label": "Body"
-        },
-        {
-          "type": "checkbox",
-          "id": "open",
-          "default": false,
-          "label": "Open"
-        }
-      ]
-    }
-  ],
-  "enabled_on": {
-    "templates": [
-      "product"
-    ]
-  }
-}
+{ "name": "Main product", "enabled_on": { "templates": ["product"] } }
 {% endschema %}
