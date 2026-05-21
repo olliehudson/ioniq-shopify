@@ -2,84 +2,47 @@
   <div class="wrap-wide">
     <div class="journal-head">
       <div>
-        <span class="eyebrow">{{ section.settings.eyebrow }}</span>
-        <h2>{{ section.settings.heading }}</h2>
+        <span class="eyebrow">From the journal</span>
+        <h2>The <em>science</em> &amp; the ritual.</h2>
       </div>
-      {% if section.settings.cta_url != blank %}<a href="{{ section.settings.cta_url }}" class="btn btn-ghost btn-sm">{{ section.settings.cta_text }}</a>{% endif %}
+      {% assign journal_blog = blank %}
+      {% for b in blogs %}{% if b.articles.size > 0 %}{% assign journal_blog = b %}{% break %}{% endif %}{% endfor %}
+      {% if journal_blog != blank %}
+        <a href="{{ journal_blog.url }}" class="btn btn-ghost btn-sm">All articles &rarr;</a>
+      {% endif %}
     </div>
     <div class="journal-grid">
-      {% for block in section.blocks %}
-        <a href="{{ block.settings.url }}" class="journal-card{% if forloop.first %} is-featured{% endif %}">
-          <div class="img">{% if block.settings.image != blank %}<img src="{{ block.settings.image | image_url: width: 1200 }}" alt="">{% elsif forloop.index0 == 0 %}<img src="{{ 'bamboo-salt.png' | asset_url }}" alt="">{% elsif forloop.index0 == 1 %}<img src="{{ 'product-pour.webp' | asset_url }}" alt="">{% else %}<img src="{{ 'benefits.png' | asset_url }}" alt="">{% endif %}</div>
-          <div class="meta">{{ block.settings.meta }}</div>
-          <h4>{{ block.settings.title }}</h4>
+      {% if journal_blog != blank and journal_blog.articles.size > 0 %}
+        {% for article in journal_blog.articles limit: 3 %}
+          <a href="{{ article.url }}" class="journal-card{% if forloop.first %} is-featured{% endif %}">
+            <div class="img">
+              {% if article.image %}<img src="{{ article.image | image_url: width: 1200 }}" alt="">
+              {% else %}<img src="{{ 'bamboo-salt.png' | asset_url }}" alt="">{% endif %}
+            </div>
+            <div class="meta">{{ article.tags | first | default: 'Journal' }} &middot; {{ article.content | strip_html | size | divided_by: 1000 | plus: 1 }} min read</div>
+            <h4>{{ article.title | escape }}</h4>
+          </a>
+        {% endfor %}
+      {% else %}
+        <a href="#" class="journal-card is-featured">
+          <div class="img"><img src="{{ 'bamboo-salt.png' | asset_url }}" alt=""></div>
+          <div class="meta">Hero ingredient · 8 min read</div>
+          <h4>It all starts with salt. Most brands use the wrong kind.</h4>
         </a>
-      {% endfor %}
+        <a href="#" class="journal-card">
+          <div class="img"><img src="{{ 'product-pour.webp' | asset_url }}" alt=""></div>
+          <div class="meta">Performance · 5 min read</div>
+          <h4>Why hydration that doesn't reach your cells is just expensive water.</h4>
+        </a>
+        <a href="#" class="journal-card">
+          <div class="img"><img src="{{ 'benefits.png' | asset_url }}" alt=""></div>
+          <div class="meta">Science · 6 min read</div>
+          <h4>Modern life is depleting you. Here's the audit no one ran.</h4>
+        </a>
+      {% endif %}
     </div>
   </div>
 </section>
 {% schema %}
-{
-  "name": "Journal teaser",
-  "settings": [
-    {
-      "type": "text",
-      "id": "eyebrow",
-      "default": "From the journal",
-      "label": "Eyebrow"
-    },
-    {
-      "type": "inline_richtext",
-      "id": "heading",
-      "default": "The <em>science</em> & the ritual.",
-      "label": "Heading"
-    },
-    {
-      "type": "text",
-      "id": "cta_text",
-      "default": "All articles →",
-      "label": "Cta Text"
-    },
-    {
-      "type": "url",
-      "id": "cta_url",
-      "label": "Cta Url"
-    }
-  ],
-  "blocks": [
-    {
-      "type": "article",
-      "name": "Article card",
-      "settings": [
-        {
-          "type": "image_picker",
-          "id": "image",
-          "label": "Image"
-        },
-        {
-          "type": "text",
-          "id": "meta",
-          "default": "Science · 5 min read",
-          "label": "Meta"
-        },
-        {
-          "type": "text",
-          "id": "title",
-          "label": "Title"
-        },
-        {
-          "type": "url",
-          "id": "url",
-          "label": "Url"
-        }
-      ]
-    }
-  ],
-  "max_blocks": 3,
-  "presets": [
-    {
-      "name": "Journal teaser"
-    }
-  ]
-}
+{ "name": "Journal teaser", "presets": [{ "name": "Journal teaser" }] }
 {% endschema %}
