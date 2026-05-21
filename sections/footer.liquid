@@ -10,20 +10,14 @@
         <h5>Shop</h5>
         <ul>
           <li><a href="{{ routes.all_products_collection_url }}">All products</a></li>
-          <li><a href="/collections/all">Bamboo Salt Elixir</a></li>
-          <li><a href="/pages/performance">Performance</a></li>
-          <li><a href="#">Subscription</a></li>
-          <li><a href="#">Gift cards</a></li>
+          {% if all_products['ioniq-morning-ritual'] %}<li><a href="{{ all_products['ioniq-morning-ritual'].url }}">Bamboo Salt Elixir</a></li>{% endif %}
         </ul>
       </div>
       <div class="col">
         <h5>About</h5>
         <ul>
           <li><a href="/pages/our-story">Our story</a></li>
-          <li><a href="/blogs/journal">Journal</a></li>
-          <li><a href="#">Bamboo Salt</a></li>
-          <li><a href="#">Sourcing</a></li>
-          <li><a href="#">Press</a></li>
+          {% for b in blogs %}{% if b.articles.size > 0 %}<li><a href="{{ b.url }}">Journal</a></li>{% break %}{% endif %}{% endfor %}
         </ul>
       </div>
       <div class="col">
@@ -31,9 +25,6 @@
         <ul>
           <li><a href="/pages/faq">FAQ</a></li>
           <li><a href="/pages/contact-us">Contact us</a></li>
-          <li><a href="#">Shipping</a></li>
-          <li><a href="#">60-day guarantee</a></li>
-          <li><a href="#">Manage subscription</a></li>
         </ul>
       </div>
       <div class="col newsletter">
@@ -45,19 +36,19 @@
         {% endform %}
         <p style="color:rgba(255,255,255,.6);font-size:13px;margin:0">Get $10 off your first box, plus new flavour drops first.</p>
         <div class="badges">
-          {% if settings.social_instagram != blank %}<a class="b" href="{{ settings.social_instagram }}">IG</a>{% else %}<a class="b" href="#">IG</a>{% endif %}
-          {% if settings.social_tiktok != blank %}<a class="b" href="{{ settings.social_tiktok }}">TT</a>{% else %}<a class="b" href="#">TT</a>{% endif %}
-          {% if settings.social_youtube != blank %}<a class="b" href="{{ settings.social_youtube }}">YT</a>{% else %}<a class="b" href="#">YT</a>{% endif %}
-          {% if settings.social_facebook != blank %}<a class="b" href="{{ settings.social_facebook }}">FB</a>{% else %}<a class="b" href="#">FB</a>{% endif %}
+          {% if settings.social_instagram != blank %}<a class="b" href="{{ settings.social_instagram }}">IG</a>{% endif %}
+          {% if settings.social_tiktok != blank %}<a class="b" href="{{ settings.social_tiktok }}">TT</a>{% endif %}
+          {% if settings.social_youtube != blank %}<a class="b" href="{{ settings.social_youtube }}">YT</a>{% endif %}
+          {% if settings.social_facebook != blank %}<a class="b" href="{{ settings.social_facebook }}">FB</a>{% endif %}
         </div>
       </div>
     </div>
     <div class="foot-base">
       <span>&copy; {{ 'now' | date: '%Y' }} IONIQ. All rights reserved. Statements not evaluated by the FDA.</span>
       <div class="links">
-        <a href="/policies/privacy-policy">Privacy</a>
-        <a href="/policies/terms-of-service">Terms</a>
-        <a href="/policies/refund-policy">Refund policy</a>
+        {% if shop.privacy_policy %}<a href="{{ shop.privacy_policy.url }}">Privacy</a>{% endif %}
+        {% if shop.terms_of_service %}<a href="{{ shop.terms_of_service.url }}">Terms</a>{% endif %}
+        {% if shop.refund_policy %}<a href="{{ shop.refund_policy.url }}">Refund policy</a>{% endif %}
       </div>
     </div>
   </div>
