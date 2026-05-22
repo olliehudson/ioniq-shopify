@@ -1,0 +1,88 @@
+<section class="ed-pre"><div class="wrap-wide"><a href="{{ blog.url }}" class="ed-back">Back to the Journal</a></div></section>
+
+<section class="ed-hero">
+  <div class="wrap-wide">
+    <div class="ed-hero-inner">
+      <div class="ed-meta-top">
+        <span>{{ article.tags | first | default: 'Journal' }}</span><span class="dot"></span>
+        <span>{{ article.content | strip_html | size | divided_by: 1000 | plus: 1 }} min read</span>
+      </div>
+      <h1>{{ article.title }}</h1>
+      {% if article.excerpt != blank %}<p class="ed-deck">{{ article.excerpt | strip_html }}</p>{% endif %}
+      <div class="ed-byline">
+        <div class="item"><span class="lbl">Words by</span><span class="val">{{ article.author }}</span></div>
+        <div class="item"><span class="lbl">Published</span><span class="val">{{ article.published_at | date: "%-d %b, %Y" }}</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% if article.image %}
+<div class="wrap-wide">
+  <figure class="ed-hero-img"><img src="{{ article.image | image_url: width: 2400 }}" alt=""></figure>
+</div>
+{% endif %}
+
+<article class="article">
+  <div class="wrap-wide">
+    <div class="article-grid">
+      <aside class="side-left"></aside>
+      <div class="article-body">{{ article.content }}</div>
+      <aside class="side-right"></aside>
+    </div>
+  </div>
+</article>
+
+<section class="ed-cta">
+  <div class="wrap-wide">
+    <div class="ed-cta-inner">
+      <div>
+        <h2>It's not just aging. It's <em>depletion.</em></h2>
+        <p>IONIQ is sold direct, subscription-first, shipped free. Try it for 60 days.</p>
+      </div>
+      <div class="right"><a href="{{ routes.all_products_collection_url }}" class="btn btn-ink btn-lg">Subscribe — $42/mo</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="related">
+  <div class="wrap-wide">
+    <div class="related-head">
+      <h2>More from <em>the Journal</em></h2>
+      <a href="{{ blog.url }}" class="btn btn-ghost btn-sm">All articles &rarr;</a>
+    </div>
+    <div class="related-grid">
+      {% assign count = 0 %}
+      {% for a in blog.articles %}
+        {% if a.id != article.id and count < 3 %}
+          <a href="{{ a.url }}" class="related-card">
+            <div class="img">{% if a.image %}<img src="{{ a.image | image_url: width: 1200 }}" alt="">{% else %}<img src="{{ 'product-pour.webp' | asset_url }}" alt="">{% endif %}</div>
+            <span class="meta">{{ a.tags | first | default: 'Journal' }} &middot; {{ a.content | strip_html | size | divided_by: 1000 | plus: 1 }} min</span>
+            <h4>{{ a.title | escape }}</h4>
+          </a>
+          {% assign count = count | plus: 1 %}
+        {% endif %}
+      {% endfor %}
+      {% if count == 0 %}
+        <a href="#" class="related-card">
+          <div class="img"><img src="{{ 'product-pour.webp' | asset_url }}" alt=""></div>
+          <span class="meta">Science &middot; 5 min</span>
+          <h4>Why "hydration" that doesn't reach your cells is just expensive water.</h4>
+        </a>
+        <a href="#" class="related-card">
+          <div class="img"><img src="{{ 'benefits.png' | asset_url }}" alt=""></div>
+          <span class="meta">Science &middot; 6 min</span>
+          <h4>Modern life is depleting you. Here's the audit no one ran.</h4>
+        </a>
+        <a href="#" class="related-card">
+          <div class="img"><img src="{{ 'stack-compare.png' | asset_url }}" alt=""></div>
+          <span class="meta">The stack &middot; 4 min</span>
+          <h4>How four bottles became one sachet (and $168 a month).</h4>
+        </a>
+      {% endif %}
+    </div>
+  </div>
+</section>
+{% schema %}
+{ "name": "Article", "enabled_on": { "templates": ["article"] } }
+{% endschema %}

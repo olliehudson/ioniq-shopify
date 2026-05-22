@@ -1,0 +1,89 @@
+<section class="guarantee" id="section-{{ section.id }}">
+  <div class="wrap-wide">
+    <div class="guarantee-inner">
+      <div class="guarantee-seal" aria-label="60-day money-back guarantee">
+        <svg class="rotor" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <defs>
+            <path id="seal-top-{{ section.id }}" d="M 30,100 A 70,70 0 0,1 170,100"/>
+            <path id="seal-bottom-{{ section.id }}" d="M 30,100 A 70,70 0 0,0 170,100"/>
+          </defs>
+          <circle cx="100" cy="100" r="96" fill="none" stroke="rgba(255,255,255,.5)" stroke-width="0.6"/>
+          <circle cx="100" cy="100" r="84" fill="none" stroke="rgba(255,255,255,.92)" stroke-width="1"/>
+          <circle cx="100" cy="100" r="80" fill="none" stroke="rgba(255,255,255,.4)" stroke-width="0.4"/>
+          <g fill="rgba(255,255,255,.92)"><circle cx="15" cy="100" r="1.6"/><circle cx="185" cy="100" r="1.6"/></g>
+          <text font-family="Archivo" font-weight="800" font-size="11" letter-spacing="3.6" fill="rgba(255,255,255,.96)">
+            <textPath href="#seal-top-{{ section.id }}" startOffset="50%" text-anchor="middle">{{ section.settings.seal_top }}</textPath>
+          </text>
+          <text font-family="Archivo" font-weight="800" font-size="11" letter-spacing="3.6" fill="rgba(255,255,255,.96)">
+            <textPath href="#seal-bottom-{{ section.id }}" startOffset="50%" text-anchor="middle" side="right">{{ section.settings.seal_bottom }}</textPath>
+          </text>
+        </svg>
+        <div class="center"><div><div class="big">{{ section.settings.center_num }}</div><div class="lbl">{{ section.settings.center_label }}</div></div></div>
+      </div>
+      <div class="guarantee-copy">
+        <h2>{{ section.settings.heading }}</h2>
+        <p>{{ section.settings.copy }}</p>
+      </div>
+      <a href="{{ section.settings.cta_url }}" class="btn btn-ink btn-lg">{{ section.settings.cta_text }}</a>
+    </div>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Guarantee band",
+  "settings": [
+    {
+      "type": "text",
+      "id": "seal_top",
+      "default": "100% MONEY-BACK",
+      "label": "Seal Top"
+    },
+    {
+      "type": "text",
+      "id": "seal_bottom",
+      "default": "60-DAY GUARANTEE",
+      "label": "Seal Bottom"
+    },
+    {
+      "type": "text",
+      "id": "center_num",
+      "default": "60",
+      "label": "Center Num"
+    },
+    {
+      "type": "text",
+      "id": "center_label",
+      "default": "Days",
+      "label": "Center Label"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "default": "Feel like <em>yourself again.</em>",
+      "label": "Heading"
+    },
+    {
+      "type": "textarea",
+      "id": "copy",
+      "default": "Try IONIQ for 60 days. If you don't notice cleaner energy, sharper focus and better recovery, send the box back — we'll refund you, no questions asked.",
+      "label": "Copy"
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "default": "Start subscription — $42/mo",
+      "label": "Cta Text"
+    },
+    {
+      "type": "url",
+      "id": "cta_url",
+      "label": "Cta Url"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Guarantee band"
+    }
+  ]
+}
+{% endschema %}

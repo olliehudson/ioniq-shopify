@@ -1,0 +1,157 @@
+<section class="lineup" id="section-{{ section.id }}">
+  <div class="wrap-wide">
+    <div class="lineup-head">
+      <div>
+        <span class="eyebrow">{{ section.settings.eyebrow }}</span>
+        <h2>{{ section.settings.heading }}</h2>
+      </div>
+      <div class="right">
+        <p>{{ section.settings.copy }}</p>
+        {% if section.settings.cta_url != blank %}<a href="{{ section.settings.cta_url }}" class="btn btn-ghost btn-sm">{{ section.settings.cta_text }}</a>{% endif %}
+      </div>
+    </div>
+    <div class="lineup-grid">
+      {% for block in section.blocks %}
+        <a href="{{ block.settings.url | default: '#' }}" class="flavor-card{% if block.settings.is_soon %} is-soon{% endif %}">
+          <div class="pic" style="background: linear-gradient(160deg, {{ block.settings.color_1 }}, {{ block.settings.color_2 }});">
+            {% if block.settings.is_soon %}
+              <span class="ribbon soon">Coming soon</span>
+            {% else %}
+              <span class="ribbon live">{{ block.settings.ribbon | default: 'Available' }}</span>
+            {% endif %}
+            {% if block.settings.image != blank %}<img src="{{ block.settings.image | image_url: width: 400 }}" alt="" style="width:60%;">{% else %}<svg viewBox="0 0 100 130" xmlns="http://www.w3.org/2000/svg" style="width:55%;height:auto;filter:drop-shadow(0 8px 18px rgba(14,14,14,.18));">
+  <defs>
+    <linearGradient id="sachet-shine" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="rgba(255,255,255,.35)"/><stop offset=".5" stop-color="rgba(255,255,255,0)"/><stop offset="1" stop-color="rgba(0,0,0,.18)"/></linearGradient>
+  </defs>
+  <rect x="20" y="10" width="60" height="115" rx="3" fill="rgba(255,255,255,.94)"/>
+  <rect x="20" y="10" width="60" height="115" rx="3" fill="url(#sachet-shine)" opacity=".6"/>
+  <path d="M 20 14 L 80 14 L 78 8 Q 76 5 72 5 L 28 5 Q 24 5 22 8 Z" fill="rgba(14,14,14,.85)"/>
+  <text x="50" y="50" text-anchor="middle" font-family="Archivo, sans-serif" font-weight="900" font-size="14" fill="#0E0E0E" letter-spacing="0.5">IONIQ</text>
+  <line x1="28" y1="58" x2="72" y2="58" stroke="rgba(14,14,14,.18)" stroke-width="0.6"/>
+  <text x="50" y="74" text-anchor="middle" font-family="Manrope, sans-serif" font-weight="700" font-size="4.5" fill="rgba(14,14,14,.6)" letter-spacing="0.6">BAMBOO SALT ELIXIR</text>
+  <text x="50" y="92" text-anchor="middle" font-family="Archivo, sans-serif" font-weight="900" font-size="9" fill="#0F6B40">750mg Na</text>
+  <text x="50" y="103" text-anchor="middle" font-family="Manrope, sans-serif" font-weight="600" font-size="4" fill="rgba(14,14,14,.5)" letter-spacing="0.5">+ 200mg K + 50mg Mg</text>
+  <rect x="32" y="113" width="36" height="2" rx="1" fill="#1A8859"/>
+</svg>{% endif %}
+          </div>
+          <div>
+            <h4>{{ block.settings.title }}</h4>
+            <p class="nm">{{ block.settings.subtitle }}</p>
+          </div>
+          <div class="footer">
+            <span class="price">{{ block.settings.price }}</span>
+            <span class="cta">{{ block.settings.cta | default: 'Subscribe →' }}</span>
+          </div>
+        </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Flavour lineup",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "default": "The lineup",
+      "label": "Eyebrow"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "default": "One flavour live. Three <em>coming soon.</em>",
+      "label": "Heading"
+    },
+    {
+      "type": "textarea",
+      "id": "copy",
+      "default": "Lemon is what's available now. Watermelon, Blueberry and Sour Mango drop next.",
+      "label": "Copy"
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "default": "Notify me →",
+      "label": "Cta Text"
+    },
+    {
+      "type": "url",
+      "id": "cta_url",
+      "label": "Cta Url"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "flavor",
+      "name": "Flavour",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "default": "Bamboo Salt — Lemon",
+          "label": "Title"
+        },
+        {
+          "type": "text",
+          "id": "subtitle",
+          "default": "Clean · Bright · Hydration N°01",
+          "label": "Subtitle"
+        },
+        {
+          "type": "text",
+          "id": "price",
+          "default": "$42",
+          "label": "Price"
+        },
+        {
+          "type": "color",
+          "id": "color_1",
+          "default": "#F4ECDB",
+          "label": "Color 1"
+        },
+        {
+          "type": "color",
+          "id": "color_2",
+          "default": "#B0B8A4",
+          "label": "Color 2"
+        },
+        {
+          "type": "checkbox",
+          "id": "is_soon",
+          "default": false,
+          "label": "Coming soon (faded look)"
+        },
+        {
+          "type": "text",
+          "id": "ribbon",
+          "default": "Available",
+          "label": "Ribbon"
+        },
+        {
+          "type": "text",
+          "id": "cta",
+          "default": "Subscribe →",
+          "label": "Cta"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "url",
+          "id": "url",
+          "label": "Url"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 8,
+  "presets": [
+    {
+      "name": "Flavour lineup"
+    }
+  ]
+}
+{% endschema %}

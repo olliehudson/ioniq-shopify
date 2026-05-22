@@ -1,0 +1,53 @@
+<section class="story-cta" id="section-{{ section.id }}">
+  <div class="wrap-wide">
+    <h2>{{ section.settings.heading }}</h2>
+    <p>{{ section.settings.copy }}</p>
+    <div class="ctas">
+      {% if section.settings.cta_primary_text != blank %}<a href="{{ section.settings.cta_primary_url }}" class="btn btn-ink btn-lg">{{ section.settings.cta_primary_text }}</a>{% endif %}
+      {% if section.settings.cta_secondary_text != blank %}<a href="{{ section.settings.cta_secondary_url }}" class="btn btn-ghost-light btn-lg">{{ section.settings.cta_secondary_text }}</a>{% endif %}
+    </div>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "CTA band (green)",
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Heading"
+    },
+    {
+      "type": "textarea",
+      "id": "copy",
+      "label": "Copy"
+    },
+    {
+      "type": "text",
+      "id": "cta_primary_text",
+      "default": "Subscribe — $42/mo",
+      "label": "Cta Primary Text"
+    },
+    {
+      "type": "url",
+      "id": "cta_primary_url",
+      "label": "Cta Primary Url"
+    },
+    {
+      "type": "text",
+      "id": "cta_secondary_text",
+      "label": "Cta Secondary Text"
+    },
+    {
+      "type": "url",
+      "id": "cta_secondary_url",
+      "label": "Cta Secondary Url"
+    }
+  ],
+  "presets": [
+    {
+      "name": "CTA band"
+    }
+  ]
+}
+{% endschema %}

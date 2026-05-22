@@ -1,0 +1,60 @@
+<div class="marquee is-voltage" style="background: var(--green); color: var(--white);">
+  <div class="marquee-track">
+    {% for i in (1..2) %}
+      {% for block in section.blocks %}
+        <span>{{ block.settings.text }}</span><span class="dot"></span>
+      {% endfor %}
+    {% endfor %}
+  </div>
+</div>
+{% schema %}
+{
+  "name": "Marquee",
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Word",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "default": "Hydration",
+          "label": "Text"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 8,
+  "presets": [
+    {
+      "name": "Marquee",
+      "blocks": [
+        {
+          "type": "item",
+          "settings": {
+            "text": "Hydration"
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "text": "Recovery"
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "text": "Clean energy"
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "text": "Focus"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

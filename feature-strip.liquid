@@ -1,0 +1,111 @@
+<section class="feature-strip">
+  <div class="wrap-wide">
+    <div class="feature-strip-inner">
+      {% for block in section.blocks %}
+        <div class="item"><svg><use href="#i-{{ block.settings.icon }}"/></svg>{{ block.settings.text }}</div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Feature strip",
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Feature",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "options": [
+            {
+              "value": "bolt",
+              "label": "Bolt"
+            },
+            {
+              "value": "brain",
+              "label": "Brain"
+            },
+            {
+              "value": "no-caf",
+              "label": "No caffeine"
+            },
+            {
+              "value": "leaf",
+              "label": "Leaf"
+            },
+            {
+              "value": "shield",
+              "label": "Shield"
+            },
+            {
+              "value": "drop",
+              "label": "Drop"
+            },
+            {
+              "value": "run",
+              "label": "Run"
+            },
+            {
+              "value": "muscle",
+              "label": "Muscle"
+            }
+          ],
+          "default": "bolt"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text",
+          "default": "Sustained energy"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 6,
+  "presets": [
+    {
+      "name": "Feature strip",
+      "blocks": [
+        {
+          "type": "feature",
+          "settings": {
+            "icon": "bolt",
+            "text": "Sustained energy"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "icon": "brain",
+            "text": "Mental clarity"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "icon": "no-caf",
+            "text": "No caffeine"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "icon": "leaf",
+            "text": "No fillers"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "icon": "shield",
+            "text": "3rd-party tested"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,64 @@
+<header class="site-head">
+  <div class="wrap-wide head-inner">
+    <a href="{{ routes.root_url }}" class="brandmark">
+      <span class="glyph">I</span>
+      <span class="wordmark"><span class="ion">ION</span><span class="iq">IQ</span></span>
+    </a>
+    <nav class="nav-main">
+      {% for link in linklists[section.settings.menu].links %}
+        {% if link.title contains 'Journal' or link.title contains 'journal' %}
+          <div class="nav-item">
+            <a href="{{ link.url }}"{% if link.active %} class="is-current"{% endif %}>{{ link.title | escape }}</a>
+            {% assign jbh = section.settings.journal_blog | default: 'journal' %}
+            {% assign journal_blog = blogs[jbh] %}
+            {% if journal_blog == blank or journal_blog.articles.size == 0 %}
+              {% for b in blogs %}
+                {% if b.articles.size > 0 %}{% assign journal_blog = b %}{% break %}{% endif %}
+              {% endfor %}
+            {% endif %}
+            {% if journal_blog != blank and journal_blog.articles.size > 0 %}
+              <div class="nav-dropdown">
+                <div class="nav-dropdown-head">
+                  <span class="ttl">Latest from the Journal</span>
+                  <a href="{{ journal_blog.url }}" class="all">View all &rarr;</a>
+                </div>
+                <div class="nav-dropdown-list">
+                  {% for article in journal_blog.articles limit: 3 %}
+                    <a href="{{ article.url }}" class="nav-dropdown-item">
+                      <div class="pic">{% if article.image %}<img src="{{ article.image | image_url: width: 120 }}" alt="">{% endif %}</div>
+                      <div class="meta">
+                        <span class="tag">{{ article.tags | first | default: 'Journal' }} &middot; {{ article.content | strip_html | size | divided_by: 1000 | plus: 1 }} min read</span>
+                        <span class="ttl">{{ article.title | escape }}</span>
+                      </div>
+                      <span class="arrow">&rarr;</span>
+                    </a>
+                  {% endfor %}
+                </div>
+              </div>
+            {% endif %}
+          </div>
+        {% else %}
+          <a href="{{ link.url }}"{% if link.active %} class="is-current"{% endif %}>{{ link.title | escape }}</a>
+        {% endif %}
+      {% endfor %}
+    </nav>
+    <div class="head-cta">
+      <button class="icon-btn" aria-label="Search"><svg width="16" height="16"><use href="#i-search"/></svg></button>
+      <a href="{{ routes.account_url }}" class="icon-btn" aria-label="Account"><svg width="16" height="16"><use href="#i-user"/></svg></a>
+      <a href="{{ routes.cart_url }}" class="icon-btn" aria-label="Cart">
+        <svg width="16" height="16"><use href="#i-cart"/></svg>
+        <span class="cart-count">{{ cart.item_count }}</span>
+      </a>
+    </div>
+  </div>
+</header>
+{% schema %}
+{
+  "name": "Header",
+  "settings": [
+    { "type": "link_list", "id": "menu", "label": "Main menu", "default": "main-menu" },
+    { "type": "text", "id": "journal_blog", "label": "Journal blog handle", "default": "journal" }
+  ],
+  "presets": [{ "name": "Header" }]
+}
+{% endschema %}

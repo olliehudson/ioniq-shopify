@@ -1,0 +1,89 @@
+<section class="chapter{% if section.settings.alt %} alt{% endif %}{% if section.settings.background == 'white' %} tone-white{% endif %}" id="section-{{ section.id }}">
+  <div class="wrap-wide">
+    <div class="chapter-grid">
+      <div>
+        <div class="num">{{ section.settings.num }}</div>
+        <h2>{{ section.settings.heading }}</h2>
+        <div>{{ section.settings.body }}</div>
+        {% if section.settings.pullquote != blank %}
+          <blockquote class="pull">{{ section.settings.pullquote }}<span class="by">{{ section.settings.pull_by }}</span></blockquote>
+        {% endif %}
+      </div>
+      <div class="chapter-img">
+        {% if section.settings.image != blank %}<img src="{{ section.settings.image | image_url: width: 1400 }}" alt="">{% endif %}
+        {% if section.settings.caption != blank %}<span class="cap">{{ section.settings.caption }}</span>{% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Story chapter",
+  "settings": [
+    {
+      "type": "select",
+      "id": "background",
+      "options": [
+        {
+          "value": "paper",
+          "label": "Paper"
+        },
+        {
+          "value": "white",
+          "label": "White"
+        }
+      ],
+      "default": "paper",
+      "label": "Background"
+    },
+    {
+      "type": "checkbox",
+      "id": "alt",
+      "label": "Image on left (alt layout)",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "num",
+      "default": "N°01 — the problem",
+      "label": "Num"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Heading"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "body",
+      "label": "Body"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "pullquote",
+      "label": "Pullquote"
+    },
+    {
+      "type": "text",
+      "id": "pull_by",
+      "label": "Pull By"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "caption",
+      "default": "Fig. 01 · Caption",
+      "label": "Caption"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Story chapter"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,31 @@
+<section class="journal" id="section-{{ section.id }}">
+  <div class="wrap-wide">
+    <div class="journal-head">
+      <div>
+        <span class="eyebrow">From the journal</span>
+        <h2>The <em>science</em> &amp; the ritual.</h2>
+      </div>
+      <a href="/blogs/news" class="btn btn-ghost btn-sm">All articles &rarr;</a>
+    </div>
+    <div class="journal-grid">
+      <a href="/blogs/news/it-all-starts-with-salt-most-brands-use-the-wrong-kind" class="journal-card is-featured">
+        <div class="img"><img src="{{ 'bamboo-salt.png' | asset_url }}" alt=""></div>
+        <div class="meta">Hero ingredient &middot; 8 min read</div>
+        <h4>It all starts with salt. Most brands use the wrong kind.</h4>
+      </a>
+      <a href="/blogs/news/why-hydration-that-doesnt-reach-your-cells-is-just-expensive-water" class="journal-card">
+        <div class="img"><img src="{{ 'product-pour.webp' | asset_url }}" alt=""></div>
+        <div class="meta">Performance &middot; 5 min read</div>
+        <h4>Why hydration that doesn't reach your cells is just expensive water.</h4>
+      </a>
+      <a href="/blogs/news/modern-life-is-depleting-you-heres-the-audit-no-one-ran" class="journal-card">
+        <div class="img"><img src="{{ 'benefits.png' | asset_url }}" alt=""></div>
+        <div class="meta">Science &middot; 6 min read</div>
+        <h4>Modern life is depleting you. Here's the audit no one ran.</h4>
+      </a>
+    </div>
+  </div>
+</section>
+{% schema %}
+{ "name": "Journal teaser", "presets": [{ "name": "Journal teaser" }] }
+{% endschema %}

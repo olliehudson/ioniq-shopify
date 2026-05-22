@@ -1,0 +1,42 @@
+<section class="contact-body">
+  <div class="wrap-narrow" style="max-width: 920px;">
+    {% form 'contact', class: 'form-card' %}
+      <h2>Send us a <em>message.</em></h2>
+      <p class="lede">Whatever it's about — an order, the formula, a partnership — drop a line below and we'll route it to the right person.</p>
+      {% if form.posted_successfully? %}<p style="color:var(--green-deep);">Message received — we'll get back within 24 hours.</p>{% endif %}
+      <div class="form-row two">
+        <div><label>First name</label><input type="text" name="contact[first_name]" required></div>
+        <div><label>Last name</label><input type="text" name="contact[last_name]" required></div>
+      </div>
+      <div class="form-row two">
+        <div><label>Email</label><input type="email" name="contact[email]" required></div>
+        <div><label>Order number (optional)</label><input type="text" name="contact[order_number]"></div>
+      </div>
+      <div class="form-row">
+        <label>What's this about?</label>
+        <select name="contact[topic]" required>
+          <option value="">Select a topic</option>
+          <option>An order — shipping / refund / damage</option>
+          <option>The product — ingredients / dosing / safety</option>
+          <option>My subscription</option>
+          <option>Wholesale / retail partnership</option>
+          <option>Press or PR enquiry</option>
+          <option>Practitioner / clinic enquiry</option>
+          <option>Something else</option>
+        </select>
+      </div>
+      <div class="form-row">
+        <label>Your message</label>
+        <textarea name="contact[body]" required></textarea>
+        <span class="hint">We reply within 24 hours, Mon-Fri.</span>
+      </div>
+      <div class="form-actions">
+        <button type="submit" class="btn btn-primary btn-lg">Send message</button>
+        <span class="small">Or email <a href="mailto:hello@drinkioniq.com" style="color:var(--green-deep);text-decoration:underline;">hello@drinkioniq.com</a></span>
+      </div>
+    {% endform %}
+  </div>
+</section>
+{% schema %}
+{ "name": "Contact form", "presets": [{ "name": "Contact form" }] }
+{% endschema %}

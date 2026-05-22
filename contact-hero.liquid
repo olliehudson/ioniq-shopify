@@ -1,0 +1,38 @@
+<section class="contact-hero" id="section-{{ section.id }}">
+  <div class="wrap-wide">
+    <div class="contact-hero-inner">
+      <span class="eyebrow">{{ section.settings.eyebrow }}</span>
+      <h1>{{ section.settings.heading }}</h1>
+      <p>{{ section.settings.copy }}</p>
+    </div>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Contact hero",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "default": "Get in touch",
+      "label": "Eyebrow"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "default": "We're <em>here</em> when you need us.",
+      "label": "Heading"
+    },
+    {
+      "type": "textarea",
+      "id": "copy",
+      "label": "Copy"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Contact hero"
+    }
+  ]
+}
+{% endschema %}

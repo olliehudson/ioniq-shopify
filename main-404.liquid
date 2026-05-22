@@ -1,0 +1,17 @@
+<section style="padding: clamp(72px, 10vw, 140px) 0; background: var(--paper); text-align: center;">
+  <div class="wrap-narrow">
+    <h1 style="font-family: var(--font-display); font-weight: 900; font-size: clamp(64px, 10vw, 144px); line-height: 1; letter-spacing: -.03em; margin: 0 0 18px;">404</h1>
+    <p style="font-family: var(--font-serif); font-style: italic; font-size: 24px; color: var(--ink-soft); margin: 0 0 32px;">This page doesn't exist (yet).</p>
+    <a href="{{ routes.root_url }}" class="btn btn-primary btn-lg">Back to home</a>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "404",
+  "enabled_on": {
+    "templates": [
+      "404"
+    ]
+  }
+}
+{% endschema %}
