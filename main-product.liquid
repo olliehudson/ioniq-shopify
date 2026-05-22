@@ -1,4 +1,4 @@
-<section class="pdp">
+{% if product == blank or product == empty %}<section class="pdp"><div class="wrap-wide" style="padding:80px 0;text-align:center;"><h2 style="font-family:var(--font-display);font-weight:900;font-size:48px;text-transform:uppercase;margin-bottom:16px;">Product not loaded</h2><a href="/products/ioniq-morning-ritual" class="btn btn-primary btn-lg">View IONIQ product →</a></div></section>{% else %}<section class="pdp">
   <div class="wrap-wide">
     <div class="pdp-grid">
 
@@ -47,6 +47,7 @@
         </div>
 
         {% form 'product', product, id: 'product-form-{{ section.id }}' %}
+          <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id | default: product.variants.first.id }}">
           {% if product.variants.size > 1 %}
             <div>
               <div class="section-label">{{ product.options.first }}</div>
@@ -59,7 +60,6 @@
                   </button>
                 {% endfor %}
               </div>
-              <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
             </div>
           {% endif %}
 
@@ -142,6 +142,7 @@
     });
   });
 </script>
+{% endif %}
 {% schema %}
 { "name": "Main product", "enabled_on": { "templates": ["product"] } }
 {% endschema %}
