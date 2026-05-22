@@ -1,0 +1,24 @@
+{
+  "sections": {
+    "hero": {
+      "type": "story-hero"
+    },
+    "story": {
+      "type": "story-chapter-1"
+    },
+    "cta": {
+      "type": "cta-band",
+      "settings": {
+        "heading": "Try IONIQ for <em>60 days.</em>",
+        "copy": "If it doesn't work, send the box back. We refund the whole thing, no questions.",
+        "cta_primary_text": "Subscribe — $42/mo",
+        "cta_secondary_text": "Still have questions →"
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "story",
+    "cta"
+  ]
+}
