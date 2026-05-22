@@ -1,31 +1,27 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "hero": {
-      "type": "story-hero"
+      "type": "story-hero",
+      "settings": {}
     },
-    "chapter-1": {
-      "type": "story-chapter-1"
-    },
-    "chapter-2": {
-      "type": "story-chapter-2"
-    },
-    "chapter-3": {
-      "type": "story-chapter-3"
-    },
-    "timeline": {
-      "type": "timeline"
-    },
-    "values": {
-      "type": "values-grid"
-    },
-    "team": {
-      "type": "team-grid"
+    "story": {
+      "type": "story-chapter-1",
+      "settings": {}
     },
     "cta": {
       "type": "cta-band",
       "settings": {
         "heading": "Try IONIQ for <em>60 days.</em>",
-        "copy": "If it doesn't fix what depletion did, send the box back. We refund the whole thing, no questions, no friction.",
+        "copy": "If it doesn't work, send the box back. We refund the whole thing, no questions.",
         "cta_primary_text": "Subscribe — $42/mo",
         "cta_secondary_text": "Still have questions →"
       }
@@ -33,12 +29,7 @@
   },
   "order": [
     "hero",
-    "chapter-1",
-    "chapter-2",
-    "chapter-3",
-    "timeline",
-    "values",
-    "team",
+    "story",
     "cta"
   ]
 }
