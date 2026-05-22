@@ -1,136 +1,21 @@
-<section class="perf-vs" id="section-{{ section.id }}">
+<section class="perf-vs">
   <div class="wrap-wide">
     <div class="perf-vs-head">
-      <span class="eyebrow voltage">{{ section.settings.eyebrow }}</span>
-      <h2>{{ section.settings.heading }}</h2>
-      <p>{{ section.settings.copy }}</p>
+      <span class="eyebrow voltage">Head to head</span>
+      <h2>Compare the <em>numbers.</em></h2>
+      <p>Same serving size. Independent lab reports.</p>
     </div>
     <div class="vs-table">
-      <div class="vs-row is-head">
-        <div></div>
-        <div class="ours">{{ section.settings.h_ours }}</div>
-        <div>{{ section.settings.h_1 }}</div>
-        <div>{{ section.settings.h_2 }}</div>
-        <div>{{ section.settings.h_3 }}</div>
-      </div>
-      {% for block in section.blocks %}
-        <div class="vs-row">
-          <div class="label-cell">{{ block.settings.label }}</div>
-          <div class="ours">{{ block.settings.ours }}</div>
-          <div class="cell">{% if block.settings.v1_x %}<span class="x">{{ block.settings.v1 }}</span>{% else %}{{ block.settings.v1 }}{% endif %}</div>
-          <div class="cell">{% if block.settings.v2_x %}<span class="x">{{ block.settings.v2 }}</span>{% else %}{{ block.settings.v2 }}{% endif %}</div>
-          <div class="cell">{% if block.settings.v3_x %}<span class="x">{{ block.settings.v3 }}</span>{% else %}{{ block.settings.v3 }}{% endif %}</div>
-        </div>
-      {% endfor %}
+      <div class="vs-row is-head"><div></div><div class="ours">IONIQ</div><div>Sports A</div><div>Sports B</div><div>Salt Tabs</div></div>
+      <div class="vs-row"><div class="label-cell">Sodium</div><div class="ours">750 mg</div><div class="cell">160 mg</div><div class="cell">110 mg</div><div class="cell">300 mg</div></div>
+      <div class="vs-row"><div class="label-cell">Potassium</div><div class="ours">200 mg</div><div class="cell">50 mg</div><div class="cell">30 mg</div><div class="cell">75 mg</div></div>
+      <div class="vs-row"><div class="label-cell">Magnesium</div><div class="ours">50 mg</div><div class="cell"><span class="x">0</span></div><div class="cell"><span class="x">0</span></div><div class="cell">20 mg</div></div>
+      <div class="vs-row"><div class="label-cell">Trace minerals</div><div class="ours">70+</div><div class="cell"><span class="x">0</span></div><div class="cell"><span class="x">0</span></div><div class="cell"><span class="x">0</span></div></div>
+      <div class="vs-row"><div class="label-cell">Nootropics</div><div class="ours">Yes</div><div class="cell"><span class="x">No</span></div><div class="cell"><span class="x">No</span></div><div class="cell"><span class="x">No</span></div></div>
+      <div class="vs-row"><div class="label-cell">Added sugar</div><div class="ours">0g</div><div class="cell"><span class="x">34g</span></div><div class="cell"><span class="x">21g</span></div><div class="cell">0g</div></div>
+      <div class="vs-row"><div class="label-cell">Caffeine</div><div class="ours">None</div><div class="cell"><span class="x">Yes</span></div><div class="cell">None</div><div class="cell">None</div></div>
+      <div class="vs-row"><div class="label-cell">Cost / serving</div><div class="ours">$1.40</div><div class="cell">$2.50</div><div class="cell">$1.80</div><div class="cell">$0.45</div></div>
     </div>
   </div>
 </section>
-{% schema %}
-{
-  "name": "Versus table",
-  "settings": [
-    {
-      "type": "text",
-      "id": "eyebrow",
-      "default": "Head to head",
-      "label": "Eyebrow"
-    },
-    {
-      "type": "inline_richtext",
-      "id": "heading",
-      "default": "Compare the <em>numbers.</em>",
-      "label": "Heading"
-    },
-    {
-      "type": "textarea",
-      "id": "copy",
-      "label": "Copy"
-    },
-    {
-      "type": "text",
-      "id": "h_ours",
-      "default": "IONIQ",
-      "label": "H Ours"
-    },
-    {
-      "type": "text",
-      "id": "h_1",
-      "default": "Sports A",
-      "label": "H 1"
-    },
-    {
-      "type": "text",
-      "id": "h_2",
-      "default": "Sports B",
-      "label": "H 2"
-    },
-    {
-      "type": "text",
-      "id": "h_3",
-      "default": "Salt Tabs",
-      "label": "H 3"
-    }
-  ],
-  "blocks": [
-    {
-      "type": "row",
-      "name": "Comparison row",
-      "settings": [
-        {
-          "type": "text",
-          "id": "label",
-          "default": "Sodium",
-          "label": "Label"
-        },
-        {
-          "type": "text",
-          "id": "ours",
-          "default": "750 mg",
-          "label": "Ours"
-        },
-        {
-          "type": "text",
-          "id": "v1",
-          "default": "160 mg",
-          "label": "V1"
-        },
-        {
-          "type": "checkbox",
-          "id": "v1_x",
-          "default": false,
-          "label": "V1 X"
-        },
-        {
-          "type": "text",
-          "id": "v2",
-          "default": "110 mg",
-          "label": "V2"
-        },
-        {
-          "type": "checkbox",
-          "id": "v2_x",
-          "default": false,
-          "label": "V2 X"
-        },
-        {
-          "type": "text",
-          "id": "v3",
-          "default": "300 mg",
-          "label": "V3"
-        },
-        {
-          "type": "checkbox",
-          "id": "v3_x",
-          "default": false,
-          "label": "V3 X"
-        }
-      ]
-    }
-  ],
-  "presets": [
-    {
-      "name": "Versus table"
-    }
-  ]
-}
-{% endschema %}
+{% schema %}{ "name": "Versus", "presets": [{ "name": "Versus" }] }{% endschema %}

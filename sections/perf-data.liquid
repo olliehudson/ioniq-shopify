@@ -1,123 +1,26 @@
-<section class="data" id="section-{{ section.id }}">
+<section class="data">
   <div class="wrap-wide">
     <div class="data-grid">
       <div>
-        <span class="eyebrow voltage">{{ section.settings.eyebrow }}</span>
-        <h2>{{ section.settings.heading }}</h2>
-        <p class="lede">{{ section.settings.lede }}</p>
-        <ul>{% for block in section.blocks %}{% if block.type == 'point' %}
-          <li><svg><use href="#i-check"/></svg><span>{{ block.settings.text }}</span></li>
-        {% endif %}{% endfor %}</ul>
+        <span class="eyebrow voltage">Clinical study, n=24</span>
+        <h2>Athletes who switched saw a measurable <em>edge.</em></h2>
+        <p class="lede">A 14-day study with recreational athletes. IONIQ replaced their normal hydration.</p>
+        <ul>
+          <li><svg><use href="#i-check"/></svg><span><b>23% faster heart-rate recovery</b> in first 60 seconds post-effort.</span></li>
+          <li><svg><use href="#i-check"/></svg><span><b>Lower perceived exertion</b> on equivalent workloads.</span></li>
+          <li><svg><use href="#i-check"/></svg><span><b>Better-rated sleep</b> on training nights.</span></li>
+        </ul>
       </div>
       <div class="chart">
-        <div class="chart-head"><div><h4>{{ section.settings.chart_title }}</h4><div class="sub">{{ section.settings.chart_sub }}</div></div></div>
+        <div class="chart-head"><div><h4>Hydration vs. water</h4><div class="sub">Plasma volume after 60min &middot; n=24</div></div></div>
         <div class="chart-bars">
-          {% for block in section.blocks %}{% if block.type == 'bar' %}
-            <div class="bar-row">
-              <div class="lbl">{{ block.settings.label }}</div>
-              <div class="bar-track"><div class="bar-fill{% if block.settings.color == 'ember' %} ember{% elsif block.settings.color == 'muted' %} muted{% endif %}" style="width: {{ block.settings.width }}%;"></div></div>
-              <div class="val">{{ block.settings.value }}</div>
-            </div>
-          {% endif %}{% endfor %}
+          <div class="bar-row"><div class="lbl">IONIQ</div><div class="bar-track"><div class="bar-fill" style="width: 92%;"></div></div><div class="val">+64%</div></div>
+          <div class="bar-row"><div class="lbl">Sports A</div><div class="bar-track"><div class="bar-fill ember" style="width: 64%;"></div></div><div class="val">+44%</div></div>
+          <div class="bar-row"><div class="lbl">Sports B</div><div class="bar-track"><div class="bar-fill ember" style="width: 52%;"></div></div><div class="val">+36%</div></div>
+          <div class="bar-row"><div class="lbl">Plain water</div><div class="bar-track"><div class="bar-fill muted" style="width: 32%;"></div></div><div class="val">baseline</div></div>
         </div>
       </div>
     </div>
   </div>
 </section>
-{% schema %}
-{
-  "name": "Data & chart",
-  "settings": [
-    {
-      "type": "text",
-      "id": "eyebrow",
-      "default": "Clinical study, n=24",
-      "label": "Eyebrow"
-    },
-    {
-      "type": "inline_richtext",
-      "id": "heading",
-      "label": "Heading"
-    },
-    {
-      "type": "textarea",
-      "id": "lede",
-      "label": "Lede"
-    },
-    {
-      "type": "text",
-      "id": "chart_title",
-      "default": "Hydration vs. water",
-      "label": "Chart Title"
-    },
-    {
-      "type": "text",
-      "id": "chart_sub",
-      "default": "Plasma volume after 60min · n=24",
-      "label": "Chart Sub"
-    }
-  ],
-  "blocks": [
-    {
-      "type": "point",
-      "name": "Bullet point",
-      "settings": [
-        {
-          "type": "inline_richtext",
-          "id": "text",
-          "label": "Text"
-        }
-      ]
-    },
-    {
-      "type": "bar",
-      "name": "Chart bar",
-      "settings": [
-        {
-          "type": "text",
-          "id": "label",
-          "default": "IONIQ",
-          "label": "Label"
-        },
-        {
-          "type": "number",
-          "id": "width",
-          "default": 92,
-          "label": "Width"
-        },
-        {
-          "type": "text",
-          "id": "value",
-          "default": "+64%",
-          "label": "Value"
-        },
-        {
-          "type": "select",
-          "id": "color",
-          "options": [
-            {
-              "value": "green",
-              "label": "Green"
-            },
-            {
-              "value": "ember",
-              "label": "Ember"
-            },
-            {
-              "value": "muted",
-              "label": "Muted"
-            }
-          ],
-          "default": "green",
-          "label": "Color"
-        }
-      ]
-    }
-  ],
-  "presets": [
-    {
-      "name": "Data & chart"
-    }
-  ]
-}
-{% endschema %}
+{% schema %}{ "name": "Data", "presets": [{ "name": "Data" }] }{% endschema %}

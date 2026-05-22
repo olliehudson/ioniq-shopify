@@ -1,78 +1,15 @@
-<section class="experts" id="section-{{ section.id }}">
+<section class="experts">
   <div class="wrap-wide">
     <div class="experts-head">
-      <span class="eyebrow">{{ section.settings.eyebrow }}</span>
-      <h2>{{ section.settings.heading }}</h2>
-      <p>{{ section.settings.copy }}</p>
+      <span class="eyebrow">Endorsed by experts</span>
+      <h2>What sports scientists &amp; clinicians say about <em>doing this right.</em></h2>
+      <p>Hydration and electrolyte science isn't controversial. The marketing is.</p>
     </div>
     <div class="experts-grid">
-      {% for block in section.blocks %}
-        <div class="expert-card">
-          <blockquote>"{{ block.settings.quote }}"</blockquote>
-          <div class="by">
-            <span class="avt">{{ block.settings.initials }}</span>
-            <div class="who"><strong>{{ block.settings.name }}</strong><span class="role">{{ block.settings.role }}</span></div>
-          </div>
-        </div>
-      {% endfor %}
+      <div class="expert-card"><blockquote>"Proper hydration requires sodium, potassium and magnesium in the right ratios. When the profile matches what the body actually loses, you see measurable improvements in plasma volume and recovery."</blockquote><div class="by"><span class="avt">AM</span><div class="who"><strong>Dr. Anya Mehta, PhD</strong><span class="role">Exercise Physiologist &middot; IONIQ Scientific Advisor</span></div></div></div>
+      <div class="expert-card"><blockquote>"The hidden problem in sports nutrition isn't the absence of electrolytes - it's the dose. Most popular drinks under-dose sodium by 4-6x."</blockquote><div class="by"><span class="avt">JC</span><div class="who"><strong>Dr. James Chen, MD</strong><span class="role">Sports Medicine &middot; Olympic Team Physician</span></div></div></div>
+      <div class="expert-card"><blockquote>"Magnesium is the most under-dosed mineral in supplement-land. Pair it with proper sodium and you get a recovery effect most athletes write off as 'getting older.' It isn't."</blockquote><div class="by"><span class="avt">SP</span><div class="who"><strong>Sarah Park, MS RD</strong><span class="role">Performance Nutritionist &middot; NCAA D1</span></div></div></div>
     </div>
   </div>
 </section>
-{% schema %}
-{
-  "name": "Expert quotes",
-  "settings": [
-    {
-      "type": "text",
-      "id": "eyebrow",
-      "default": "Endorsed by experts",
-      "label": "Eyebrow"
-    },
-    {
-      "type": "inline_richtext",
-      "id": "heading",
-      "label": "Heading"
-    },
-    {
-      "type": "textarea",
-      "id": "copy",
-      "label": "Copy"
-    }
-  ],
-  "blocks": [
-    {
-      "type": "quote",
-      "name": "Expert quote",
-      "settings": [
-        {
-          "type": "textarea",
-          "id": "quote",
-          "label": "Quote"
-        },
-        {
-          "type": "text",
-          "id": "initials",
-          "default": "AM",
-          "label": "Initials"
-        },
-        {
-          "type": "text",
-          "id": "name",
-          "label": "Name"
-        },
-        {
-          "type": "text",
-          "id": "role",
-          "label": "Role"
-        }
-      ]
-    }
-  ],
-  "max_blocks": 3,
-  "presets": [
-    {
-      "name": "Expert quotes"
-    }
-  ]
-}
-{% endschema %}
+{% schema %}{ "name": "Experts", "presets": [{ "name": "Experts" }] }{% endschema %}
