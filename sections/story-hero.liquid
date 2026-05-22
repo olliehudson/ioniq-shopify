@@ -2,17 +2,34 @@
   <div class="wrap-wide">
     <div class="story-hero-grid">
       <div>
-        <span class="eyebrow">Our story</span>
-        <h1>From the <em>tennis court</em> to the cabinet.</h1>
-        <p class="lede">IONIQ was built by an ex-professional tennis player who couldn't find a hydration product that actually worked. So he made one.</p>
-        <a href="{{ routes.all_products_collection_url }}" class="btn btn-primary btn-lg">Shop IONIQ — $42/mo</a>
+        <span class="eyebrow">{{ section.settings.eyebrow }}</span>
+        <h1>{{ section.settings.heading }}</h1>
+        <p class="lede">{{ section.settings.lede }}</p>
+        {% if section.settings.cta_text != blank %}
+          <a href="{{ section.settings.cta_url | default: routes.all_products_collection_url }}" class="btn btn-primary btn-lg">{{ section.settings.cta_text }}</a>
+        {% endif %}
       </div>
       <div class="story-hero-img">
-        <img src="{{ 'oliver-tennis.jpg' | asset_url }}" alt="Oliver Hudson, IONIQ founder">
+        {% if section.settings.image != blank %}
+          <img src="{{ section.settings.image | image_url: width: 1400 }}" alt="{{ section.settings.image.alt | escape }}">
+        {% else %}
+          <img src="{{ 'oliver-tennis.jpg' | asset_url }}" alt="Oliver Hudson">
+        {% endif %}
       </div>
     </div>
   </div>
 </section>
 {% schema %}
-{ "name": "Story hero", "presets": [{ "name": "Story hero" }] }
+{
+  "name": "Story hero",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Our story" },
+    { "type": "inline_richtext", "id": "heading", "label": "Heading", "default": "From the <em>tennis court</em> to the cabinet." },
+    { "type": "textarea", "id": "lede", "label": "Lede", "default": "IONIQ was built by an ex-professional tennis player who couldn't find a hydration product that actually worked. So he made one." },
+    { "type": "image_picker", "id": "image", "label": "Hero image (replace tennis photo)" },
+    { "type": "text", "id": "cta_text", "label": "CTA text", "default": "Shop IONIQ — $42/mo" },
+    { "type": "url", "id": "cta_url", "label": "CTA link" }
+  ],
+  "presets": [{ "name": "Story hero" }]
+}
 {% endschema %}

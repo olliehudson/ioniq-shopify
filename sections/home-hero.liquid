@@ -17,7 +17,7 @@
             {% endif %}{% endfor %}
           </div>
           <div class="ioniq-hero-ctas">
-            <a href="{{ section.settings.cta_url }}" class="btn btn-primary btn-lg">{{ section.settings.cta_text }}</a>
+            <a href="{{ section.settings.cta_url | default: '/products/ioniq-morning-ritual' }}" class="btn btn-primary btn-lg">{{ section.settings.cta_text }}</a>
             <span class="small">{{ section.settings.cta_note }}</span>
           </div>
         </div>

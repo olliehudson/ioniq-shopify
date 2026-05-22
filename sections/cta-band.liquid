@@ -3,8 +3,8 @@
     <h2>{{ section.settings.heading }}</h2>
     <p>{{ section.settings.copy }}</p>
     <div class="ctas">
-      {% if section.settings.cta_primary_text != blank %}<a href="{{ section.settings.cta_primary_url }}" class="btn btn-ink btn-lg">{{ section.settings.cta_primary_text }}</a>{% endif %}
-      {% if section.settings.cta_secondary_text != blank %}<a href="{{ section.settings.cta_secondary_url }}" class="btn btn-ghost-light btn-lg">{{ section.settings.cta_secondary_text }}</a>{% endif %}
+      {% if section.settings.cta_primary_text != blank %}<a href="{{ section.settings.cta_primary_url | default: '/products/ioniq-morning-ritual' }}" class="btn btn-ink btn-lg">{{ section.settings.cta_primary_text }}</a>{% endif %}
+      {% if section.settings.cta_secondary_text != blank %}<a href="{{ section.settings.cta_secondary_url | default: '/pages/faq' }}" class="btn btn-ghost-light btn-lg">{{ section.settings.cta_secondary_text }}</a>{% endif %}
     </div>
   </div>
 </section>

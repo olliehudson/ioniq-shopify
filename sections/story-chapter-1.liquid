@@ -2,25 +2,36 @@
   <div class="wrap-wide">
     <div class="chapter-grid">
       <div>
-        <div class="num">The founder — Oliver Hudson</div>
-        <h2>I've always lived <em>through sport.</em></h2>
-        <p>I'm Oliver — an ex-professional tennis player. Sport has been my entire life: the training, the matches, the recovery, the obsession with marginal gains. And for as long as I can remember I've been trying to find products that actually help with hydration and recovery — the two things that separate a great session from a wrecked one.</p>
-        <p>Nothing on the shelf was doing the job. Sports drinks were 90% sugar. Electrolyte sachets under-dosed sodium by 4–6×. Nothing addressed the cognitive side of fatigue. So I went looking for something I'd actually want to drink every day — and bring to the market for the millions of people who play sport like I do.</p>
-        <p>That search led me to <strong>9× fire-roasted bamboo salt</strong> — a 1,000-year-old Korean tradition where sea salt is packed into bamboo stalks, sealed with clay, and fired at 1,500°C. Nine times. The result: <strong>pH 12, 70+ trace minerals, hydroxyl ions you can't get from any other salt source.</strong></p>
-        <p>The catch: most "bamboo salt" on the market is roasted once or twice and called done. We track down the <strong>highest grade — the rare 9× version no other electrolyte sachet or hydration drink uses</strong> — straight from the kilns where they still do it the traditional way.</p>
-        <p>That's the story of how IONIQ came to life. One sachet. The hydration, recovery and clean energy I wish I'd had on court.</p>
-        <blockquote class="pull">
-          "If it's not what I'd put in my own bottle before a match, it doesn't make it into IONIQ."
-          <span class="by">— Oliver Hudson, founder</span>
-        </blockquote>
+        <div class="num">{{ section.settings.kicker }}</div>
+        <h2>{{ section.settings.heading }}</h2>
+        <div>{{ section.settings.body }}</div>
+        {% if section.settings.pullquote != blank %}
+          <blockquote class="pull">{{ section.settings.pullquote }}<span class="by">{{ section.settings.pull_by }}</span></blockquote>
+        {% endif %}
       </div>
       <div class="chapter-img">
-        <img src="{{ 'bamboo-salt.png' | asset_url }}" alt="9× fire-roasted bamboo salt">
-        <span class="cap">9× fire-roasted bamboo salt</span>
+        {% if section.settings.image != blank %}
+          <img src="{{ section.settings.image | image_url: width: 1400 }}" alt="{{ section.settings.image.alt | escape }}">
+        {% else %}
+          <img src="{{ 'bamboo-salt.png' | asset_url }}" alt="">
+        {% endif %}
+        {% if section.settings.caption != blank %}<span class="cap">{{ section.settings.caption }}</span>{% endif %}
       </div>
     </div>
   </div>
 </section>
 {% schema %}
-{ "name": "Story", "presets": [{ "name": "Story" }] }
+{
+  "name": "Story chapter",
+  "settings": [
+    { "type": "text", "id": "kicker", "label": "Kicker (small label)", "default": "The founder — Oliver Hudson" },
+    { "type": "inline_richtext", "id": "heading", "label": "Heading", "default": "I've always lived <em>through sport.</em>" },
+    { "type": "richtext", "id": "body", "label": "Body copy", "default": "<p>I'm Oliver — an ex-professional tennis player. Sport has been my entire life: the training, the matches, the recovery, the obsession with marginal gains. And for as long as I can remember I've been trying to find products that actually help with hydration and recovery — the two things that separate a great session from a wrecked one.</p><p>Nothing on the shelf was doing the job. Sports drinks were 90% sugar. Electrolyte sachets under-dosed sodium by 4–6×. Nothing addressed the cognitive side of fatigue. So I went looking for something I'd actually want to drink every day — and bring to the market for the millions of people who play sport like I do.</p><p>That search led me to <strong>9× fire-roasted bamboo salt</strong> — a 1,000-year-old Korean tradition where sea salt is packed into bamboo stalks, sealed with clay, and fired at 1,500°C. Nine times. The result: <strong>pH 12, 70+ trace minerals, hydroxyl ions you can't get from any other salt source.</strong></p><p>The catch: most \"bamboo salt\" on the market is roasted once or twice and called done. We track down the <strong>highest grade — the rare 9× version no other electrolyte sachet or hydration drink uses</strong> — straight from the kilns where they still do it the traditional way.</p><p>That's the story of how IONIQ came to life. One sachet. The hydration, recovery and clean energy I wish I'd had on court.</p>" },
+    { "type": "image_picker", "id": "image", "label": "Side image" },
+    { "type": "text", "id": "caption", "label": "Image caption", "default": "9× fire-roasted bamboo salt" },
+    { "type": "inline_richtext", "id": "pullquote", "label": "Pullquote (optional)", "default": "If it's not what I'd put in my own bottle before a match, it doesn't make it into IONIQ." },
+    { "type": "text", "id": "pull_by", "label": "Pullquote attribution", "default": "— Oliver Hudson, founder" }
+  ],
+  "presets": [{ "name": "Story chapter" }]
+}
 {% endschema %}

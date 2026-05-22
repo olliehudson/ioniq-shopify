@@ -1,23 +1,16 @@
 <section class="journal" id="section-{{ section.id }}">
   <div class="wrap-wide">
     {% assign found_blog = nil %}
-    {% for b in blogs %}
-      {% if b.articles.size > 0 %}
-        {% assign found_blog = b %}
-        {% break %}
-      {% endif %}
-    {% endfor %}
+    {% for b in blogs %}{% if b.articles.size > 0 %}{% assign found_blog = b %}{% break %}{% endif %}{% endfor %}
     <div class="journal-head">
       <div>
         <span class="eyebrow">From the journal</span>
         <h2>The <em>science</em> &amp; the ritual.</h2>
       </div>
-      {% if found_blog %}
-        <a href="{{ found_blog.url }}" class="btn btn-ghost btn-sm">All articles &rarr;</a>
-      {% endif %}
+      {% if found_blog %}<a href="{{ found_blog.url }}" class="btn btn-ghost btn-sm">All articles &rarr;</a>{% endif %}
     </div>
     <div class="journal-grid">
-      {% if found_blog %}
+      {% if found_blog and found_blog.articles.size > 0 %}
         {% for article in found_blog.articles limit: 3 %}
           <a href="{{ article.url }}" class="journal-card{% if forloop.first %} is-featured{% endif %}">
             <div class="img">
@@ -29,17 +22,17 @@
           </a>
         {% endfor %}
       {% else %}
-        <a href="#" class="journal-card is-featured">
+        <a href="/blogs/news" class="journal-card is-featured">
           <div class="img"><img src="{{ 'bamboo-salt.png' | asset_url }}" alt=""></div>
           <div class="meta">Hero ingredient &middot; 8 min read</div>
           <h4>It all starts with salt. Most brands use the wrong kind.</h4>
         </a>
-        <a href="#" class="journal-card">
+        <a href="/blogs/news" class="journal-card">
           <div class="img"><img src="{{ 'product-pour.webp' | asset_url }}" alt=""></div>
           <div class="meta">Performance &middot; 5 min read</div>
           <h4>Why hydration that doesn't reach your cells is just expensive water.</h4>
         </a>
-        <a href="#" class="journal-card">
+        <a href="/blogs/news" class="journal-card">
           <div class="img"><img src="{{ 'benefits.png' | asset_url }}" alt=""></div>
           <div class="meta">Science &middot; 6 min read</div>
           <h4>Modern life is depleting you. Here's the audit no one ran.</h4>
