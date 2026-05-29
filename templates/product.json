@@ -1,1 +1,60 @@
-{"sections":{"main":{"type":"main-product","settings":{}},"sodium-math":{"type":"sodium-math","settings":{}},"product-story":{"type":"product-story","settings":{}},"benefits-list":{"type":"benefits-list","settings":{}},"pillars":{"type":"pillars","settings":{}},"stack-compare":{"type":"stack-compare","settings":{}},"athlete-protocol":{"type":"athlete-protocol","settings":{}},"reviews-grid":{"type":"reviews-grid","settings":{}},"guarantee":{"type":"guarantee","settings":{}}},"order":["main","sodium-math","product-story","benefits-list","pillars","stack-compare","athlete-protocol","reviews-grid","guarantee"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "settings": {}
+    },
+    "sodium-math": {
+      "type": "sodium-math",
+      "settings": {}
+    },
+    "product-story": {
+      "type": "product-story",
+      "settings": {}
+    },
+    "benefits-list": {
+      "type": "benefits-list",
+      "settings": {}
+    },
+    "pillars": {
+      "type": "pillars",
+      "settings": {}
+    },
+    "stack-compare": {
+      "type": "stack-compare",
+      "settings": {}
+    },
+    "athlete-protocol": {
+      "type": "athlete-protocol",
+      "settings": {}
+    },
+    "reviews-grid": {
+      "type": "reviews-grid",
+      "settings": {}
+    },
+    "guarantee": {
+      "type": "guarantee",
+      "settings": {}
+    }
+  },
+  "order": [
+    "main",
+    "sodium-math",
+    "product-story",
+    "benefits-list",
+    "pillars",
+    "stack-compare",
+    "athlete-protocol",
+    "reviews-grid",
+    "guarantee"
+  ]
+}
