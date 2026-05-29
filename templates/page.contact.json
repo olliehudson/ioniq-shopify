@@ -1,14 +1,1 @@
-{
-  "sections": {
-    "hero": {
-      "type": "contact-hero"
-    },
-    "form": {
-      "type": "contact-form"
-    }
-  },
-  "order": [
-    "hero",
-    "form"
-  ]
-}
+{"sections":{"hero":{"type":"contact-hero","settings":{}},"form":{"type":"contact-form","settings":{}}},"order":["hero","form"]}

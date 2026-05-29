@@ -161,6 +161,62 @@ section{ position: relative; }
 .section-pad{ padding: clamp(64px, 8vw, 120px) 0; }
 .section-pad-sm{ padding: clamp(40px, 5vw, 72px) 0; }
 
+/* =================== BENEFITS GRID (shop) =================== */
+.benefits2{ background: var(--paper); color: var(--ink); }
+.benefits2-head{ text-align: center; max-width: 800px; margin: 0 auto 56px; }
+
+/* === Pillars (black ingredients), images, full-bleed banner === */
+.pillars{ background: var(--ink); color: var(--white); padding: clamp(72px,9vw,130px) 0; position: relative; overflow: hidden; }
+.pillars::before{ content:""; position:absolute; inset:0; background: radial-gradient(40% 50% at 80% 0, rgba(34,160,106,.16), transparent 60%); pointer-events:none; }
+.pillars > .wrap-wide{ position: relative; z-index: 2; }
+.pillars-head{ text-align: center; max-width: 760px; margin: 0 auto 56px; }
+.pillars-head .eyebrow{ color: var(--green-bright); }
+.pillars-head h2{ font-family: var(--font-display); font-weight: 800; font-size: clamp(28px,3.6vw,48px); line-height: 1.06; text-transform: uppercase; letter-spacing: -.01em; margin: 14px 0 14px; }
+.pillars-head h2 em{ font-family: var(--font-serif); font-style: italic; font-weight: 400; color: var(--green-bright); text-transform: none; }
+.pillars-head p{ color: rgba(255,255,255,.7); font-size: 16px; line-height: 1.55; }
+.pillars-grid{ display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+@media (max-width: 880px){ .pillars-grid{ grid-template-columns: 1fr 1fr; } }
+@media (max-width: 540px){ .pillars-grid{ grid-template-columns: 1fr; } }
+.pillar-card{ background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.1); border-radius: var(--radius); padding: 26px 24px 28px; display: flex; flex-direction: column; gap: 14px; }
+.pillar-num{ font-family: var(--font-mono); font-size: 11px; letter-spacing: .14em; color: var(--green-bright); }
+.pillar-ico{ width: 42px; height: 42px; border-radius: var(--radius-sm); background: rgba(34,160,106,.16); color: var(--green-bright); display: grid; place-items: center; }
+.pillar-ico svg{ width: 22px; height: 22px; }
+.pillar-card h4{ font-family: var(--font-display); font-weight: 800; font-size: 17px; text-transform: uppercase; letter-spacing: .01em; }
+.pillar-ings{ display: grid; gap: 9px; margin-top: auto; padding-top: 14px; border-top: 1px solid rgba(255,255,255,.1); }
+.pillar-ings li{ display: flex; justify-content: space-between; align-items: baseline; gap: 10px; font-size: 13.5px; }
+.pillar-ings .ing{ color: rgba(255,255,255,.88); }
+.pillar-ings .dose{ font-family: var(--font-display); font-weight: 800; color: var(--green-bright); font-size: 13px; letter-spacing: .02em; white-space: nowrap; }
+.pillars-foot{ text-align: center; margin-top: 36px; font-family: var(--font-mono); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,.55); }
+.pu-card .pu-img{ display:block; width: 100%; height: 180px; object-fit: cover; border-radius: 12px; margin-bottom: 18px; }
+.ss-hero-img{ display:block; width: 100vw; margin-left: calc(50% - 50vw); height: clamp(320px, 50vw, 720px); object-fit: cover; margin-bottom: 40px; background: var(--paper-2); }
+
+.benefits2-head{ text-align: center; max-width: 800px; margin: 0 auto 56px; }
+.benefits2-head h2{
+  font-family: var(--font-display); font-weight: 800;
+  font-size: clamp(28px, 3.6vw, 48px); line-height: 1.08;
+  text-transform: uppercase; letter-spacing: -.01em;
+}
+.benefits2-head h2 em{ font-family: var(--font-serif); font-style: italic; font-weight: 400; color: var(--green-deep); text-transform: none; }
+.benefits2-head p{ color: var(--ink-soft); font-size: 16px; line-height: 1.55; margin-top: 16px; }
+.benefits2-grid{ display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; max-width: 980px; margin: 0 auto; }
+@media (max-width: 760px){ .benefits2-grid{ grid-template-columns: 1fr; } }
+.benefit2{
+  padding: 26px 28px; border-radius: var(--radius);
+  background: var(--white); border: 1px solid var(--line);
+}
+.benefit2 .head{ display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+.benefit2 .head .check{
+  width: 24px; height: 24px; border-radius: 7px;
+  background: var(--green); color: var(--white);
+  display: grid; place-items: center; flex: 0 0 auto;
+}
+.benefit2 .head .check svg{ width: 13px; height: 13px; }
+.benefit2 h4{
+  font-family: var(--font-display); font-weight: 800; font-size: 18px;
+  text-transform: uppercase; letter-spacing: .01em;
+}
+.benefit2 p{ color: var(--ink-soft); font-size: 14.5px; line-height: 1.55; margin: 0; }
+
 .tone-white{ background: var(--white); }
 .tone-soft{ background: var(--bg-soft); }
 .tone-paper{ background: var(--paper); }
@@ -461,11 +517,13 @@ section{ position: relative; }
   line-height: .85;
   letter-spacing: -.04em;
   color: transparent;
-  -webkit-text-stroke: 1px rgba(255,255,255,.85);
-  text-stroke: 1px rgba(255,255,255,.85);
+  -webkit-text-stroke: 1.5px #FFFFFF;
+  text-stroke: 1.5px #FFFFFF;
   text-transform: uppercase;
-  margin-bottom: 56px;
+  margin: 0 auto 56px;
   text-align: center;
+  display: block;
+  width: 100%;
   user-select: none;
 }
 .foot-top{

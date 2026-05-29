@@ -5,25 +5,23 @@
       <span class="wordmark"><span class="ion">ION</span><span class="iq">IQ</span></span>
     </a>
     <nav class="nav-main">
+      {%- assign jb = blogs[section.settings.journal_blog] -%}
+      {%- if jb == blank or jb.articles_count == 0 -%}{%- assign jb = blogs.news -%}{%- endif -%}
+      {%- if jb == blank or jb.articles_count == 0 -%}
+        {%- for b in blogs -%}{%- if b.articles_count > 0 -%}{%- assign jb = b -%}{%- break -%}{%- endif -%}{%- endfor -%}
+      {%- endif -%}
       {% for link in linklists[section.settings.menu].links %}
         {% if link.title contains 'Journal' or link.title contains 'journal' %}
           <div class="nav-item">
-            <a href="{{ link.url }}"{% if link.active %} class="is-current"{% endif %}>{{ link.title | escape }}</a>
-            {% assign jbh = section.settings.journal_blog | default: 'journal' %}
-            {% assign journal_blog = blogs[jbh] %}
-            {% if journal_blog == blank or journal_blog.articles.size == 0 %}
-              {% for b in blogs %}
-                {% if b.articles.size > 0 %}{% assign journal_blog = b %}{% break %}{% endif %}
-              {% endfor %}
-            {% endif %}
-            {% if journal_blog != blank and journal_blog.articles.size > 0 %}
+            <a href="{% if jb != blank %}{{ jb.url }}{% else %}{{ link.url }}{% endif %}"{% if link.active %} class="is-current"{% endif %}>{{ link.title | escape }}</a>
+            {% if jb != blank and jb.articles_count > 0 %}
               <div class="nav-dropdown">
                 <div class="nav-dropdown-head">
                   <span class="ttl">Latest from the Journal</span>
-                  <a href="{{ journal_blog.url }}" class="all">View all &rarr;</a>
+                  <a href="{{ jb.url }}" class="all">View all &rarr;</a>
                 </div>
                 <div class="nav-dropdown-list">
-                  {% for article in journal_blog.articles limit: 3 %}
+                  {% for article in jb.articles limit: 3 %}
                     <a href="{{ article.url }}" class="nav-dropdown-item">
                       <div class="pic">{% if article.image %}<img src="{{ article.image | image_url: width: 120 }}" alt="">{% endif %}</div>
                       <div class="meta">
@@ -57,7 +55,7 @@
   "name": "Header",
   "settings": [
     { "type": "link_list", "id": "menu", "label": "Main menu", "default": "main-menu" },
-    { "type": "text", "id": "journal_blog", "label": "Journal blog handle", "default": "journal" }
+    { "type": "text", "id": "journal_blog", "label": "Journal blog handle", "default": "news" }
   ],
   "presets": [{ "name": "Header" }]
 }

@@ -7,7 +7,7 @@
         <h1>{{ section.settings.heading }}</h1>
         <p class="perf-hero-lede">{{ section.settings.lede }}</p>
         <div class="perf-hero-ctas">
-          <a href="{{ section.settings.cta_url }}" class="btn btn-voltage btn-lg">{{ section.settings.cta_text }}</a>
+          <a href="{{ section.settings.cta_url | default: '/products/ioniq-morning-ritual' }}" class="btn btn-voltage btn-lg">{{ section.settings.cta_text }}</a>
           <span class="note">{{ section.settings.cta_note }}</span>
         </div>
       </div>
@@ -39,30 +39,31 @@
     {
       "type": "text",
       "id": "vrail",
-      "default": "IONIQ Performance · N°02 — recovery & cellular energy",
+      "default": "IONIQ Performance · for serious athletes",
       "label": "Vrail"
     },
     {
       "type": "text",
       "id": "eyebrow",
-      "default": "IONIQ Performance — N°02",
+      "default": "Trusted by athletes who can't afford an off day",
       "label": "Eyebrow"
     },
     {
       "type": "inline_richtext",
       "id": "heading",
-      "default": "Hydration. Recovery. Clean <em>energy.</em>",
+      "default": "Train harder. Recover faster. <em>Win the third set.</em>",
       "label": "Heading"
     },
     {
       "type": "textarea",
       "id": "lede",
+      "default": "The performance electrolyte built for athletes who train daily and compete often. 1,000mg of clinical-dose electrolytes, 9× fire-roasted bamboo salt and a full nootropic stack — so you cramp less, recover quicker, and stay sharp when it counts. No sugar. No caffeine. No banned substances.",
       "label": "Lede"
     },
     {
       "type": "text",
       "id": "cta_text",
-      "default": "Start the protocol — $42/mo",
+      "default": "See the formula — Shop IONIQ",
       "label": "Cta Text"
     },
     {
@@ -73,7 +74,7 @@
     {
       "type": "text",
       "id": "cta_note",
-      "default": "Subscribe & save · cancel anytime",
+      "default": "Informed Sport certified · free shipping · cancel anytime",
       "label": "Cta Note"
     },
     {

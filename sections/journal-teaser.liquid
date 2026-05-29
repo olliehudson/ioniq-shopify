@@ -1,20 +1,27 @@
 <section class="journal" id="section-{{ section.id }}">
   <div class="wrap-wide">
-    {% assign found_blog = nil %}
-    {% for b in blogs %}{% if b.articles.size > 0 %}{% assign found_blog = b %}{% break %}{% endif %}{% endfor %}
+    {%- assign jb = blogs[section.settings.blog_handle] -%}
+    {%- if jb == blank or jb.articles_count == 0 -%}
+      {%- assign jb = blogs.news -%}
+    {%- endif -%}
+    {%- if jb == blank or jb.articles_count == 0 -%}
+      {%- for b in blogs -%}
+        {%- if b.articles_count > 0 -%}{%- assign jb = b -%}{%- break -%}{%- endif -%}
+      {%- endfor -%}
+    {%- endif -%}
     <div class="journal-head">
       <div>
         <span class="eyebrow">From the journal</span>
         <h2>The <em>science</em> &amp; the ritual.</h2>
       </div>
-      {% if found_blog %}<a href="{{ found_blog.url }}" class="btn btn-ghost btn-sm">All articles &rarr;</a>{% endif %}
+      {% if jb != blank %}<a href="{{ jb.url }}" class="btn btn-ghost btn-sm">All articles &rarr;</a>{% endif %}
     </div>
     <div class="journal-grid">
-      {% if found_blog and found_blog.articles.size > 0 %}
-        {% for article in found_blog.articles limit: 3 %}
+      {% if jb != blank and jb.articles_count > 0 %}
+        {% for article in jb.articles limit: 3 %}
           <a href="{{ article.url }}" class="journal-card{% if forloop.first %} is-featured{% endif %}">
             <div class="img">
-              {% if article.image %}<img src="{{ article.image | image_url: width: 1200 }}" alt="">
+              {% if article.image %}<img src="{{ article.image | image_url: width: 1200 }}" alt="{{ article.title | escape }}">
               {% else %}<img src="{{ 'bamboo-salt.png' | asset_url }}" alt="">{% endif %}
             </div>
             <div class="meta">{{ article.tags | first | default: 'Journal' }} &middot; {{ article.content | strip_html | size | divided_by: 1000 | plus: 1 }} min read</div>
@@ -35,12 +42,18 @@
         <a href="/blogs/news" class="journal-card">
           <div class="img"><img src="{{ 'benefits.png' | asset_url }}" alt=""></div>
           <div class="meta">Science &middot; 6 min read</div>
-          <h4>Modern life is depleting you. Here's the audit no one ran.</h4>
+          <h4>Why people who play a lot of sport are quietly under-hydrated.</h4>
         </a>
       {% endif %}
     </div>
   </div>
 </section>
 {% schema %}
-{ "name": "Journal teaser", "presets": [{ "name": "Journal teaser" }] }
+{
+  "name": "Journal teaser",
+  "settings": [
+    { "type": "text", "id": "blog_handle", "label": "Blog handle", "default": "news" }
+  ],
+  "presets": [{ "name": "Journal teaser" }]
+}
 {% endschema %}
