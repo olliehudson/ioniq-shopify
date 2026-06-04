@@ -5,7 +5,6 @@
       <!-- GALLERY -->
       <div class="gallery">
         <div class="gallery-main">
-          <div class="badge-best"><div>#1<br>Best<br>Selling</div></div>
           {% if product.featured_image %}
             <img id="hero-img-{{ section.id }}" src="{{ product.featured_image | image_url: width: 1200 }}" alt="{{ product.featured_image.alt | escape }}">
           {% else %}
@@ -25,25 +24,28 @@
 
       <!-- BUY -->
       <div class="buy">
+        {% if product.metafields.reviews.rating %}
         <div class="buy-rating">
           <span class="stars">{% for i in (1..5) %}<svg width="14" height="14"><use href="#i-star"/></svg>{% endfor %}</span>
-          <strong>4.9</strong>
-          <span>· 2,400+ verified reviews</span>
+          <strong>{{ product.metafields.reviews.rating }}</strong>
+          <span>· {{ product.metafields.reviews.rating_count }} reviews</span>
         </div>
+        {% endif %}
 
         <div>
           <div class="buy-title-row">
             <h1>{{ product.title }}</h1>
             <span class="buy-tag"><span class="dot"></span>New</span>
           </div>
-          <p class="buy-summary" style="margin-top:14px;">For people who play a lot of sport — tennis, padel, football, running, the gym. IONIQ replaces the electrolyte, the nootropic, the magnesium and the recovery drink with one sachet, so your hydration, recovery and clean energy stay locked in. No caffeine. No sugar. No flavoured water.</p>
+          <p class="buy-summary" style="margin-top:14px;">For people who actually train — tennis, padel, football, running, lifting. One stick brings together a stim-free pre-workout, your electrolytes, focus and recovery — with <strong>3g creatine</strong> and <strong>3g citrulline</strong> at doses that do something. No caffeine. No sugar. No flavoured water.</p>
         </div>
 
         <div class="buy-meta">
           <span><strong>750mg</strong> sodium</span><span class="sep"></span>
-          <span><strong>200mg</strong> potassium</span><span class="sep"></span>
-          <span><strong>50mg</strong> magnesium</span><span class="sep"></span>
-          <span>30 sachets</span>
+          <span><strong>3g</strong> creatine</span><span class="sep"></span>
+          <span><strong>3g</strong> citrulline</span><span class="sep"></span>
+          <span><strong>7</strong> actives</span><span class="sep"></span>
+          <span>30 sticks</span>
         </div>
 
         {% form 'product', product, id: 'product-form-{{ section.id }}' %}
@@ -82,30 +84,30 @@
           <summary>Key benefits</summary>
           <div class="body">
             <ul style="margin:0; padding-left:18px; list-style:disc;">
-              <li><strong>Sustained energy</strong> — from a full mineral charge, not stimulants.</li>
-              <li><strong>Mental clarity &amp; focus</strong> — Cognizin® citicoline, L-tyrosine, Rhodiola.</li>
-              <li><strong>Faster recovery &amp; reduced inflammation</strong> — magnesium, ALCAR, taurine.</li>
-              <li><strong>Longevity support</strong> — pH 12 alkaline, antioxidant hydroxyl ions.</li>
-              <li><strong>Hydration that reaches your cells</strong> — bamboo salt + 70+ trace minerals.</li>
+              <li><strong>Stim-free pre-workout</strong> — 3g L-citrulline for blood flow and endurance, rhodiola for clean energy. No caffeine, no crash.</li>
+              <li><strong>Real electrolytes</strong> — 750mg sodium, plus potassium and magnesium, dosed to what you actually sweat out.</li>
+              <li><strong>Focus, one clean actor</strong> — 250mg citicoline for attention. No stimulant.</li>
+              <li><strong>Recovery that's actually dosed</strong> — 3g creatine monohydrate for strength and repeated-effort recovery.</li>
+              <li><strong>Nothing hidden</strong> — every milligram on the label. No caffeine, no sugar, no proprietary blends.</li>
             </ul>
           </div>
         </details>
         <details class="acc">
           <summary>How to use</summary>
           <div class="body">
-            <p>Tear one sachet, pour into 500ml of cold water, stir until fully dissolved. Drink in the morning — ideally before your first coffee. On training days, drink one pre-workout and one within 30 min of finishing.</p>
+            <p>Tear one stick into 500–600ml of cold water, stir well and drink — a little sediment from the creatine is normal. Have one 30–45 minutes before training and/or one after. Creatine works on daily consistency, so a stick a day (even on rest days) is ideal.</p>
           </div>
         </details>
         <details class="acc">
           <summary>Full ingredient list</summary>
           <div class="body">
-            <p>9× fire-roasted bamboo salt (sodium, potassium chloride, 70+ trace minerals, hydroxyl ions), magnesium citrate, Cognizin® citicoline, L-tyrosine, Rhodiola rosea (3% rosavins), ALCAR (acetyl-L-carnitine), taurine, natural lemon flavour, organic stevia leaf extract. No fillers, no proprietary blends, no artificial colours, no artificial flavours.</p>
+            <p>Himalayan pink salt (sodium), potassium citrate, magnesium citrate, L-citrulline, creatine monohydrate, Rhodiola rosea extract (3% rosavins), citicoline, citric acid, natural lemon flavour, monk fruit extract, organic stevia leaf extract, silicon dioxide. No fillers, no proprietary blends, no artificial colours or flavours.</p>
           </div>
         </details>
         <details class="acc">
           <summary>Nutritional info</summary>
           <div class="body">
-            <p>Per sachet (5,000mg total active): Energy 8 kcal · Sodium 750mg · Potassium 200mg · Magnesium 50mg · Cognizin® 250mg · L-Tyrosine 500mg · Rhodiola 200mg · ALCAR 300mg · Taurine 500mg · Total sugars 0mg · Caffeine 0mg.</p>
+            <p>Per stick (~9.75g): Energy ~15 kcal · Sodium 750mg · Potassium 200mg · Magnesium 50mg · L-Citrulline 3,000mg · Creatine monohydrate 3,000mg · Rhodiola 200mg · Citicoline 250mg · Total sugars 0g · Caffeine 0mg.</p>
           </div>
         </details>
         <details class="acc">

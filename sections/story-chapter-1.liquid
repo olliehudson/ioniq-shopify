@@ -13,7 +13,7 @@
         {% if section.settings.image != blank %}
           <img src="{{ section.settings.image | image_url: width: 1400 }}" alt="{{ section.settings.image.alt | escape }}">
         {% else %}
-          <img src="{{ 'bamboo-salt.png' | asset_url }}" alt="">
+          <img src="{{ 'oliver-tennis.jpg' | asset_url }}" alt="Oliver Hudson">
         {% endif %}
         {% if section.settings.caption != blank %}<span class="cap">{{ section.settings.caption }}</span>{% endif %}
       </div>
@@ -25,10 +25,10 @@
   "name": "Story chapter",
   "settings": [
     { "type": "text", "id": "kicker", "label": "Kicker (small label)", "default": "The founder — Oliver Hudson" },
-    { "type": "inline_richtext", "id": "heading", "label": "Heading", "default": "I've always lived <em>through sport.</em>" },
-    { "type": "richtext", "id": "body", "label": "Body copy", "default": "<p>I'm Oliver — an ex-professional tennis player. Sport has been my entire life: the training, the matches, the recovery, the obsession with marginal gains. And for as long as I can remember I've been trying to find products that actually help with hydration and recovery — the two things that separate a great session from a wrecked one.</p><p>Nothing on the shelf was doing the job. Sports drinks were 90% sugar. Electrolyte sachets under-dosed sodium by 4–6×. Nothing addressed the cognitive side of fatigue. So I went looking for something I'd actually want to drink every day — and bring to the market for the millions of people who play sport like I do.</p><p>That search led me to <strong>9× fire-roasted bamboo salt</strong> — a 1,000-year-old Korean tradition where sea salt is packed into bamboo stalks, sealed with clay, and fired at 1,500°C. Nine times. The result: <strong>pH 12, 70+ trace minerals, hydroxyl ions you can't get from any other salt source.</strong></p><p>The catch: most \"bamboo salt\" on the market is roasted once or twice and called done. We track down the <strong>highest grade — the rare 9× version no other electrolyte sachet or hydration drink uses</strong> — straight from the kilns where they still do it the traditional way.</p><p>That's the story of how IONIQ came to life. One sachet. The hydration, recovery and clean energy I wish I'd had on court.</p>" },
+    { "type": "inline_richtext", "id": "heading", "label": "Heading", "default": "Tired of the <em>gym-bag pharmacy.</em>" },
+    { "type": "richtext", "id": "body", "label": "Body copy", "default": "<p>I'm Oliver — I played tennis for years, and my training bag was ridiculous: a pre-workout, an electrolyte tub, magnesium, a focus supplement, and a tub of creatine. Five products, five price tags, and I still never knew the doses.</p><p>So I built the opposite. One stick that brings together a stim-free pre-workout, real electrolytes, focus and recovery — every milligram printed on the pack, nothing hidden behind a 'proprietary blend.'</p><p>Most electrolyte sticks under-dose the minerals that matter, and most pre-workouts lean on caffeine to fake energy. IONIQ uses 750mg of sodium from mineral-rich Himalayan pink salt, plus 3g of creatine and 3g of citrulline at doses that actually do something — with no caffeine and no sugar.</p><p>That's how IONIQ came to life: the energy, endurance, focus and recovery I wish I'd had on court, in one stick.</p>" },
     { "type": "image_picker", "id": "image", "label": "Side image" },
-    { "type": "text", "id": "caption", "label": "Image caption", "default": "9× fire-roasted bamboo salt" },
+    { "type": "text", "id": "caption", "label": "Image caption", "default": "Oliver Hudson · founder" },
     { "type": "inline_richtext", "id": "pullquote", "label": "Pullquote (optional)", "default": "If it's not what I'd put in my own bottle before a match, it doesn't make it into IONIQ." },
     { "type": "text", "id": "pull_by", "label": "Pullquote attribution", "default": "— Oliver Hudson, founder" }
   ],
