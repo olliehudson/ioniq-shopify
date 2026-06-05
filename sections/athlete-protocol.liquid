@@ -7,7 +7,7 @@
     </div>
     <div class="pu-grid">
       <div class="pu-card">
-        <img class="pu-img" src="{{ 'photo-gym.png' | asset_url }}" alt="Pre-training">
+        <img class="pu-img" src="{% if section.settings.img_1 != blank %}{{ section.settings.img_1 | image_url: width: 1000 }}{% else %}{{ 'photo-gym.png' | asset_url }}{% endif %}" alt="Pre-training">
         <div class="when"><span class="no">01</span><span class="lbl">30–45 min before</span></div>
         <h4>Pre-training</h4>
         <p class="quote">"One 30–45 min before."</p>
@@ -15,7 +15,7 @@
         <div class="spec"><b>1 stick</b> · 500–600ml cold water</div>
       </div>
       <div class="pu-card">
-        <img class="pu-img" src="{{ 'photo-locker.png' | asset_url }}" alt="Post-sweat">
+        <img class="pu-img" src="{% if section.settings.img_2 != blank %}{{ section.settings.img_2 | image_url: width: 1000 }}{% else %}{{ 'photo-locker.png' | asset_url }}{% endif %}" alt="Post-sweat">
         <div class="when"><span class="no">02</span><span class="lbl">Within 30 min after</span></div>
         <h4>Post-sweat</h4>
         <p class="quote">"One within 30 min."</p>
@@ -23,7 +23,7 @@
         <div class="spec"><b>1 stick</b> · 500–600ml cold water</div>
       </div>
       <div class="pu-card">
-        <img class="pu-img" src="{{ 'photo-kitchen.png' | asset_url }}" alt="Daily ritual">
+        <img class="pu-img" src="{% if section.settings.img_3 != blank %}{{ section.settings.img_3 | image_url: width: 1000 }}{% else %}{{ 'photo-kitchen.png' | asset_url }}{% endif %}" alt="Daily ritual">
         <div class="when"><span class="no">03</span><span class="lbl">Morning, every day</span></div>
         <h4>Daily ritual</h4>
         <p class="quote">"One every day."</p>
@@ -31,7 +31,7 @@
         <div class="spec"><b>1 stick</b> · even on rest days</div>
       </div>
       <div class="pu-card">
-        <img class="pu-img" src="{{ 'photo-padel.png' | asset_url }}" alt="Heavy days">
+        <img class="pu-img" src="{% if section.settings.img_4 != blank %}{{ section.settings.img_4 | image_url: width: 1000 }}{% else %}{{ 'photo-padel.png' | asset_url }}{% endif %}" alt="Heavy days">
         <div class="when"><span class="no">04</span><span class="lbl">Long sessions / 2-a-days</span></div>
         <h4>Heavy days</h4>
         <p class="quote">"Up to 2–3 on heavy days."</p>
@@ -48,5 +48,15 @@
   </div>
 </section>
 {% schema %}
-{ "name": "Drink routine", "presets": [{ "name": "Drink routine" }] }
+{
+  "name": "Drink routine",
+  "settings": [
+    { "type": "header", "content": "Card images" },
+    { "type": "image_picker", "id": "img_1", "label": "01 · Pre-training" },
+    { "type": "image_picker", "id": "img_2", "label": "02 · Post-sweat" },
+    { "type": "image_picker", "id": "img_3", "label": "03 · Daily ritual" },
+    { "type": "image_picker", "id": "img_4", "label": "04 · Heavy days" }
+  ],
+  "presets": [{ "name": "Drink routine" }]
+}
 {% endschema %}
