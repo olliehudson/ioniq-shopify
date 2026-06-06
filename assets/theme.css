@@ -188,6 +188,11 @@ section{ position: relative; }
 .pillar-ings .ing{ color: rgba(255,255,255,.88); }
 .pillar-ings .dose{ font-family: var(--font-display); font-weight: 800; color: var(--green-bright); font-size: 13px; letter-spacing: .02em; white-space: nowrap; }
 .pillars-foot{ text-align: center; margin-top: 36px; font-family: var(--font-mono); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,.55); }
+.pillar-base{ margin-top: 16px; display: flex; align-items: center; justify-content: center; gap: 22px; flex-wrap: wrap; background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.1); border-radius: var(--radius); padding: 18px 24px; }
+.pillar-base-lbl{ font-family: var(--font-mono); font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: var(--green-bright); }
+.pillar-base-items{ display: flex; gap: 22px; flex-wrap: wrap; }
+.pillar-base-items span{ font-size: 14px; color: rgba(255,255,255,.7); }
+.pillar-base-items b{ font-family: var(--font-display); font-weight: 800; color: var(--white); margin-right: 4px; }
 .pu-card .pu-img{ display:block; width: 100%; height: 180px; object-fit: cover; border-radius: 12px; margin-bottom: 18px; }
 .ss-hero-img{ display:block; width: 100vw; margin-left: calc(50% - 50vw); height: clamp(320px, 50vw, 720px); object-fit: cover; margin-bottom: 40px; background: var(--paper-2); }
 
@@ -1390,7 +1395,8 @@ section{ position: relative; }
   .reviews-mini-meta .stars{ color: var(--green); }
   .reviews-mini-grid{ display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
   @media (max-width: 880px){ .reviews-mini-grid{ grid-template-columns: 1fr; } }
-  .rev-card{
+  .rev-img{ order: -1; width: 100%; height: 220px; object-fit: cover; border-radius: 12px; margin-bottom: 18px; }
+  .rev-card{ display: flex; flex-direction: column;
     background: var(--white);
     border: 1px solid var(--line);
     border-radius: var(--radius);
