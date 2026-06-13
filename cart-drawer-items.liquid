@@ -1,0 +1,42 @@
+{% if cart.item_count == 0 %}
+  <div class="cart-drawer__empty">
+    <p>Your cart is empty.</p>
+    <a href="{{ routes.all_products_collection_url }}" class="btn btn-primary btn-block" data-cart-close>Shop now</a>
+  </div>
+{% else %}
+  <ul class="cart-drawer__items">
+    {% for item in cart.items %}
+      <li class="cart-line" data-line="{{ forloop.index }}" data-key="{{ item.key }}">
+        <a href="{{ item.url }}" class="cart-line__img">
+          {% if item.image %}<img src="{{ item.image | image_url: width: 160 }}" alt="{{ item.product.title | escape }}">{% endif %}
+        </a>
+        <div class="cart-line__info">
+          <div class="cart-line__top">
+            <span class="cart-line__title">{{ item.product.title }}</span>
+            <button class="cart-line__remove" data-cart-remove="{{ item.key }}" aria-label="Remove">
+              <svg width="16" height="16" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" d="M4 7h16M9 7V5a1 1 0 011-1h4a1 1 0 011 1v2M6 7l1 13a1 1 0 001 1h8a1 1 0 001-1l1-13"/></svg>
+            </button>
+          </div>
+          {% if item.variant.title != 'Default Title' %}<div class="cart-line__variant">{{ item.variant.title }}</div>{% endif %}
+          {% if item.selling_plan_allocation %}<div class="cart-line__plan">{{ item.selling_plan_allocation.selling_plan.name }}</div>{% endif %}
+          <div class="cart-line__bottom">
+            <div class="cart-line__qty">
+              <button data-cart-minus="{{ item.key }}" aria-label="Decrease">-</button>
+              <span>{{ item.quantity }}</span>
+              <button data-cart-plus="{{ item.key }}" aria-label="Increase">+</button>
+            </div>
+            <span class="cart-line__price">{{ item.final_line_price | money }}</span>
+          </div>
+        </div>
+      </li>
+    {% endfor %}
+  </ul>
+  <div class="cart-drawer__foot">
+    <div class="cart-drawer__sub">
+      <span>Subtotal</span>
+      <strong data-cart-subtotal>{{ cart.total_price | money }}</strong>
+    </div>
+    <p class="cart-drawer__note">Shipping &amp; taxes calculated at checkout</p>
+    <a href="{{ routes.cart_url }}/checkout" class="btn btn-primary btn-block btn-lg cart-drawer__checkout">Checkout · {{ cart.total_price | money }}</a>
+  </div>
+{% endif %}
