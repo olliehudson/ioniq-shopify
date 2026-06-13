@@ -16,11 +16,7 @@
                 {% if item.variant.title != 'Default Title' %}<div class="cartpage__variant">{{ item.variant.title }}</div>{% endif %}
                 {% if item.selling_plan_allocation %}<div class="cartpage__plan">{{ item.selling_plan_allocation.selling_plan.name }}</div>{% endif %}
                 <div class="cartpage__controls">
-                  <div class="cartpage__qty">
-                    <a href="{{ routes.cart_change_url }}?id={{ item.key }}&quantity={{ item.quantity | minus: 1 }}" aria-label="Decrease">−</a>
-                    <span>{{ item.quantity }}</span>
-                    <a href="{{ routes.cart_change_url }}?id={{ item.key }}&quantity={{ item.quantity | plus: 1 }}" aria-label="Increase">+</a>
-                  </div>
+                  <span class="cartpage__qtytext">Qty: {{ item.quantity }}</span>
                   <a href="{{ routes.cart_change_url }}?id={{ item.key }}&quantity=0" class="cartpage__remove" aria-label="Remove">Remove</a>
                 </div>
               </div>
@@ -51,6 +47,7 @@
   .cartpage__qty a{ width: 34px; height: 36px; display: grid; place-items: center; background: var(--white); color: var(--ink); font-family: var(--font-display); font-weight: 800; font-size: 17px; text-decoration: none; }
   .cartpage__qty a:hover{ background: var(--paper-2); }
   .cartpage__qty span{ width: 38px; text-align: center; font-family: var(--font-display); font-weight: 800; font-size: 14px; }
+  .cartpage__qtytext{ font-family: var(--font-mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-soft); }
   .cartpage__remove{ font-family: var(--font-mono); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-soft); text-decoration: underline; text-underline-offset: 3px; }
   .cartpage__remove:hover{ color: var(--green-deep); }
   .cartpage__price{ font-family: var(--font-display); font-weight: 800; font-size: 17px; white-space: nowrap; }

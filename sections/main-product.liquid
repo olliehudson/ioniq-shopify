@@ -69,12 +69,7 @@
           <div class="kaching-bundles" data-kaching-bundles></div>
 
           <div class="atc-row">
-            <div class="qty">
-              <button type="button" data-qty="-1">-</button>
-              <input type="number" name="quantity" value="1" min="1" style="width:32px;text-align:center;border:none;background:transparent;font-family:var(--font-display);font-weight:800;font-size:15px;">
-              <button type="button" data-qty="+1">+</button>
-            </div>
-            <button type="submit" class="atc-btn">
+            <button type="submit" class="atc-btn" style="width:100%;">
               <span>Add to cart</span>
               <span>{{ product.price | money_without_trailing_zeros }}</span>
             </button>
