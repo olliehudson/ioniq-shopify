@@ -49,6 +49,7 @@
         </div>
 
         {% form 'product', product, id: 'product-form-{{ section.id }}' %}
+          <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
           {% if product.variants.size > 1 %}
             <div>
               <div class="section-label">{{ product.options.first }}</div>
@@ -61,7 +62,6 @@
                   </button>
                 {% endfor %}
               </div>
-              <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
             </div>
           {% endif %}
 
